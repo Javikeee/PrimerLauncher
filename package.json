@@ -1,10 +1,13 @@
 {
   "name": "helioslauncher",
   "version": "2.2.1",
-  "productName": "Helios Launcher",
+  "productName": "Keee Launcher",
   "description": "Modded Minecraft Launcher",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
+  "author": "Javikeee",
   "license": "UNLICENSED",
+  "minecraftVersion": "1.21.1",
+  "serverIp": "play.tuservidor.es",
+  "serverPort": 25565,
   "homepage": "https://github.com/dscalzi/HeliosLauncher",
   "bugs": {
     "url": "https://github.com/dscalzi/HeliosLauncher/issues"
