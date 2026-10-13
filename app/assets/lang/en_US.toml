@@ -17,6 +17,7 @@ newsErrorLoadSpan = "Checking for News.."
 newsErrorFailedSpan = "Failed to Load News"
 newsErrorRetryButton = "Try Again"
 newsErrorNoneSpan = "No News"
+heroEyebrow = "SELECTED MODPACK"
 
 [ejs.login]
 loginCancelText = "Cancel"
@@ -164,6 +165,7 @@ noAccountSelected = "No Account Selected"
 [js.landing.selectedServer]
 noSelection = "No Server Selected"
 loading = "Loading.."
+comingSoon = "Coming soon"
 
 [js.landing.serverStatus]
 server = "SERVER"

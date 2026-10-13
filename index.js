@@ -50,8 +50,18 @@ function initAutoUpdater(event, data) {
     }) 
 }
 
+// Auto updates are disabled until releases are published somewhere public.
+// electron-updater cannot read a private GitHub repo without shipping a token.
+const AUTO_UPDATE_ENABLED = false
+
 // Open channel to listen for update actions.
 ipcMain.on('autoUpdateAction', (event, arg, data) => {
+    if(!AUTO_UPDATE_ENABLED){
+        if(arg === 'checkForUpdate'){
+            event.sender.send('autoUpdateNotification', 'update-not-available')
+        }
+        return
+    }
     switch(arg){
         case 'initAutoUpdater':
             console.log('Initializing auto updater.')
@@ -130,7 +140,7 @@ ipcMain.on(MSFT_OPCODE.OPEN_LOGIN, (ipcEvent, ...arguments_) => {
         width: 520,
         height: 600,
         frame: true,
-        icon: getPlatformIcon('SealCircle')
+        icon: getPlatformIcon('Keee')
     })
 
     msftAuthWindow.on('closed', () => {
@@ -148,8 +158,8 @@ ipcMain.on(MSFT_OPCODE.OPEN_LOGIN, (ipcEvent, ...arguments_) => {
             let queryMap = {}
             
             new URL(uri).searchParams.forEach((v, k) => {
-                queryMap[k] = v;
-            });
+                queryMap[k] = v
+            })
 
             ipcEvent.reply(MSFT_OPCODE.REPLY_LOGIN, MSFT_REPLY_TYPE.SUCCESS, queryMap, msftAuthViewSuccess)
 
@@ -227,7 +237,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 980,
         height: 552,
-        icon: getPlatformIcon('SealCircle'),
+        icon: getPlatformIcon('Keee'),
         frame: false,
         webPreferences: {
             preload: path.join(__dirname, 'app', 'assets', 'js', 'preloader.js'),

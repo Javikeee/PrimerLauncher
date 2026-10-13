@@ -4,7 +4,8 @@ const os             = require('os')
 const path           = require('path')
 
 const ConfigManager  = require('./configmanager')
-const { DistroAPI }  = require('./distromanager')
+const { DistroAPI, useLocalDistribution } = require('./distromanager')
+const isDev          = require('./isdev')
 const LangLoader     = require('./langloader')
 const { LoggerUtil } = require('helios-core')
 // eslint-disable-next-line no-unused-vars
@@ -25,6 +26,10 @@ DistroAPI['instanceDir'] = ConfigManager.getInstanceDirectory()
 // Load Strings
 LangLoader.setupLanguage()
 
+if(isDev && useLocalDistribution()){
+    logger.info('Using local distribution from the repository.')
+}
+
 /**
  * 
  * @param {HeliosDistribution} data 
@@ -39,6 +44,9 @@ function onDistroLoad(data){
             ConfigManager.save()
         }
     }
+    // Also exposed on window in case uibinder.js registers its listener too late.
+    // eslint-disable-next-line no-undef
+    window.distroIndexResult = data != null
     ipcRenderer.send('distributionIndexDone', data != null)
 }
 

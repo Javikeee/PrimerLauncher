@@ -163,11 +163,58 @@ function updateSelectedServer(serv){
     }
     ConfigManager.setSelectedServer(serv != null ? serv.rawServer.id : null)
     ConfigManager.save()
-    server_selection_button.innerHTML = '&#8226; ' + (serv != null ? serv.rawServer.name : Lang.queryJS('landing.noSelection'))
+    server_selection_button.innerHTML = '&#8226; ' + (serv != null ? serv.rawServer.name : Lang.queryJS('landing.selectedServer.noSelection'))
     if(getCurrentView() === VIEWS.settings){
         animateSettingsTabRefresh()
     }
-    setLaunchEnabled(serv != null)
+    // Modpacks without modules are announced but not playable yet.
+    setLaunchEnabled(serv != null && serv.modules.length > 0)
+    updateLandingHero(serv)
+}
+
+/**
+ * Show the selected server's name, icon and details in the landing hero.
+ *
+ * @param {HeliosServer} serv The selected server, or null.
+ */
+function updateLandingHero(serv){
+    const hero = document.getElementById('landingHero')
+    if(serv == null){
+        hero.style.display = 'none'
+        return
+    }
+    const raw = serv.rawServer
+    const icon = document.getElementById('landingHeroIcon')
+    icon.style.display = raw.icon ? '' : 'none'
+    icon.onerror = () => { icon.style.display = 'none' }
+    icon.src = raw.icon || ''
+    document.getElementById('landingHeroTitle').textContent = raw.name
+    document.getElementById('landingHeroDesc').textContent = raw.description || ''
+    document.getElementById('landingHeroVersion').textContent = `Minecraft ${raw.minecraftVersion}`
+    document.getElementById('landingHeroLoader').textContent = serv.modules.length > 0
+        ? getModLoaderName(serv)
+        : Lang.queryJS('landing.selectedServer.comingSoon')
+    // Restart the entrance animation.
+    hero.style.display = 'none'
+    void hero.offsetWidth
+    hero.style.display = ''
+}
+
+/**
+ * @param {HeliosServer} serv The server.
+ * @returns {string} The name of the server's mod loader, or an empty string for vanilla.
+ */
+function getModLoaderName(serv){
+    for(const mdl of serv.modules){
+        switch(mdl.rawModule.type){
+            case Type.ForgeHosted:
+            case Type.Forge:
+                return 'Forge'
+            case Type.Fabric:
+                return 'Fabric'
+        }
+    }
+    return ''
 }
 // Real text is set in uibinder.js on distributionIndexDone.
 server_selection_button.innerHTML = '&#8226; ' + Lang.queryJS('landing.selectedServer.loading')

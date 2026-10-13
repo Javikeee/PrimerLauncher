@@ -1,0 +1,557 @@
+/*******************************************************************************
+ *                                                                             *
+ * Keee Launcher Theme                                                         *
+ *                                                                             *
+ * Loaded after launcher.css. Every color used by the theme lives in the      *
+ * variables below, so the palette can be tweaked from one place.             *
+ *                                                                             *
+ ******************************************************************************/
+
+@font-face {
+    font-family: 'Avenir Heavy';
+    src: url('../fonts/Avenir-Heavy.ttf');
+}
+@font-face {
+    font-family: 'Avenir Black';
+    src: url('../fonts/Avenir-Black.ttf');
+}
+
+:root {
+    /* Accent */
+    --kl-lime: #a8ff3e;
+    --kl-lime-strong: #c4ff7a;
+    --kl-lime-soft: rgba(168, 255, 62, 0.14);
+    --kl-lime-glow: rgba(168, 255, 62, 0.45);
+    --kl-on-lime: #12081f;
+
+    /* Surfaces */
+    --kl-bg-0: #0b0613;
+    --kl-bg-1: #130b20;
+    --kl-bg-2: #1c1030;
+    --kl-purple: #7b3fe4;
+    --kl-purple-soft: rgba(123, 63, 228, 0.22);
+    --kl-panel: rgba(19, 11, 32, 0.72);
+    --kl-panel-strong: rgba(19, 11, 32, 0.92);
+    --kl-border: rgba(168, 255, 62, 0.16);
+    --kl-border-muted: rgba(255, 255, 255, 0.08);
+
+    /* Text */
+    --kl-text: #f3effa;
+    --kl-text-muted: #a99cbf;
+
+    /* Status */
+    --kl-danger: #ff4d6d;
+
+    --kl-radius: 12px;
+    --kl-radius-sm: 8px;
+
+    /* Optional image layered under the theme gradients (per-modpack art later). */
+    --kl-bg-image: none;
+}
+
+/* * *
+* Base
+* * */
+
+body {
+    background-color: var(--kl-bg-0) !important;
+    background-image:
+        radial-gradient(1200px 600px at 10% 110%, rgba(168, 255, 62, 0.16), transparent 60%),
+        radial-gradient(900px 600px at 95% -10%, rgba(123, 63, 228, 0.38), transparent 60%),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        var(--kl-bg-image),
+        linear-gradient(160deg, var(--kl-bg-1) 0%, var(--kl-bg-0) 70%) !important;
+    background-size: auto, auto, 32px 32px, 32px 32px, cover, auto !important;
+    background-position: center !important;
+}
+
+body, button {
+    color: var(--kl-text);
+}
+
+html, body {
+    overflow: hidden;
+}
+
+#main {
+    background: linear-gradient(to top, rgba(11, 6, 19, 0.85) 0%, rgba(11, 6, 19, 0) 45%) !important;
+}
+
+::selection {
+    background: var(--kl-lime);
+    color: var(--kl-on-lime);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--kl-purple-soft) !important;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--kl-lime-soft) !important;
+}
+
+/* * *
+* Frame
+* * */
+
+#frameBar {
+    background-color: rgba(11, 6, 19, 0.6) !important;
+    border-bottom: 1px solid var(--kl-border-muted);
+}
+
+/* * *
+* Loading screen
+* * */
+
+#loadingContainer {
+    background: radial-gradient(circle at center, var(--kl-bg-2) 0%, var(--kl-bg-0) 70%);
+}
+/* Smaller than the original seal so the logo sits inside the rotating text ring. */
+#loadCenterImage {
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--kl-lime), 0 0 40px var(--kl-lime-glow);
+}
+#loadSpinnerImage {
+    width: 300px;
+    height: 300px;
+    overflow: visible;
+}
+#loadRingText {
+    font-family: 'Avenir Black';
+    font-size: 24px;
+    fill: var(--kl-lime);
+    filter: drop-shadow(0 0 6px var(--kl-lime-glow));
+}
+
+/* * *
+* Shared buttons
+* * */
+
+#welcomeButton:hover,
+#welcomeButton:focus,
+#settingsNavDone:hover,
+#settingsNavDone:focus,
+.settingsAddAuthAccount:hover,
+.settingsAddAuthAccount:focus,
+#overlayContent a:hover,
+#overlayContent a:focus {
+    color: var(--kl-lime) !important;
+    text-shadow: 0 0 12px var(--kl-lime-glow) !important;
+}
+
+#overlayAcknowledge,
+#serverSelectConfirm,
+#accountSelectConfirm {
+    background: var(--kl-lime);
+    border: 1px solid var(--kl-lime);
+    color: var(--kl-on-lime);
+    border-radius: var(--kl-radius-sm);
+    padding: 6px 18px;
+    font-family: 'Avenir Heavy';
+    letter-spacing: 0.5px;
+}
+#overlayAcknowledge:hover,
+#overlayAcknowledge:focus,
+#serverSelectConfirm:hover,
+#serverSelectConfirm:focus,
+#accountSelectConfirm:hover,
+#accountSelectConfirm:focus {
+    background: var(--kl-lime-strong);
+    box-shadow: 0 0 18px var(--kl-lime-glow);
+}
+#overlayAcknowledge:active,
+#serverSelectConfirm:active,
+#accountSelectConfirm:active {
+    color: var(--kl-on-lime);
+    transform: translateY(1px);
+}
+
+/* * *
+* Welcome / login options / login
+* * */
+
+#welcomeContainer,
+#loginOptionsContainer,
+#loginContainer {
+    background: rgba(11, 6, 19, 0.55) !important;
+}
+
+#welcomeImageSeal,
+#loginImageSeal,
+#loginOptionsImageSeal {
+    border-radius: 50%;
+    border: none !important;
+    box-shadow: 0 0 0 3px var(--kl-lime), 0 0 30px var(--kl-lime-glow);
+}
+
+#welcomeHeader {
+    font-family: 'Avenir Black';
+    letter-spacing: 1px;
+    color: var(--kl-lime);
+    text-shadow: 0 0 24px var(--kl-lime-glow);
+}
+
+#welcomeDescription,
+#welcomeDescCTA {
+    color: var(--kl-text-muted);
+}
+
+.loginOptionButton {
+    background: var(--kl-panel);
+    border: 1px solid var(--kl-border);
+    border-radius: var(--kl-radius);
+}
+.loginOptionButton:hover,
+.loginOptionButton:focus {
+    background: var(--kl-lime-soft);
+    border-color: var(--kl-lime);
+    box-shadow: 0 0 18px var(--kl-lime-glow);
+}
+
+/* * *
+* Landing (upper)
+* * */
+
+#image_seal {
+    border: none;
+    box-shadow: 0 0 0 2px var(--kl-lime), 0 0 22px var(--kl-lime-glow);
+}
+
+#avatarContainer {
+    border: none;
+    background-color: var(--kl-panel);
+    box-shadow: 0 0 0 2px var(--kl-lime), 0 0 22px var(--kl-lime-glow);
+}
+
+#user_text {
+    font-family: 'Avenir Heavy';
+}
+
+.mediaSVG {
+    transition: fill 0.2s ease, filter 0.2s ease;
+}
+.mediaURL:hover .mediaSVG,
+.mediaURL:focus .mediaSVG,
+.mediaButton:hover .mediaSVG,
+.mediaButton:focus .mediaSVG {
+    fill: var(--kl-lime) !important;
+    filter: drop-shadow(0 0 6px var(--kl-lime-glow));
+}
+
+/* Hero block showing the selected modpack. */
+#landingContainer > #upper > #content {
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+#landingHero {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 0 40px 20px;
+    max-width: 560px;
+    animation: klFadeUp 0.6s ease both;
+}
+#landingHeroHead {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+#landingHeroIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--kl-radius);
+    object-fit: cover;
+    box-shadow: 0 0 0 2px var(--kl-border), 0 8px 24px rgba(0, 0, 0, 0.5);
+    background: var(--kl-panel);
+}
+#landingHeroEyebrow {
+    font-family: 'Avenir Heavy';
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--kl-lime);
+}
+#landingHeroTitle {
+    margin: 0;
+    font-family: 'Avenir Black';
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 1.1;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+#landingHeroDesc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--kl-text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+#landingHeroTags {
+    display: flex;
+    gap: 8px;
+}
+.heroTag {
+    font-family: 'Avenir Medium';
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--kl-purple-soft);
+    border: 1px solid rgba(123, 63, 228, 0.5);
+}
+.heroTag:empty {
+    display: none;
+}
+
+@keyframes klFadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* * *
+* Landing (lower bar)
+* * */
+
+#landingContainer > #lower {
+    height: 23%;
+    background: none;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 24px 20px 24px;
+}
+#landingContainer > #lower > #left,
+#landingContainer > #lower > #center,
+#landingContainer > #lower > #right {
+    align-items: center;
+    min-width: 0;
+}
+#landingContainer > #lower > #left {
+    width: auto;
+    flex: 1 1 0;
+    justify-content: flex-start;
+}
+#landingContainer > #lower > #center {
+    width: auto;
+    flex: 0 0 auto;
+    padding: 0 16px;
+}
+#landingContainer > #lower > #right {
+    width: auto;
+    flex: 1 1 0;
+    justify-content: flex-end;
+}
+#landingContainer {
+    overflow-x: hidden;
+}
+
+/* Mojang accounts were migrated to Microsoft; only Microsoft login is offered. */
+#loginOptionMojang,
+.settingsAuthAccountTypeContainer:has(#settingsAddMojangAccount) {
+    display: none !important;
+}
+#landingContainer > #lower .bot_wrapper {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Status (left) and launch (right) become glass panels. */
+#landingContainer > #lower > #left .bot_wrapper,
+#landingContainer > #lower > #right .bot_wrapper {
+    background: var(--kl-panel);
+    border: 1px solid var(--kl-border-muted);
+    border-radius: var(--kl-radius);
+    backdrop-filter: blur(10px);
+    padding: 12px 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+#landingContainer > #lower > #left #content,
+#landingContainer > #lower > #right #launch_content {
+    top: 0;
+    left: 0;
+    align-items: center;
+}
+#landingContainer > #lower > #right .bot_wrapper {
+    border-color: var(--kl-border);
+}
+
+.bot_label {
+    color: var(--kl-text-muted);
+    letter-spacing: 1px;
+}
+.bot_divider {
+    background: var(--kl-border-muted) !important;
+}
+
+#player_count {
+    color: var(--kl-text);
+}
+
+#launch_button {
+    background: var(--kl-lime);
+    color: var(--kl-on-lime);
+    font-family: 'Avenir Black';
+    font-size: 18px;
+    letter-spacing: 3px;
+    padding: 10px 28px;
+    border-radius: var(--kl-radius-sm);
+    text-shadow: none;
+    box-shadow: 0 0 0 0 var(--kl-lime-glow);
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+#launch_button:hover,
+#launch_button:focus {
+    background: var(--kl-lime-strong);
+    text-shadow: none;
+    box-shadow: 0 0 26px var(--kl-lime-glow);
+}
+#launch_button:active {
+    transform: translateY(1px) scale(0.98);
+}
+#launch_button:disabled {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--kl-text-muted);
+    box-shadow: none;
+    cursor: default;
+}
+
+#server_selection_button {
+    color: var(--kl-text);
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#server_selection_button:hover,
+#server_selection_button:focus {
+    color: var(--kl-lime);
+    text-shadow: 0 0 10px var(--kl-lime-glow);
+}
+
+#launch_progress[value]::-webkit-progress-bar {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+}
+#launch_progress[value]::-webkit-progress-value {
+    background: linear-gradient(90deg, var(--kl-purple), var(--kl-lime));
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--kl-lime-glow);
+}
+#launch_progress_label {
+    color: var(--kl-lime);
+}
+
+#newsButton:hover #newsButtonText,
+#newsButton:focus #newsButtonText {
+    color: var(--kl-lime);
+    text-shadow: 0 0 10px var(--kl-lime-glow);
+}
+#newsButtonAlert {
+    background: var(--kl-lime) !important;
+}
+
+/* * *
+* News
+* * */
+
+#newsContent {
+    background: var(--kl-panel-strong);
+}
+#newsArticleTitle:hover {
+    color: var(--kl-lime);
+}
+
+/* * *
+* Settings
+* * */
+
+#settingsContainer {
+    background-color: rgba(11, 6, 19, 0.82);
+}
+#settingsNavContainer {
+    border-right: 1px solid var(--kl-border-muted);
+}
+#settingsNavHeaderText {
+    font-family: 'Avenir Black';
+    color: var(--kl-lime);
+}
+.settingsNavItem {
+    border-left: 3px solid transparent;
+    padding-left: 10px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.settingsNavItem:hover,
+.settingsNavItem:focus {
+    color: var(--kl-text) !important;
+}
+.settingsNavItem[selected] {
+    color: var(--kl-lime) !important;
+    border-left-color: var(--kl-lime);
+}
+.settingsTabHeaderText {
+    font-family: 'Avenir Heavy';
+}
+.settingsTabHeaderDesc {
+    color: var(--kl-text-muted);
+}
+
+.settingsAuthAccount,
+.settingsModContainer,
+.settingsFileSelContainer {
+    border-radius: var(--kl-radius);
+}
+.settingsAuthAccount {
+    background: var(--kl-panel);
+    border: 1px solid var(--kl-border-muted);
+}
+.settingsAuthAccountSelect[selected] {
+    color: var(--kl-lime) !important;
+}
+
+input:checked + .toggleSwitchSlider {
+    background-color: var(--kl-lime);
+    border-color: var(--kl-lime);
+    box-shadow: 0 0 10px var(--kl-lime-glow);
+}
+
+.rangeSlider {
+    background: rgba(255, 255, 255, 0.12);
+}
+.rangeSliderBar {
+    background: linear-gradient(90deg, var(--kl-purple), var(--kl-lime));
+}
+.rangeSliderTrack {
+    background: var(--kl-lime);
+    box-shadow: 0 0 10px var(--kl-lime-glow);
+}
+
+/* * *
+* Overlay
+* * */
+
+#overlayContainer {
+    background: rgba(11, 6, 19, 0.7);
+}
+#overlayContent {
+    background: var(--kl-panel-strong);
+    border: 1px solid var(--kl-border);
+    border-radius: var(--kl-radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    padding: 22px 24px;
+}
+#overlayTitle {
+    font-family: 'Avenir Heavy';
+}
+
+.serverListing {
+    background: var(--kl-panel);
+    border: 1px solid var(--kl-border-muted);
+    border-radius: var(--kl-radius-sm);
+}
+.serverListing[selected] {
+    border-color: var(--kl-lime);
+    box-shadow: 0 0 14px var(--kl-lime-soft);
+}

@@ -1,0 +1,150 @@
+{
+    "version": "1.0.0",
+    "rss": "",
+    "servers": [
+        {
+            "id": "cobblemon-hazte-con-todos",
+            "name": "Cobblemon: Hazte con todos",
+            "description": "Captura, entrena y combate con Pokémon en el mundo de Minecraft.",
+            "icon": "assets/images/modpacks/cobblemon-hazte-con-todos.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "mainServer": true,
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "dbc-soldados-de-freezer",
+            "name": "DBC: Soldados de Freezer",
+            "description": "Únete al ejército de Freezer y conquista planetas con Dragon Block C.",
+            "icon": "assets/images/modpacks/dbc-soldados-de-freezer.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.7.10",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "dbc-saga",
+            "name": "DBC: Saga",
+            "description": "Revive la saga de Dragon Ball con Dragon Block C.",
+            "icon": "assets/images/modpacks/dbc-saga.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.7.10",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "hardcorekeee",
+            "name": "HardcoreKeee",
+            "description": "Supervivencia extrema. Una vida, cero piedad.",
+            "icon": "assets/images/modpacks/hardcorekeee.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "superheroeskeee",
+            "name": "SuperheroesKeee",
+            "description": "Consigue poderes y conviértete en el héroe (o villano) del servidor.",
+            "icon": "assets/images/modpacks/superheroeskeee.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.7.10",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "kanto-adventures",
+            "name": "Kanto Adventures",
+            "description": "Recorre la región de Kanto desde Pueblo Paleta hasta la Liga.",
+            "icon": "assets/images/modpacks/kanto-adventures.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "johto-adventures",
+            "name": "Johto Adventures",
+            "description": "Explora la región de Johto y desafía a sus líderes de gimnasio.",
+            "icon": "assets/images/modpacks/johto-adventures.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "hoenn-adventures",
+            "name": "Hoenn Adventures",
+            "description": "Aventúrate por la región de Hoenn, entre mares, volcanes y selvas.",
+            "icon": "assets/images/modpacks/hoenn-adventures.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "hunterkeeehunter",
+            "name": "HunterKeeeHunter",
+            "description": "Domina el Nen y supera el examen de cazador.",
+            "icon": "assets/images/modpacks/hunterkeeehunter.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "narutokeee",
+            "name": "NarutoKeee",
+            "description": "Entrena como ninja, domina tu chakra y protege tu aldea.",
+            "icon": "assets/images/modpacks/narutokeee.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "isekaikeee",
+            "name": "IsekaiKeee",
+            "description": "Despierta en otro mundo y empieza tu aventura desde cero.",
+            "icon": "assets/images/modpacks/isekaikeee.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "keeequest",
+            "name": "KeeeQuest",
+            "description": "Un modpack guiado por misiones con progresión y recompensas.",
+            "icon": "assets/images/modpacks/keeequest.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        },
+        {
+            "id": "magickeee",
+            "name": "MagicKeee",
+            "description": "Hechizos, rituales y magia de todo tipo.",
+            "icon": "assets/images/modpacks/magickeee.svg",
+            "version": "0.0.1",
+            "address": "localhost:25565",
+            "minecraftVersion": "1.21.1",
+            "autoconnect": false,
+            "modules": []
+        }
+    ]
+}

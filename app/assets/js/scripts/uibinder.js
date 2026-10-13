@@ -69,7 +69,6 @@ async function showMainUI(data){
     refreshServerStatus()
     setTimeout(() => {
         document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
-        document.body.style.backgroundImage = `url('assets/images/backgrounds/${document.body.getAttribute('bkid')}.jpg')`
         $('#main').show()
 
         const isLoggedIn = Object.keys(ConfigManager.getAuthAccounts()).length > 0
@@ -436,7 +435,12 @@ document.addEventListener('readystatechange', async () => {
 }, false)
 
 // Actions that must be performed after the distribution index is downloaded.
-ipcRenderer.on('distributionIndexDone', async (event, res) => {
+let distroIndexHandled = false
+async function onDistributionIndexDone(res){
+    if(distroIndexHandled){
+        return
+    }
+    distroIndexHandled = true
     if(res) {
         const data = await DistroAPI.getDistribution()
         syncModConfigurations(data)
@@ -454,7 +458,13 @@ ipcRenderer.on('distributionIndexDone', async (event, res) => {
             rscShouldLoad = true
         }
     }
-})
+}
+ipcRenderer.on('distributionIndexDone', (event, res) => onDistributionIndexDone(res))
+// The preloader can finish before this listener exists (a local distribution
+// loads almost instantly), in which case the IPC event has already been missed.
+if(window.distroIndexResult != null){
+    onDistributionIndexDone(window.distroIndexResult)
+}
 
 // Util for development
 async function devModeToggle() {
