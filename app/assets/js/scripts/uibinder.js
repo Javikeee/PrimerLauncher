@@ -65,6 +65,7 @@ async function showMainUI(data){
     }
 
     await prepareSettings(true)
+    populateModpackRail(data)
     updateSelectedServer(data.getServerById(ConfigManager.getSelectedServer()))
     refreshServerStatus()
     setTimeout(() => {

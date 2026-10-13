@@ -50,6 +50,8 @@ const loggerLanding = LoggerUtil.getLogger('Landing')
  * @param {boolean} loading True if the loading area should be shown, otherwise false.
  */
 function toggleLaunchArea(loading){
+    // Switching modpacks mid-launch would desync the launch process.
+    document.getElementById('modpackRail').toggleAttribute('disabled', loading)
     if(loading){
         launch_details.style.display = 'flex'
         launch_content.style.display = 'none'
@@ -170,6 +172,69 @@ function updateSelectedServer(serv){
     // Modpacks without modules are announced but not playable yet.
     setLaunchEnabled(serv != null && serv.modules.length > 0)
     updateLandingHero(serv)
+    updateModpackRailSelection(serv)
+}
+
+/**
+ * Fill the side rail with one entry per modpack in the distribution.
+ *
+ * @param {HeliosDistribution} distro The distribution index.
+ */
+function populateModpackRail(distro){
+    const list = document.getElementById('modpackRailList')
+    list.innerHTML = ''
+    for(const serv of distro.servers){
+        const raw = serv.rawServer
+        const playable = serv.modules.length > 0
+
+        const item = document.createElement('button')
+        item.className = 'modpackRailItem'
+        item.setAttribute('servid', raw.id)
+        item.title = raw.name
+
+        const icon = document.createElement('img')
+        icon.className = 'modpackRailIcon'
+        icon.src = raw.icon
+        icon.alt = ''
+
+        const info = document.createElement('div')
+        info.className = 'modpackRailInfo'
+        const name = document.createElement('span')
+        name.className = 'modpackRailName'
+        name.textContent = raw.name
+        const meta = document.createElement('span')
+        meta.className = 'modpackRailMeta'
+        meta.textContent = playable
+            ? raw.minecraftVersion
+            : `${raw.minecraftVersion} · ${Lang.queryJS('landing.selectedServer.comingSoon')}`
+        info.append(name, meta)
+
+        item.append(icon, info)
+        item.onclick = () => {
+            if(item.hasAttribute('selected')){
+                return
+            }
+            updateSelectedServer(serv)
+            refreshServerStatus(true)
+        }
+        list.appendChild(item)
+    }
+    updateModpackRailSelection(distro.getServerById(ConfigManager.getSelectedServer()))
+}
+
+/**
+ * Mark the given server as selected in the side rail.
+ *
+ * @param {HeliosServer} serv The selected server, or null.
+ */
+function updateModpackRailSelection(serv){
+    for(const item of document.getElementsByClassName('modpackRailItem')){
+        const selected = serv != null && item.getAttribute('servid') === serv.rawServer.id
+        item.toggleAttribute('selected', selected)
+        if(selected){
+            item.scrollIntoView({ block: 'nearest' })
+        }
+    }
 }
 
 /**

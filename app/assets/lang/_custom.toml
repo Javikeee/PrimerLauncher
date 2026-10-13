@@ -4,11 +4,11 @@
 title = "Keee Launcher"
 
 [ejs.landing]
-mediaGitHubURL = "#"
-mediaXURL = "#"
-mediaInstagramURL = "#"
-mediaYouTubeURL = "#"
-mediaDiscordURL = "#"
+mediaXURL = "https://x.com/Javikeee"
+mediaYouTubeURL = "https://www.youtube.com/@Javikeee"
+mediaTwitchURL = "https://www.twitch.tv/javikeee"
+mediaKickURL = "https://kick.com/"
+mediaTikTokURL = "https://www.tiktok.com/@javikeeeyt"
 
 [ejs.settings]
 sourceGithubLink = "https://github.com/dscalzi/HeliosLauncher"

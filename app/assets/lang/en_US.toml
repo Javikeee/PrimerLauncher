@@ -18,6 +18,7 @@ newsErrorFailedSpan = "Failed to Load News"
 newsErrorRetryButton = "Try Again"
 newsErrorNoneSpan = "No News"
 heroEyebrow = "SELECTED MODPACK"
+modpackRailHeader = "MODPACKS"
 
 [ejs.login]
 loginCancelText = "Cancel"

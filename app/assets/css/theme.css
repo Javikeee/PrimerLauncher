@@ -555,3 +555,174 @@ input:checked + .toggleSwitchSlider {
     border-color: var(--kl-lime);
     box-shadow: 0 0 14px var(--kl-lime-soft);
 }
+
+/* * *
+* Modpack rail (left side of the landing view)
+* * */
+
+/* Align the logo with the rail below it. */
+#landingContainer > #upper > #left {
+    justify-content: flex-start;
+    padding-left: 21px;
+    box-sizing: border-box;
+}
+
+#modpackRail {
+    --rail-collapsed: 64px;
+    --rail-expanded: 270px;
+    position: absolute;
+    z-index: 20;
+    left: 24px;
+    top: 135px;
+    bottom: calc(23% + 6px);
+    width: var(--rail-collapsed);
+    display: flex;
+    flex-direction: column;
+    background: var(--kl-panel);
+    border: 1px solid var(--kl-border-muted);
+    border-radius: var(--kl-radius);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    transition: width 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+#modpackRail:hover,
+#modpackRail:focus-within {
+    width: var(--rail-expanded);
+    background: var(--kl-panel-strong);
+    border-color: var(--kl-border);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+#modpackRail[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Collapsed: a short accent bar. Expanded: the "MODPACKS" label. */
+#modpackRailHeader {
+    position: relative;
+    flex: 0 0 auto;
+    height: 14px;
+    padding: 12px 0 6px 0;
+    font-family: 'Avenir Heavy';
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 3px;
+    text-align: center;
+    white-space: nowrap;
+    color: transparent;
+    transition: color 0.15s ease;
+}
+#modpackRailHeader::after {
+    content: '';
+    position: absolute;
+    left: calc(var(--rail-collapsed) / 2 - 12px);
+    top: 18px;
+    width: 22px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--kl-lime);
+    box-shadow: 0 0 8px var(--kl-lime-glow);
+}
+#modpackRail:hover #modpackRailHeader,
+#modpackRail:focus-within #modpackRailHeader {
+    color: var(--kl-lime);
+    transition-delay: 0.1s;
+}
+#modpackRail:hover #modpackRailHeader::after,
+#modpackRail:focus-within #modpackRailHeader::after {
+    display: none;
+}
+
+#modpackRailList {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 4px 8px 16px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    /* Fade the bottom edge to hint that the list scrolls. */
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
+}
+#modpackRailList::-webkit-scrollbar {
+    width: 0;
+}
+#modpackRail:hover #modpackRailList::-webkit-scrollbar,
+#modpackRail:focus-within #modpackRailList::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modpackRailItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 46px;
+    padding: 0 0 0 2px;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: var(--kl-radius-sm);
+    cursor: pointer;
+    text-align: left;
+    outline: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+.modpackRailItem:hover,
+.modpackRailItem:focus-visible {
+    background: rgba(255, 255, 255, 0.05);
+}
+.modpackRailItem[selected] {
+    background: var(--kl-lime-soft);
+    border-color: var(--kl-lime);
+    cursor: default;
+}
+
+.modpackRailIcon {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--kl-radius-sm);
+    object-fit: cover;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: saturate(0.75) brightness(0.85);
+}
+.modpackRailItem:hover .modpackRailIcon,
+.modpackRailItem[selected] .modpackRailIcon {
+    filter: none;
+}
+.modpackRailItem:hover .modpackRailIcon {
+    transform: scale(1.06);
+}
+.modpackRailItem[selected] .modpackRailIcon {
+    box-shadow: 0 0 12px var(--kl-lime-glow);
+}
+
+/* Names fade in only once the rail has expanded. */
+.modpackRailInfo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+#modpackRail:hover .modpackRailInfo,
+#modpackRail:focus-within .modpackRailInfo {
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+.modpackRailName {
+    font-family: 'Avenir Heavy';
+    font-size: 13px;
+    color: var(--kl-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.modpackRailMeta {
+    font-size: 11px;
+    color: var(--kl-text-muted);
+    white-space: nowrap;
+}
+.modpackRailItem[selected] .modpackRailName {
+    color: var(--kl-lime);
+}
