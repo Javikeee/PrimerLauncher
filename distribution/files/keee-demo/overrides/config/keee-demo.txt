@@ -1,0 +1,2 @@
+Archivo de ejemplo: todo lo que pongas en modpacks/<id>/files/ se copia a la carpeta del modpack del jugador.
+Úsalo para configs, resource packs, servers.dat, etc.

@@ -9,6 +9,7 @@ const os                    = require('os')
 const path                  = require('path')
 
 const ConfigManager            = require('./configmanager')
+const DropinModUtil            = require('./dropinmodutil')
 
 const logger = LoggerUtil.getLogger('ProcessBuilder')
 
@@ -299,11 +300,43 @@ class ProcessBuilder {
     // }
 
     /**
+     * Put the modpack's Forge mods in the instance's mods folder. Recent Forge
+     * versions ignore --fml.modLists and only load mods from that folder.
+     * Mods the player dropped in themselves are left untouched.
+     *
+     * @param {Array.<Object>} mods An array of enabled mods.
+     */
+    syncForgeModsFolder(mods) {
+        const modsDir = path.join(this.gameDir, 'mods')
+        fs.ensureDirSync(modsDir)
+        const manifestPath = path.join(modsDir, DropinModUtil.MANAGED_MODS_FILE)
+        const previous = fs.existsSync(manifestPath) ? fs.readJsonSync(manifestPath) : []
+        const current = mods.map(mod => path.basename(mod.getPath()))
+
+        // Remove mods dropped from the modpack, or disabled by the player.
+        for(const file of previous.filter(file => !current.includes(file))){
+            fs.removeSync(path.join(modsDir, file))
+        }
+        for(const mod of mods){
+            const dest = path.join(modsDir, path.basename(mod.getPath()))
+            // File names carry the mod version, so an existing file is up to date.
+            if(!fs.existsSync(dest) || fs.statSync(dest).size !== fs.statSync(mod.getPath()).size){
+                fs.copySync(mod.getPath(), dest)
+            }
+        }
+        fs.writeJsonSync(manifestPath, current)
+    }
+
+    /**
      * Construct the mod argument list for forge 1.13 and Fabric
-     * 
+     *
      * @param {Array.<Object>} mods An array of mods to add to the mod list.
      */
     constructModList(mods) {
+        if(!this.usingFabricLoader) {
+            this.syncForgeModsFolder(mods)
+            return []
+        }
         const writeBuffer = mods.map(mod => {
             return this.usingFabricLoader ? mod.getPath() : mod.getExtensionlessMavenIdentifier()
         }).join('\n')
@@ -372,8 +405,13 @@ class ProcessBuilder {
 
         // Java Arguments
         if(process.platform === 'darwin'){
-            args.push('-Xdock:name=HeliosLauncher')
+            args.push('-Xdock:name=KeeeLauncher')
             args.push('-Xdock:icon=' + path.join(__dirname, '..', 'images', 'minecraft.icns'))
+        }
+        if(process.platform === 'win32'){
+            // Trust the Windows certificate store. Antivirus HTTPS scanning (Norton,
+            // Avast...) installs its own root there, which Java's store lacks.
+            args.push('-Djavax.net.ssl.trustStoreType=Windows-ROOT')
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM(this.server.rawServer.id))
         args.push('-Xms' + ConfigManager.getMinRAM(this.server.rawServer.id))
@@ -423,8 +461,13 @@ class ProcessBuilder {
 
         // Java Arguments
         if(process.platform === 'darwin'){
-            args.push('-Xdock:name=HeliosLauncher')
+            args.push('-Xdock:name=KeeeLauncher')
             args.push('-Xdock:icon=' + path.join(__dirname, '..', 'images', 'minecraft.icns'))
+        }
+        if(process.platform === 'win32'){
+            // Trust the Windows certificate store. Antivirus HTTPS scanning (Norton,
+            // Avast...) installs its own root there, which Java's store lacks.
+            args.push('-Djavax.net.ssl.trustStoreType=Windows-ROOT')
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM(this.server.rawServer.id))
         args.push('-Xms' + ConfigManager.getMinRAM(this.server.rawServer.id))

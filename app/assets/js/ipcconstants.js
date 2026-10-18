@@ -26,3 +26,7 @@ exports.MSFT_ERROR = {
 exports.SHELL_OPCODE = {
     TRASH_ITEM: 'TRASH_ITEM'
 }
+
+// Single invoke channel for the skin manager. The first argument selects the
+// SkinAPI function (see app/assets/js/skinapi.js).
+exports.SKIN_OPCODE = 'SKIN_API'

@@ -7,7 +7,7 @@ title = "Keee Launcher"
 mediaXURL = "https://x.com/Javikeee"
 mediaYouTubeURL = "https://www.youtube.com/@Javikeee"
 mediaTwitchURL = "https://www.twitch.tv/javikeee"
-mediaKickURL = "https://kick.com/"
+mediaKickURL = "https://kick.com/javikeee"
 mediaTikTokURL = "https://www.tiktok.com/@javikeeeyt"
 
 [ejs.settings]
@@ -15,6 +15,6 @@ sourceGithubLink = "https://github.com/dscalzi/HeliosLauncher"
 supportLink = "#"
 
 [ejs.welcome]
-welcomeHeader = "Bienvenidos a Dukermon II"
-welcomeDescription = "Vuestra mision es venerar a este viejo cachondo. Escultor de dioses vikingos y madres sabrosonas"
-welcomeDescCTA = "Disfruta y Orochi eres malisimo en los shooters."
+welcomeHeader = "Bienvenidos a Studio Keee"
+welcomeDescription = "Disfruta de madres sabrosonas"
+welcomeDescCTA = "Viva la vida"

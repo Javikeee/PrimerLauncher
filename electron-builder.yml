@@ -1,6 +1,6 @@
 appId: 'es.keeestudios.launcher'
 productName: 'Keee Launcher'
-artifactName: '${productName}-setup-${version}.${ext}'
+artifactName: 'Keee-Launcher-setup-${version}.${ext}'
 
 copyright: 'Copyright © 2026 Keee Studio. Based on Helios Launcher © Daniel Scalzi'
 
@@ -8,7 +8,13 @@ asar: true
 compression: 'maximum'
 
 files:
-  - '!{dist,distribution,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,eslint.config.mjs}'
+  - '**/*'
+  - '!{dist,distribution,modpacks,tools,.publish,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,eslint.config.mjs}'
+  # electron-builder drops examples/ folders by default, but skinview3d imports
+  # its camera controls from three/examples.
+  - from: 'node_modules/three/examples/jsm'
+    to: 'node_modules/three/examples/jsm'
+    filter: ['**/*']
 
 extraResources:
   - 'libraries'
@@ -33,7 +39,7 @@ mac:
       arch:
         - 'x64'
         - 'arm64'
-  artifactName: '${productName}-setup-${version}-${arch}.${ext}'
+  artifactName: 'Keee-Launcher-setup-${version}-${arch}.${ext}'
   category: 'public.app-category.games'
 
 # Linux Configuration
@@ -48,4 +54,11 @@ linux:
 
 directories:
   buildResources: 'build'
-  output: 'dist'
+  output: 'dist'
+# Releases go to a public repository so electron-updater can read them
+# (the source code repository is private).
+publish:
+  provider: 'github'
+  owner: 'Javikeee'
+  repo: 'keee-launcher'
+  releaseType: 'release'

@@ -1,0 +1,1239 @@
+// FairyKeee: configuración del servidor
+// Se aplica al arrancar o con /fairykeee reload (nivel de permiso 3).
+// Tiempos en ticks (20 = 1 s). Daño en puntos de vida (2 = 1 corazón). Costes en Ethernano.
+// Si borras un ajuste, vuelve con su valor por defecto.
+{
+  // No lo cambies: con él, al actualizar el mod, los valores por defecto antiguos pasan a los nuevos.
+  "config_version": 4,
+
+  // ===== Ethernano =====
+  // Ethernano máximo de un jugador nuevo. Los que ya existen no cambian: usa /fairykeee maxethernano.
+  "default_max_ethernano": 100,
+
+  // Regeneración por tick (20 ticks = 1 s; 0.1 = 2 por segundo).
+  "ethernano_regen_per_tick": 0.1,
+
+  // Tope de Ethernano máximo que aceptan los comandos de administración.
+  "max_ethernano_cap": 100000,
+
+  // Registro de auditoría en logs/fairykeee-audit.log: recompensas, técnicas, objetos del bolsillo de Requip, cambios de clase, gremios y comandos de administración (para investigar duplicaciones o abusos).
+  "audit_log": true,
+
+  // ===== Despertar =====
+  // Clases que NO se ofrecen en el Despertar (salen como "Próximamente"). Vacío = todas. Ids: fire_dragon_slayer, celestial_spirit, requip, take_over, sky_dragon_slayer, ice_make, lightning_dragon_slayer, solid_script, water_magic, iron_dragon_slayer, shadow_dragon_slayer, white_dragon_slayer, earth_magic, heavenly_body, arc_of_time, card_magic, rune_magic, crash_magic.
+  "despertar_disabled": [],
+
+  // Anunciar en el chat de todo el servidor cuando alguien despierta su magia.
+  "despertar_announce": true,
+
+  // ===== Requip =====
+  // Enfriamiento tras invocar o retirar un set (ticks).
+  "requip_cooldown_ticks": 40,
+
+  // Coste base de invocar un set; se suma 2 por punto de armadura y 1 por punto de dureza.
+  "requip_base_cost": 5,
+
+  // Coste extra si el set lleva arma; se suma su daño de ataque.
+  "requip_weapon_base_cost": 5,
+
+  // Solo los magos de Requip pueden usar el radial y la dimensión de bolsillo.
+  "requip_requires_class": true,
+
+  // ===== Dragon Slayer de Fuego =====
+  // Rugido: cono de fuego delante del jugador.
+  "fire_roar_cost": 30,
+  "fire_roar_cooldown": 100,
+  "fire_roar_damage": 8.0,
+  "fire_roar_range": 8.0,
+  "fire_roar_half_angle_deg": 30.0,
+  "fire_roar_burn_ticks": 100,
+
+  // Puño de Hierro: embestida; el primer enemigo tocado recibe el golpe.
+  "fire_iron_fist_cost": 20,
+  "fire_iron_fist_cooldown": 60,
+  "fire_iron_fist_damage": 7.0,
+  "fire_iron_fist_dash_speed": 1.6,
+  "fire_iron_fist_dash_ticks": 8,
+  "fire_iron_fist_knockback": 1.5,
+  "fire_iron_fist_burn_ticks": 80,
+
+  // Ala del Dragón de Fuego: estallido de llamas alrededor.
+  "fire_wing_cost": 25,
+  "fire_wing_cooldown": 80,
+  "fire_wing_damage": 6.0,
+  "fire_wing_radius": 4.0,
+  "fire_wing_knockback": 1.2,
+  "fire_wing_burn_ticks": 60,
+
+  // Comer fuego: Ethernano y vida recuperados según lo que se come.
+  "eat_fire_ethernano": 25,
+  "eat_campfire_ethernano": 20,
+  "eat_candle_ethernano": 5,
+  "eat_fire_heal": 2.0,
+  "eat_fire_cooldown": 10,
+
+  // Si las habilidades de fuego prenden bloques. Desactivado para no quemar construcciones; si se activa, respeta doFireTick.
+  "fire_magic_sets_blocks_on_fire": false,
+
+  // ===== Espíritus Celestiales =====
+  // Puertas que se pueden tener abiertas a la vez (0–2).
+  "celestial_max_open_gates": 2,
+
+  // Enfriamiento de una llave tras cerrar su puerta (ticks).
+  "celestial_gate_cooldown": 200,
+
+  // Si el espíritu se aleja más que esto (bloques) del dueño, vuelve al mundo celestial.
+  "celestial_spirit_leash": 48.0,
+
+  // Tiempo máximo de un espíritu invocado (ticks; 6000 = 5 min).
+  "celestial_spirit_max_lifetime": 6000,
+
+  // Tauro: coste de abrir, drenaje por segundo mientras está fuera, vida y daño.
+  "celestial_taurus_cost": 30,
+  "celestial_taurus_drain_per_second": 4,
+  "celestial_taurus_health": 60.0,
+  "celestial_taurus_damage": 10.0,
+
+  // Leo: coste de abrir, drenaje por segundo mientras está fuera, vida y daño.
+  "celestial_leo_cost": 25,
+  "celestial_leo_drain_per_second": 3,
+  "celestial_leo_health": 40.0,
+  "celestial_leo_damage": 7.0,
+
+  // Acuario: ola instantánea. Necesita agua a water_search bloques o lluvia.
+  "celestial_aquarius_cost": 40,
+  "celestial_aquarius_cooldown": 600,
+  "celestial_aquarius_radius": 8.0,
+  "celestial_aquarius_damage": 6.0,
+  "celestial_aquarius_knockback": 2.0,
+  "celestial_aquarius_water_search": 4,
+
+  // Fleuve d'étoiles (látigo).
+  "celestial_whip_cost": 15,
+  "celestial_whip_cooldown": 40,
+  "celestial_whip_damage": 5.0,
+  "celestial_whip_range": 10.0,
+  "celestial_whip_pull": 1.0,
+
+  // Star Dress (protección).
+  "celestial_star_dress_cost": 25,
+  "celestial_star_dress_cooldown": 400,
+  "celestial_star_dress_ticks": 200,
+
+  // Urano Metria (definitiva).
+  "celestial_urano_cost": 70,
+  "celestial_urano_cooldown": 1200,
+  "celestial_urano_damage": 14.0,
+  "celestial_urano_radius": 8.0,
+
+  // Dónde aparecen las llaves: llave → (tabla de botín → probabilidad 0–1). Cambiarlo necesita /reload.
+  "celestial_key_loot": {
+    "taurus": {
+      "minecraft:chests/desert_pyramid": 0.15
+    },
+    "aquarius": {
+      "minecraft:chests/shipwreck_treasure": 0.1,
+      "minecraft:chests/buried_treasure": 0.3
+    },
+    "leo": {
+      "minecraft:chests/ancient_city": 0.1,
+      "minecraft:chests/stronghold_library": 0.2
+    }
+  },
+
+  // Enfriamiento tras volver a la forma normal (ticks).
+  "take_over_cooldown": 100,
+
+  // Dibujar al jugador transformado con el modelo de la criatura de su forma (vanilla hasta que haya modelos propios).
+  "take_over_creature_models": true,
+
+  // Golpe de Alma (Z): daño base; cada forma suma su strike_bonus.
+  "take_over_strike_cost": 15,
+  "take_over_strike_cooldown": 30,
+  "take_over_strike_damage": 6.0,
+  "take_over_strike_range": 4.0,
+  "take_over_strike_knockback": 1.0,
+
+  // Técnica de la forma (V).
+  "take_over_technique_cost": 20,
+  "take_over_technique_cooldown": 80,
+  "take_over_beast_punch_damage": 10.0,
+  "take_over_slam_radius": 4.0,
+  "take_over_slam_damage": 8.0,
+  "take_over_evil_range": 16.0,
+  "take_over_evil_damage": 10.0,
+  "take_over_evil_wither_ticks": 60,
+
+  // Take Over rápido (B): cobra el coste de la forma; este enfriamiento solo evita el spam.
+  "take_over_toggle_cooldown": 20,
+
+  // Formas: cost (al transformarse), drain (por segundo), scale y speed (multiplicadores: 0.4 = +40 %), health, damage, armor (puntos sumados), knockback_resistance (0–1), strike_bonus (daño extra del Golpe de Alma).
+  "take_over_forms": {
+    "beast_arm": {
+      "cost": 10,
+      "drain": 1,
+      "scale": 0.0,
+      "health": 0.0,
+      "damage": 4.0,
+      "speed": 0.0,
+      "armor": 0.0,
+      "knockback_resistance": 0.0,
+      "strike_bonus": 2.0
+    },
+    "beast": {
+      "cost": 30,
+      "drain": 4,
+      "scale": 0.4,
+      "health": 20.0,
+      "damage": 6.0,
+      "speed": -0.1,
+      "armor": 4.0,
+      "knockback_resistance": 0.8,
+      "strike_bonus": 6.0
+    },
+    "bird": {
+      "cost": 20,
+      "drain": 3,
+      "scale": -0.2,
+      "health": 0.0,
+      "damage": 0.0,
+      "speed": 0.25,
+      "armor": 0.0,
+      "knockback_resistance": 0.0,
+      "strike_bonus": 1.0
+    },
+    "fish": {
+      "cost": 20,
+      "drain": 2,
+      "scale": -0.1,
+      "health": 0.0,
+      "damage": 0.0,
+      "speed": 0.0,
+      "armor": 0.0,
+      "knockback_resistance": 0.0,
+      "strike_bonus": 2.0
+    },
+    "satan_soul": {
+      "cost": 40,
+      "drain": 5,
+      "scale": 0.15,
+      "health": 10.0,
+      "damage": 5.0,
+      "speed": 0.1,
+      "armor": 2.0,
+      "knockback_resistance": 0.0,
+      "strike_bonus": 5.0
+    }
+  },
+
+  // ===== Dragon Slayer del Cielo =====
+  // Rugido del Dragón del Cielo: cono de viento que daña y empuja lejos.
+  "sky_roar_cost": 25,
+  "sky_roar_cooldown": 80,
+  "sky_roar_damage": 5.0,
+  "sky_roar_range": 9.0,
+  "sky_roar_half_angle_deg": 30.0,
+  "sky_roar_knockback": 2.2,
+
+  // Encantamiento (Arms + Vernier): velocidad y fuerza para ti y los compañeros de gremio cercanos.
+  "sky_enchant_cost": 30,
+  "sky_enchant_cooldown": 400,
+  "sky_enchant_radius": 8.0,
+  "sky_enchant_ticks": 300,
+  "sky_enchant_speed_level": 2,
+  "sky_enchant_strength_level": 1,
+
+  // Aliento sanador: cura a ti y a los compañeros de gremio cercanos y quita veneno y marchitamiento.
+  "sky_heal_cost": 35,
+  "sky_heal_cooldown": 200,
+  "sky_heal_radius": 6.0,
+  "sky_heal_amount": 8.0,
+
+  // Pasiva: el viento amortigua las caídas (sin daño por caída).
+  "sky_no_fall_damage": true,
+
+  // ===== Ice-Make =====
+  // Lanza: punta de hielo en línea recta que atraviesa varios objetivos y los congela.
+  "ice_lance_cost": 20,
+  "ice_lance_cooldown": 50,
+  "ice_lance_damage": 7.0,
+  "ice_lance_range": 20.0,
+  "ice_lance_max_targets": 3,
+  "ice_lance_slow_ticks": 60,
+
+  // Muro: pared de hielo mágico de 5×3 delante; se derrite sola. Solo ocupa huecos vacíos.
+  "ice_wall_cost": 25,
+  "ice_wall_cooldown": 160,
+  "ice_wall_ticks": 200,
+  "ice_wall_distance": 3,
+
+  // Congelar: todo lo cercano queda lento y congelado.
+  "ice_freeze_cost": 30,
+  "ice_freeze_cooldown": 140,
+  "ice_freeze_radius": 5.0,
+  "ice_freeze_damage": 4.0,
+  "ice_freeze_ticks": 80,
+
+  // Pasiva: inmune al frío y a la nieve polvo; el agua que pisa se congela un momento.
+  "ice_frost_walk": true,
+  "ice_frost_walk_ticks": 60,
+
+  // ===== Dragon Slayer del Rayo =====
+  // Rugido del Dragón del Rayo: rayo recto que golpea todo lo que hay en la línea.
+  "lightning_roar_cost": 30,
+  "lightning_roar_cooldown": 100,
+  "lightning_roar_damage": 9.0,
+  "lightning_roar_range": 16.0,
+
+  // Paso del rayo: salto instantáneo hacia delante que golpea a quien atraviesa.
+  "lightning_step_cost": 20,
+  "lightning_step_cooldown": 70,
+  "lightning_step_distance": 8.0,
+  "lightning_step_damage": 7.0,
+
+  // Rayo del dragón: cae un rayo donde miras (no prende fuego) y daña alrededor.
+  "lightning_bolt_cost": 40,
+  "lightning_bolt_cooldown": 200,
+  "lightning_bolt_range": 24.0,
+  "lightning_bolt_radius": 3.0,
+  "lightning_bolt_damage": 10.0,
+
+  // Pasiva: inmune a los rayos; uno de verdad recarga este Ethernano.
+  "lightning_eat_ethernano": 50,
+
+  // ===== Solid Script =====
+  // FIRE: la palabra aparece donde miras y estalla en llamas.
+  "script_fire_cost": 30,
+  "script_fire_cooldown": 80,
+  "script_fire_range": 16.0,
+  "script_fire_radius": 2.5,
+  "script_fire_damage": 7.0,
+  "script_fire_burn_ticks": 80,
+
+  // GUARD: escudo (absorción y resistencia) para ti y los compañeros de gremio cercanos.
+  "script_guard_cost": 30,
+  "script_guard_cooldown": 300,
+  "script_guard_radius": 5.0,
+  "script_guard_ticks": 200,
+
+  // SILENT: ciega y frena a los enemigos cercanos; los magos enemigos no pueden usar su magia un rato.
+  "script_silent_cost": 35,
+  "script_silent_cooldown": 300,
+  "script_silent_radius": 8.0,
+  "script_silent_ticks": 100,
+
+  // Pasiva: el Ethernano se recupera más rápido (multiplicador).
+  "script_regen_multiplier": 1.5,
+
+  // ===== Magia de Agua =====
+  // Water Slicer: cuchillas de agua en línea que atraviesan.
+  "water_slicer_cost": 20,
+  "water_slicer_cooldown": 60,
+  "water_slicer_damage": 7.0,
+  "water_slicer_range": 18.0,
+
+  // Water Lock: atrapa en una burbuja a los enemigos donde miras (casi no pueden moverse).
+  "water_lock_cost": 30,
+  "water_lock_cooldown": 240,
+  "water_lock_damage": 6.0,
+  "water_lock_radius": 2.5,
+  "water_lock_ticks": 60,
+
+  // Water Nebula: cono de agua a presión que empuja lejos.
+  "water_nebula_cost": 25,
+  "water_nebula_cooldown": 140,
+  "water_nebula_damage": 6.0,
+  "water_nebula_range": 9.0,
+
+  // Pasiva (Cuerpo de Agua): no se ahoga y esquiva esta proporción de los proyectiles (0.35 = 35 %).
+  "water_projectile_dodge": 0.35,
+
+  // ===== Dragon Slayer de Hierro =====
+  // Rugido del Dragón de Hierro: cono de esquirlas de metal.
+  "iron_roar_cost": 30,
+  "iron_roar_cooldown": 100,
+  "iron_roar_damage": 9.0,
+  "iron_roar_range": 10.0,
+
+  // Garrote del Dragón de Hierro: el brazo se alarga en línea y golpea fuerte.
+  "iron_club_cost": 25,
+  "iron_club_cooldown": 70,
+  "iron_club_damage": 10.0,
+  "iron_club_range": 7.0,
+
+  // Escamas de Hierro: resistencia durante un rato.
+  "iron_scales_cost": 30,
+  "iron_scales_cooldown": 400,
+  "iron_scales_ticks": 160,
+
+  // Pasiva (cuerpo de hierro): recibe menos daño (0.15 = 15 % menos).
+  "iron_damage_reduction": 0.15,
+
+  // ===== Dragon Slayer de las Sombras =====
+  // Rugido del Dragón de las Sombras: cono que daña y ciega.
+  "shadow_roar_cost": 25,
+  "shadow_roar_cooldown": 100,
+  "shadow_roar_damage": 8.0,
+  "shadow_roar_range": 10.0,
+
+  // Inmersión en las sombras: invisible y rápido un momento.
+  "shadow_dive_cost": 25,
+  "shadow_dive_cooldown": 300,
+  "shadow_dive_ticks": 80,
+
+  // Garra de sombra: arrastra hacia ti a los enemigos de delante y los frena.
+  "shadow_drag_cost": 25,
+  "shadow_drag_cooldown": 120,
+  "shadow_drag_damage": 7.0,
+  "shadow_drag_range": 12.0,
+
+  // Pasiva: con poca luz (nivel menor que 8) el Ethernano se recupera más rápido (multiplicador).
+  "shadow_dark_regen_multiplier": 1.6,
+
+  // ===== Dragon Slayer Blanco =====
+  // Rayo Sagrado: haz de luz en línea que marca a los enemigos (brillo).
+  "white_ray_cost": 25,
+  "white_ray_cooldown": 80,
+  "white_ray_damage": 8.0,
+  "white_ray_range": 20.0,
+
+  // White Drive: fuerza y velocidad para ti.
+  "white_drive_cost": 30,
+  "white_drive_cooldown": 500,
+  "white_drive_ticks": 200,
+
+  // Aliento Sagrado: cono de luz; a los no muertos les hace el doble.
+  "white_breath_cost": 30,
+  "white_breath_cooldown": 120,
+  "white_breath_damage": 8.0,
+  "white_breath_range": 10.0,
+
+  // Pasiva: inmune al marchitamiento.
+  "white_wither_immune": true,
+
+  // ===== Magia de Tierra =====
+  // Avalancha de Roca: púas de piedra donde miras que lanzan hacia arriba.
+  "earth_spike_cost": 25,
+  "earth_spike_cooldown": 80,
+  "earth_spike_damage": 9.0,
+  "earth_spike_radius": 3.0,
+
+  // Escudo de Roca: absorción (corazones extra) para ti y tus compañeros cercanos.
+  "earth_shield_cost": 35,
+  "earth_shield_cooldown": 500,
+  "earth_shield_radius": 8.0,
+  "earth_shield_ticks": 300,
+
+  // Terremoto: daña y frena a los enemigos que pisan el suelo a tu alrededor.
+  "earth_quake_cost": 35,
+  "earth_quake_cooldown": 240,
+  "earth_quake_damage": 6.0,
+  "earth_quake_radius": 7.0,
+
+  // Pasiva: recibe menos daño de explosiones (0.5 = la mitad).
+  "earth_explosion_reduction": 0.5,
+
+  // ===== Magia de Cuerpos Celestes =====
+  // Meteoro: sales disparado hacia donde miras y golpeas a quien encuentres.
+  "heavenly_meteor_cost": 25,
+  "heavenly_meteor_cooldown": 80,
+  "heavenly_meteor_damage": 8.0,
+
+  // Altairis: esfera oscura donde miras que atrae y aplasta.
+  "heavenly_altairis_cost": 35,
+  "heavenly_altairis_cooldown": 200,
+  "heavenly_altairis_damage": 10.0,
+  "heavenly_altairis_radius": 3.5,
+
+  // Grand Chariot: siete estrellas caen sobre los enemigos cercanos (repartidas, dos como mucho a cada uno).
+  "heavenly_chariot_cost": 35,
+  "heavenly_chariot_cooldown": 300,
+  "heavenly_chariot_damage": 5.0,
+  "heavenly_chariot_radius": 12.0,
+
+  // Pasiva: velocidad mientras corre.
+  "heavenly_sprint_speed": true,
+
+  // ===== Arco del Tiempo =====
+  // Ralentizar: el tiempo de los enemigos cercanos va más lento y los desgasta.
+  "time_slow_cost": 30,
+  "time_slow_cooldown": 160,
+  "time_slow_radius": 8.0,
+  "time_slow_ticks": 100,
+  "time_slow_damage": 5.0,
+
+  // Rebobinar: vuelves a donde estabas hace unos segundos, con la vida de entonces si era más.
+  "time_rewind_cost": 35,
+  "time_rewind_cooldown": 400,
+  "time_rewind_ticks": 60,
+
+  // Acelerar: tu propio tiempo corre más rápido (prisa y velocidad).
+  "time_haste_cost": 25,
+  "time_haste_cooldown": 400,
+  "time_haste_ticks": 160,
+
+  // Pasiva: inmune a la lentitud.
+  "time_slow_immune": true,
+
+  // ===== Magia de Cartas =====
+  // Lanzar cartas: tres cartas en abanico.
+  "card_throw_cost": 15,
+  "card_throw_cooldown": 50,
+  "card_throw_damage": 5.0,
+  "card_throw_range": 16.0,
+
+  // Carta de la Fortuna: un efecto al azar (casi siempre bueno).
+  "card_fortune_cost": 20,
+  "card_fortune_cooldown": 300,
+
+  // Carta del Rayo: descarga donde miras.
+  "card_lightning_cost": 30,
+  "card_lightning_cooldown": 140,
+  "card_lightning_damage": 9.0,
+  "card_lightning_radius": 3.0,
+
+  // Pasiva: suerte permanente (mejor botín de pesca y cofres).
+  "card_luck": true,
+
+  // ===== Runas (Jutsu Shiki) =====
+  // Dark Écriture: Dolor. Escribe dolor en el primer enemigo que miras.
+  "rune_pain_cost": 25,
+  "rune_pain_cooldown": 70,
+  "rune_pain_damage": 8.0,
+  "rune_pain_range": 16.0,
+
+  // Jutsu Shiki: zona de runas a tus pies; los enemigos dentro se frenan y reciben daño cada segundo.
+  "rune_zone_cost": 35,
+  "rune_zone_cooldown": 300,
+  "rune_zone_radius": 4.0,
+  "rune_zone_ticks": 200,
+  "rune_zone_damage": 2.0,
+  "rune_zone_max": 2,
+
+  // Dark Écriture: Alas. Saltos altos, caída lenta y velocidad.
+  "rune_wings_cost": 25,
+  "rune_wings_cooldown": 400,
+  "rune_wings_ticks": 200,
+
+  // Pasiva: con poca vida (menos de este porcentaje), resistencia.
+  "rune_low_health": 0.3,
+
+  // ===== Magia de Desintegración (Crash) =====
+  // Puño Crash: golpe devastador al primer enemigo de delante.
+  "crash_punch_cost": 25,
+  "crash_punch_cooldown": 90,
+  "crash_punch_damage": 12.0,
+  "crash_punch_range": 5.0,
+
+  // Onda Crash: onda en línea que destroza y empuja.
+  "crash_wave_cost": 30,
+  "crash_wave_cooldown": 140,
+  "crash_wave_damage": 9.0,
+  "crash_wave_range": 14.0,
+
+  // Disipar: rompe los efectos de los enemigos cercanos y quita los malos de ti.
+  "crash_dispel_cost": 30,
+  "crash_dispel_cooldown": 400,
+  "crash_dispel_damage": 4.0,
+  "crash_dispel_radius": 8.0,
+
+  // Pasiva: la magia de otros le hace menos daño (0.2 = 20 % menos).
+  "crash_magic_reduction": 0.2,
+
+  // ===== Técnicas secretas (cuarta tecla, N) =====
+  // Fuego: Loto Carmesí, Hoja de Fuego Explosiva. Estallido alrededor que quema y empuja.
+  "fire_lotus_cost": 70,
+  "fire_lotus_cooldown": 600,
+  "fire_lotus_damage": 16.0,
+  "fire_lotus_radius": 6.0,
+  "fire_lotus_burn_ticks": 120,
+
+  // Celestial: Sagitario. Flechas de estrella a los enemigos de delante (los marca con brillo).
+  "celestial_sagittarius_cost": 55,
+  "celestial_sagittarius_cooldown": 400,
+  "celestial_sagittarius_damage": 8.0,
+  "celestial_sagittarius_range": 24.0,
+  "celestial_sagittarius_max_targets": 5,
+
+  // Requip: Rueda Celestial. Un círculo de espadas gira a tu alrededor.
+  "requip_wheel_cost": 60,
+  "requip_wheel_cooldown": 500,
+  "requip_wheel_damage": 12.0,
+  "requip_wheel_radius": 7.0,
+
+  // Take Over: Extintor de Almas. Rayo demoníaco en línea recta que marchita.
+  "take_over_extinctor_cost": 70,
+  "take_over_extinctor_cooldown": 600,
+  "take_over_extinctor_damage": 16.0,
+  "take_over_extinctor_range": 20.0,
+
+  // Cielo: Vía Láctea. Corriente de viento en línea que daña y levanta a los enemigos.
+  "sky_milky_way_cost": 65,
+  "sky_milky_way_cooldown": 600,
+  "sky_milky_way_damage": 12.0,
+  "sky_milky_way_range": 24.0,
+
+  // Ice-Make: Géiser. Columna de hielo donde miras que lanza y congela.
+  "ice_geyser_cost": 55,
+  "ice_geyser_cooldown": 450,
+  "ice_geyser_damage": 12.0,
+  "ice_geyser_radius": 3.5,
+
+  // Rayo: Trueno Rugiente. Gran descarga donde miras.
+  "lightning_thunder_cost": 70,
+  "lightning_thunder_cooldown": 600,
+  "lightning_thunder_damage": 15.0,
+  "lightning_thunder_radius": 5.0,
+
+  // Solid Script: IRON. La palabra cae donde miras: aplasta y deja lentos a los enemigos.
+  "script_iron_cost": 50,
+  "script_iron_cooldown": 400,
+  "script_iron_damage": 11.0,
+  "script_iron_radius": 3.0,
+
+  // Agua: Sierra. Cuchillas de agua que brotan donde miras.
+  "water_sierra_cost": 60,
+  "water_sierra_cooldown": 500,
+  "water_sierra_damage": 14.0,
+  "water_sierra_radius": 4.0,
+
+  // Hierro: Karma Demoníaco, Espada del Dios de Hierro. Enorme espada en línea.
+  "iron_god_sword_cost": 70,
+  "iron_god_sword_cooldown": 600,
+  "iron_god_sword_damage": 18.0,
+  "iron_god_sword_range": 16.0,
+
+  // Sombras: Crimen del Dragón de las Sombras. Estallido de sombra alrededor.
+  "shadow_crime_cost": 70,
+  "shadow_crime_cooldown": 600,
+  "shadow_crime_damage": 15.0,
+  "shadow_crime_radius": 6.0,
+
+  // Blanco: Holy Nova. Puñetazo de luz donde miras.
+  "white_nova_cost": 65,
+  "white_nova_cooldown": 600,
+  "white_nova_damage": 20.0,
+  "white_nova_radius": 3.0,
+
+  // Tierra: Monte Fuji Retumbante. La tierra estalla a tu alrededor.
+  "earth_fuji_cost": 70,
+  "earth_fuji_cooldown": 600,
+  "earth_fuji_damage": 16.0,
+  "earth_fuji_radius": 8.0,
+
+  // Cuerpos Celestes: Sema. Un meteorito gigante cae donde miras.
+  "heavenly_sema_cost": 80,
+  "heavenly_sema_cooldown": 700,
+  "heavenly_sema_damage": 20.0,
+  "heavenly_sema_radius": 6.0,
+
+  // Arco del Tiempo: Detener el Tiempo. Los enemigos cercanos quedan congelados en el tiempo.
+  "time_stop_cost": 70,
+  "time_stop_cooldown": 700,
+  "time_stop_damage": 8.0,
+  "time_stop_radius": 10.0,
+  "time_stop_ticks": 60,
+
+  // Cartas: Fairy Glitter. Destello de las hadas donde miras.
+  "card_glitter_cost": 75,
+  "card_glitter_cooldown": 700,
+  "card_glitter_damage": 18.0,
+  "card_glitter_radius": 6.0,
+
+  // Runas: Dark Écriture, Oscuridad. Te transformas: fuerza, resistencia y velocidad, y un estallido alrededor.
+  "rune_darkness_cost": 70,
+  "rune_darkness_cooldown": 700,
+  "rune_darkness_damage": 8.0,
+  "rune_darkness_radius": 5.0,
+  "rune_darkness_ticks": 300,
+
+  // Crash: Haja Kensei. Todo a tu alrededor se desintegra.
+  "crash_haja_cost": 80,
+  "crash_haja_cooldown": 700,
+  "crash_haja_damage": 20.0,
+  "crash_haja_radius": 7.0,
+
+  // Alcance de las técnicas que apuntan donde miras (Géiser, Trueno Rugiente, IRON, Sierra, Holy Nova...).
+  "secret_look_range": 24.0,
+
+  // ===== Unison Raid =====
+  // Unison Raid: un mago la ofrece (tecla K) y un compañero de grupo o de gremio de OTRA clase la acepta pulsando K a tiempo. Los dos pagan el coste y comparten el enfriamiento.
+  "unison_enabled": true,
+
+  // Si los compañeros de gremio (no solo los de grupo) pueden hacer Unison Raid juntos.
+  "unison_with_guild": true,
+
+  // Si dos magos de la misma clase pueden unirse (en la serie solo se unen magias distintas).
+  "unison_same_class": false,
+
+  // Nivel de maestría que necesitan los dos.
+  "unison_min_level": 5,
+
+  // Ethernano que paga cada uno.
+  "unison_cost": 40,
+  "unison_cooldown": 1200,
+
+  // Ticks que dura la oferta esperando a que el compañero pulse K (100 = 5 s).
+  "unison_window_ticks": 100,
+
+  // Distancia máxima (bloques) entre los dos magos.
+  "unison_partner_radius": 16.0,
+
+  // La explosión cae donde miran los dos (el punto medio), a este alcance como mucho.
+  "unison_range": 24.0,
+  "unison_radius": 6.0,
+  "unison_damage": 22.0,
+
+  // Maestría que gana cada uno.
+  "unison_xp": 20,
+
+  // ===== Despertar del poder (Dragon Force / Second Origin) =====
+  // Tecla X. Se desbloquea con la prueba de despertar: aparece en el tablón al llegar a awakening_level de maestría si ya conoces la técnica secreta de tu clase. Los Dragon Slayers entran en Dragon Force; las demás clases, en Second Origin.
+  "awakening_enabled": true,
+  "awakening_level": 20,
+  "awakening_cost": 60,
+
+  // Enfriamiento y duración (ticks; 6000 = 5 min, 600 = 30 s).
+  "awakening_cooldown": 6000,
+  "awakening_ticks": 600,
+
+  // Dragon Force: daño mágico extra (0.4 = +40 %) y niveles de Resistencia y Velocidad.
+  "dragon_force_power": 0.4,
+  "dragon_force_resistance": 1,
+  "dragon_force_speed": 1,
+
+  // Second Origin: llena el Ethernano al activarse, lo regenera más rápido, los enfriamientos corren el doble y la magia pega algo más.
+  "second_origin_power": 0.25,
+  "second_origin_regen_multiplier": 3.0,
+
+  // El guardián de la prueba de despertar es el de la misión especial de la clase, más fuerte: vida y daño multiplicados y algo más grande.
+  "awakening_trial_health_multiplier": 3.0,
+  "awakening_trial_damage_multiplier": 1.5,
+  "awakening_trial_extra_scale": 0.3,
+
+  // ===== Gremios oscuros =====
+  // Magos oscuros (fuego, hielo, rayo, sombra, agua o tierra) que atacan con hechizos a distancia, y campamentos de gremios oscuros con su Maestro (jefe con onda que aparta) cerca de los jugadores.
+  "dark_guilds_enabled": true,
+
+  // Probabilidad de que aparezcan solos de noche (como otros monstruos; 0 = solo en campamentos). Pide reiniciar.
+  "dark_mage_spawn_weight": 5,
+  "dark_mage_health": 30.0,
+  "dark_mage_damage": 5.0,
+
+  // Ticks entre hechizos de cada mago oscuro.
+  "dark_mage_spell_cooldown": 50,
+  "dark_master_health": 120.0,
+  "dark_master_damage": 9.0,
+
+  // Cada cuánto acampa un gremio oscuro cerca de un jugador al azar (ticks; 24000 = 20 min) y cuántos a la vez.
+  "dark_camp_interval_ticks": 24000,
+  "dark_camp_max": 2,
+
+  // Magos por campamento (además del Maestro) y cuánto dura antes de irse (ticks; 12000 = 10 min).
+  "dark_camp_mages": 4,
+  "dark_camp_lifetime_ticks": 12000,
+
+  // Distancia (bloques) del jugador al campamento, y a quién se avisa con sus coordenadas.
+  "dark_camp_min_distance": 48,
+  "dark_camp_max_distance": 96,
+  "dark_camp_announce_radius": 256.0,
+
+  // ===== Gremios =====
+  // Longitud del nombre de un gremio.
+  "guild_name_min": 3,
+  "guild_name_max": 24,
+  "guild_max_members": 50,
+
+  // Rangos por gremio, contando Maestro y Miembro (el Maestro crea los demás).
+  "guild_max_ranks": 8,
+
+  // Longitud máxima del nombre de un rango.
+  "guild_rank_name_max": 16,
+
+  // Las invitaciones caducan (ticks; 1200 = 1 min).
+  "guild_invite_ticks": 1200,
+
+  // Si los compañeros de gremio pueden hacerse daño (golpes, flechas, magia, mascotas y espíritus).
+  "guild_friendly_fire": false,
+
+  // Anunciar a todo el servidor la fundación de un gremio.
+  "guild_announce": true,
+
+  // Mostrar [TAG] delante del nombre con equipos del marcador vanilla. Desactivar si el servidor ya usa equipos (un jugador solo puede estar en uno). La protección entre compañeros no depende de esto.
+  "guild_scoreboard_teams": true,
+
+  // ===== Misiones (tablón del gremio) =====
+  // Misiones en el tablón de cada gremio (1–8).
+  "job_board_size": 6,
+
+  // Cada cuánto se renuevan las misiones libres y se rellenan los huecos (ticks; 24000 = 1 día de Minecraft = 20 min).
+  "job_refresh_ticks": 24000,
+
+  // Tiempo para completar una misión aceptada; si se pasa, se pierde (ticks; 48000 = 2 días de Minecraft).
+  "job_time_limit_ticks": 48000,
+
+  // Misiones que puede tener aceptadas un jugador a la vez (1–3).
+  "job_max_active": 1,
+
+  // Distancia máxima (bloques) al tablón para aceptar, entregar o cobrar.
+  "job_board_reach": 8.0,
+
+  // Las misiones suben el Ethernano máximo hasta este límite (no baja a quien ya lo supere).
+  "job_ethernano_growth_limit": 300,
+
+  // Objeto que se paga como recompensa (la cantidad es "jewels" de cada rango). Cualquier id de objeto, también de otros mods, p. ej. la moneda de un mod de economía. Si no existe, se paga con fairykeee:jewel.
+  "job_reward_item": "fairykeee:jewel",
+
+  // Por rango: min_level (maestría mínima para aceptarla), weight (probabilidad relativa de salir), jewels (cuántos del objeto de recompensa), xp, fame (fama del gremio) y ethernano (Ethernano máximo ganado). Las misiones S solo las aceptan magos de Clase S o el Maestro.
+  "job_ranks": {
+    "d": {
+      "weight": 35,
+      "jewels": 2,
+      "xp": 20,
+      "fame": 1,
+      "ethernano": 0,
+      "min_level": 1
+    },
+    "c": {
+      "weight": 30,
+      "jewels": 5,
+      "xp": 50,
+      "fame": 3,
+      "ethernano": 1,
+      "min_level": 3
+    },
+    "b": {
+      "weight": 20,
+      "jewels": 12,
+      "xp": 120,
+      "fame": 8,
+      "ethernano": 2,
+      "min_level": 7
+    },
+    "a": {
+      "weight": 10,
+      "jewels": 30,
+      "xp": 250,
+      "fame": 20,
+      "ethernano": 3,
+      "min_level": 12
+    },
+    "s": {
+      "weight": 5,
+      "jewels": 80,
+      "xp": 600,
+      "fame": 50,
+      "ethernano": 5,
+      "min_level": 18
+    }
+  },
+
+  // Misiones posibles: type (hunt = derrotar, gather = entregar), target (id de criatura u objeto, también de otros mods), amount y rank (d, c, b, a, s).
+  "job_templates": [
+    {
+      "type": "hunt",
+      "target": "minecraft:zombie",
+      "amount": 8,
+      "rank": "d"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:skeleton",
+      "amount": 6,
+      "rank": "d"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:spider",
+      "amount": 6,
+      "rank": "d"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:wheat",
+      "amount": 32,
+      "rank": "d"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:oak_log",
+      "amount": 32,
+      "rank": "d"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:coal",
+      "amount": 16,
+      "rank": "d"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:creeper",
+      "amount": 5,
+      "rank": "c"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:drowned",
+      "amount": 6,
+      "rank": "c"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:enderman",
+      "amount": 3,
+      "rank": "c"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:iron_ingot",
+      "amount": 12,
+      "rank": "c"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:leather",
+      "amount": 12,
+      "rank": "c"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:redstone",
+      "amount": 24,
+      "rank": "c"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:blaze",
+      "amount": 6,
+      "rank": "b"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:magma_cube",
+      "amount": 8,
+      "rank": "b"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:pillager",
+      "amount": 8,
+      "rank": "b"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:witch",
+      "amount": 2,
+      "rank": "b"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:gold_ingot",
+      "amount": 16,
+      "rank": "b"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:ender_pearl",
+      "amount": 6,
+      "rank": "b"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:quartz",
+      "amount": 32,
+      "rank": "b"
+    },
+    {
+      "type": "hunt",
+      "target": "fairykeee:dark_mage",
+      "amount": 5,
+      "rank": "b"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:wither_skeleton",
+      "amount": 5,
+      "rank": "a"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:guardian",
+      "amount": 5,
+      "rank": "a"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:ghast",
+      "amount": 3,
+      "rank": "a"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:ravager",
+      "amount": 1,
+      "rank": "a"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:diamond",
+      "amount": 5,
+      "rank": "a"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:blaze_rod",
+      "amount": 8,
+      "rank": "a"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:ghast_tear",
+      "amount": 2,
+      "rank": "a"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:elder_guardian",
+      "amount": 1,
+      "rank": "s"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:piglin_brute",
+      "amount": 3,
+      "rank": "s"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:evoker",
+      "amount": 2,
+      "rank": "s"
+    },
+    {
+      "type": "hunt",
+      "target": "minecraft:shulker",
+      "amount": 4,
+      "rank": "s"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:netherite_scrap",
+      "amount": 4,
+      "rank": "s"
+    },
+    {
+      "type": "gather",
+      "target": "minecraft:wither_skeleton_skull",
+      "amount": 1,
+      "rank": "s"
+    },
+    {
+      "type": "hunt",
+      "target": "fairykeee:dark_guild_master",
+      "amount": 1,
+      "rank": "s"
+    }
+  ],
+
+  // ===== Grupos (party) =====
+  // Jugadores por grupo (2–8). Un grupo junta a jugadores de cualquier gremio, o sin gremio.
+  "party_max_size": 4,
+
+  // Las invitaciones caducan (ticks; 1200 = 1 min).
+  "party_invite_ticks": 1200,
+
+  // Si los del mismo grupo pueden hacerse daño.
+  "party_friendly_fire": false,
+
+  // Distancia (bloques) a la que una criatura derrotada cuenta para las misiones de los compañeros de grupo y a la que se reparte la maestría.
+  "party_share_radius": 48.0,
+
+  // ===== Maestría =====
+  // Nivel máximo de maestría mágica.
+  "mastery_max_level": 30,
+
+  // Experiencia para pasar del nivel 1 al 2; cada nivel pide mastery_xp_growth más que el anterior.
+  "mastery_xp_base": 60,
+  "mastery_xp_growth": 30,
+
+  // Entrenamiento: maestría por cada habilidad lanzada (las limitan el enfriamiento y el Ethernano).
+  "mastery_xp_per_cast": 3,
+
+  // Maestría por cada monstruo derrotado con magia.
+  "mastery_xp_per_magic_kill": 6,
+
+  // Maestría por misión completada, por rango. Los compañeros de grupo cercanos reciben mastery_party_share.
+  "mastery_xp_per_job": {
+    "d": 25,
+    "c": 50,
+    "b": 100,
+    "a": 180,
+    "s": 350
+  },
+  "mastery_party_share": 0.5,
+
+  // Por cada nivel por encima del 1: Ethernano máximo extra y poder de la magia (0.02 = +2 % de daño).
+  "mastery_ethernano_per_level": 5,
+  "mastery_power_per_level": 0.02,
+
+  // ===== Técnicas secretas y misiones especiales =====
+  // Nivel de maestría a partir del cual aparece en el tablón la misión especial de tu clase. Completarla enseña su técnica secreta (cuarta tecla, N).
+  "secret_skill_level": 10,
+
+  // Misión especial de cada clase: type (boss = vencer a un guardián; también hunt o gather), target (criatura u objeto) y amount (0 = esa clase no tiene). Para boss: health (vida), damage (daño extra) y scale (tamaño extra; 0.5 = un 50 % más grande). El guardián aparece al aceptarla, con barra de jefe para el grupo; solo cuenta si lo derrota el mago o un compañero de grupo. Los ayudantes de otra clase ganan una mejora de estadística al azar.
+  "special_missions": {
+    "fire_dragon_slayer": {
+      "type": "boss",
+      "target": "minecraft:blaze",
+      "amount": 1,
+      "health": 90.0,
+      "damage": 4.0,
+      "scale": 0.6
+    },
+    "celestial_spirit": {
+      "type": "boss",
+      "target": "minecraft:enderman",
+      "amount": 1,
+      "health": 100.0,
+      "damage": 4.0,
+      "scale": 0.3
+    },
+    "requip": {
+      "type": "boss",
+      "target": "minecraft:wither_skeleton",
+      "amount": 1,
+      "health": 100.0,
+      "damage": 5.0,
+      "scale": 0.3
+    },
+    "take_over": {
+      "type": "boss",
+      "target": "minecraft:ravager",
+      "amount": 1,
+      "health": 140.0,
+      "damage": 3.0,
+      "scale": 0.2
+    },
+    "sky_dragon_slayer": {
+      "type": "boss",
+      "target": "minecraft:breeze",
+      "amount": 1,
+      "health": 80.0,
+      "damage": 3.0,
+      "scale": 0.8
+    },
+    "ice_make": {
+      "type": "boss",
+      "target": "minecraft:stray",
+      "amount": 1,
+      "health": 90.0,
+      "damage": 4.0,
+      "scale": 0.5
+    },
+    "lightning_dragon_slayer": {
+      "type": "boss",
+      "target": "minecraft:vindicator",
+      "amount": 1,
+      "health": 100.0,
+      "damage": 4.0,
+      "scale": 0.5
+    },
+    "solid_script": {
+      "type": "boss",
+      "target": "minecraft:evoker",
+      "amount": 1,
+      "health": 90.0,
+      "damage": 2.0,
+      "scale": 0.5
+    },
+    "water_magic": {
+      "type": "boss",
+      "target": "minecraft:drowned",
+      "amount": 1,
+      "health": 100.0,
+      "damage": 4.0,
+      "scale": 0.6
+    },
+    "iron_dragon_slayer": {
+      "type": "boss",
+      "target": "minecraft:piglin_brute",
+      "amount": 1,
+      "health": 110.0,
+      "damage": 4.0,
+      "scale": 0.4
+    },
+    "shadow_dragon_slayer": {
+      "type": "boss",
+      "target": "minecraft:spider",
+      "amount": 1,
+      "health": 90.0,
+      "damage": 4.0,
+      "scale": 1.0
+    },
+    "white_dragon_slayer": {
+      "type": "boss",
+      "target": "minecraft:husk",
+      "amount": 1,
+      "health": 100.0,
+      "damage": 4.0,
+      "scale": 0.6
+    },
+    "earth_magic": {
+      "type": "boss",
+      "target": "minecraft:hoglin",
+      "amount": 1,
+      "health": 120.0,
+      "damage": 3.0,
+      "scale": 0.4
+    },
+    "heavenly_body": {
+      "type": "boss",
+      "target": "minecraft:phantom",
+      "amount": 1,
+      "health": 80.0,
+      "damage": 4.0,
+      "scale": 1.5
+    },
+    "arc_of_time": {
+      "type": "boss",
+      "target": "minecraft:illusioner",
+      "amount": 1,
+      "health": 100.0,
+      "damage": 3.0,
+      "scale": 0.5
+    },
+    "card_magic": {
+      "type": "boss",
+      "target": "minecraft:witch",
+      "amount": 1,
+      "health": 100.0,
+      "damage": 2.0,
+      "scale": 0.5
+    },
+    "rune_magic": {
+      "type": "boss",
+      "target": "minecraft:pillager",
+      "amount": 1,
+      "health": 100.0,
+      "damage": 4.0,
+      "scale": 0.6
+    },
+    "crash_magic": {
+      "type": "boss",
+      "target": "minecraft:zoglin",
+      "amount": 1,
+      "health": 130.0,
+      "damage": 4.0,
+      "scale": 0.4
+    }
+  },
+
+  // Mejoras de estadística permanentes (recompensa de ayudar en una misión especial): cuánto da cada una y cuántas veces se puede tener cada una como máximo.
+  "stat_bonus_health": 2.0,
+  "stat_bonus_damage": 0.5,
+  "stat_bonus_armor": 1.0,
+  "stat_bonus_speed": 0.004,
+  "stat_bonus_ethernano": 10,
+  "stat_bonus_max_each": 5
+}

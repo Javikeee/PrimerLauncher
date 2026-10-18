@@ -99,6 +99,7 @@ const DEFAULT_CONFIG = {
     selectedAccount: null,
     authenticationDatabase: {},
     modConfigurations: [],
+    installedModpacks: {},
     javaConfig: {}
 }
 
@@ -148,10 +149,38 @@ exports.load = function(){
         }
         if(doValidate){
             config = validateKeySet(DEFAULT_CONFIG, config)
+            migrateHeliosDataDirectory()
             exports.save()
         }
     }
     logger.info('Successfully Loaded')
+}
+
+/**
+ * Configs created before the rebrand point at Helios' default data directory.
+ * Move it to Keee Launcher's, keeping the downloaded files.
+ */
+function migrateHeliosDataDirectory(){
+    const heliosPath = path.join(sysRoot, '.helioslauncher')
+    if(config.settings.launcher.dataDirectory !== heliosPath){
+        return
+    }
+    try {
+        if(fs.existsSync(heliosPath) && !fs.existsSync(dataPath)){
+            fs.moveSync(heliosPath, dataPath)
+        }
+        config.settings.launcher.dataDirectory = dataPath
+        // Java runtimes downloaded by the launcher live in the data directory too.
+        for(const javaConfig of Object.values(config.javaConfig)){
+            if(javaConfig.executable?.startsWith(heliosPath)){
+                javaConfig.executable = dataPath + javaConfig.executable.slice(heliosPath.length)
+            }
+        }
+        logger.info(`Moved data directory from ${heliosPath} to ${dataPath}`)
+    } catch (err) {
+        // Keep using the old directory rather than losing the game files.
+        logger.error('Unable to move the data directory, keeping the old one.', err)
+    }
 }
 
 /**
@@ -501,6 +530,32 @@ exports.setModConfiguration = function(serverid, configuration){
         }
     }
     cfgs.push(configuration)
+}
+
+// Installed Modpacks
+
+/**
+ * Get what was last installed for a modpack.
+ *
+ * @param {string} serverid The id of the server.
+ * @returns {{version: string, fingerprint: string, date: string} | null} The install record, or null if never installed.
+ */
+exports.getInstalledModpack = function(serverid){
+    return config.installedModpacks[serverid] ?? null
+}
+
+/**
+ * Record a completed modpack install or update.
+ *
+ * @param {string} serverid The id of the server.
+ * @param {{version: string, fingerprint: string, date: string} | null} record The install record, or null once uninstalled.
+ */
+exports.setInstalledModpack = function(serverid, record){
+    if(record == null){
+        delete config.installedModpacks[serverid]
+    } else {
+        config.installedModpacks[serverid] = record
+    }
 }
 
 // User Configurable Settings

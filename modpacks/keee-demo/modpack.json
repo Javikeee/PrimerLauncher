@@ -1,0 +1,19 @@
+{
+    "name": "Keee Demo",
+    "description": "Modpack de ejemplo para probar la instalación y las actualizaciones automáticas.",
+    "icon": "assets/images/modpacks/keee-demo.svg",
+    "version": "1.0.0",
+    "address": "localhost:25565",
+    "minecraftVersion": "1.21.1",
+    "loader": {
+        "type": "fabric",
+        "version": "latest"
+    },
+    "mods": [
+        { "modrinth": "fabric-api" },
+        { "modrinth": "sodium" },
+        { "modrinth": "lithium" },
+        { "modrinth": "modmenu" },
+        { "modrinth": "ferrite-core" }
+    ]
+}

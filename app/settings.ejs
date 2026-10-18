@@ -7,6 +7,7 @@
             <div id="settingsNavItemsContainer">
                 <div id="settingsNavItemsContent">
                     <button class="settingsNavItem" rSc="settingsTabAccount" id="settingsNavAccount" selected><%- lang('settings.navAccount') %></button>
+                    <button class="settingsNavItem" rSc="settingsTabSkin" id="settingsNavSkin"><%- lang('settings.navSkin') %></button>
                     <button class="settingsNavItem" rSc="settingsTabMinecraft"><%- lang('settings.navMinecraft') %></button>
                     <button class="settingsNavItem" rSc="settingsTabMods"><%- lang('settings.navMods') %></button>
                     <button class="settingsNavItem" rSc="settingsTabJava"><%- lang('settings.navJava') %></button>
@@ -68,6 +69,44 @@
                     <!-- Mojang auth accounts populated here. -->
                 </div>
             </div>
+        </div>
+        <div id="settingsTabSkin" class="settingsTab" style="display: none;">
+            <div class="settingsTabHeader">
+                <span class="settingsTabHeaderText"><%- lang('settings.skinTabHeaderText') %></span>
+                <span class="settingsTabHeaderDesc"><%- lang('settings.skinTabHeaderDesc') %></span>
+            </div>
+            <div id="skinEditor">
+                <div id="skinViewerPanel">
+                    <canvas id="skinViewerCanvas"></canvas>
+                    <span id="skinPreviewBadge" hidden><%- lang('settings.skinPreviewBadge') %></span>
+                    <div id="skinDropHint"><%- lang('settings.skinDropHint') %></div>
+                </div>
+                <div id="skinControls">
+                    <span class="skinSectionTitle"><%- lang('settings.skinModelTitle') %></span>
+                    <div id="skinVariantToggle">
+                        <button class="skinVariantButton" variant="classic"><%- lang('settings.skinModelClassic') %></button>
+                        <button class="skinVariantButton" variant="slim"><%- lang('settings.skinModelSlim') %></button>
+                    </div>
+                    <div id="skinActions">
+                        <button id="skinUploadButton" class="skinButton"><%- lang('settings.skinUpload') %></button>
+                        <input type="file" id="skinFileInput" accept="image/png" hidden>
+                        <button id="skinApplyButton" class="skinButton skinButtonPrimary" disabled><%- lang('settings.skinApply') %></button>
+                        <button id="skinDiscardButton" class="skinButton" hidden><%- lang('settings.skinDiscard') %></button>
+                        <button id="skinResetButton" class="skinButton skinButtonGhost"><%- lang('settings.skinReset') %></button>
+                    </div>
+                    <span id="skinStatus"></span>
+                    <button id="skinLoginButton" class="skinButton" hidden><%- lang('settings.skinGoToAccount') %></button>
+                    <span class="skinSectionTitle"><%- lang('settings.skinCapesTitle') %></span>
+                    <div id="skinCapeList" class="skinGrid">
+                        <!-- Capes are populated here by skins.js. -->
+                    </div>
+                </div>
+            </div>
+            <span class="skinSectionTitle"><%- lang('settings.skinLibraryTitle') %></span>
+            <div id="skinLibraryList" class="skinGrid">
+                <!-- Saved skins are populated here by skins.js. -->
+            </div>
+            <span id="skinLibraryEmpty" class="skinMuted" hidden><%- lang('settings.skinLibraryEmpty') %></span>
         </div>
         <div id="settingsTabMinecraft" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
@@ -390,4 +429,5 @@
         </div>
     </div>
     <script src="./assets/js/scripts/settings.js"></script>
+    <script src="./assets/js/scripts/skins.js"></script>
 </div>

@@ -14,6 +14,10 @@ const SHADER_OPTION = /shaderPack=(.+)/
 const SHADER_DIR = 'shaderpacks'
 const SHADER_CONFIG = 'optionsshaders.txt'
 
+// Lists the modpack mods the launcher copied into the mods folder (see
+// ProcessBuilder.syncForgeModsFolder). They are not drop-in mods.
+exports.MANAGED_MODS_FILE = '.keee-managed.json'
+
 /**
  * Validate that the given directory exists. If not, it is
  * created.
@@ -42,6 +46,11 @@ exports.scanForDropinMods = function(modsDir, version) {
         const versionDir = path.join(modsDir, version)
         if(fs.existsSync(versionDir)){
             verCandidates = fs.readdirSync(versionDir)
+        }
+        const managedPath = path.join(modsDir, exports.MANAGED_MODS_FILE)
+        if(fs.existsSync(managedPath)){
+            const managed = fs.readJsonSync(managedPath)
+            modCandidates = modCandidates.filter(file => !managed.includes(file))
         }
         for(let file of modCandidates){
             const match = MOD_REGEX.exec(file)

@@ -306,6 +306,69 @@ html, body {
 .heroTag:empty {
     display: none;
 }
+#landingHeroState[state="installed"] {
+    background: var(--kl-lime-soft);
+    border-color: var(--kl-lime);
+    color: var(--kl-lime);
+}
+#landingHeroState[state="updateAvailable"] {
+    background: rgba(255, 193, 7, 0.14);
+    border-color: #ffc107;
+    color: #ffd54f;
+}
+
+/* Install / update buttons of the selected modpack. */
+#landingHeroActions {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+.heroAction {
+    font-family: 'Avenir Heavy';
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 9px 18px;
+    border-radius: var(--kl-radius-sm);
+    border: 1px solid var(--kl-border);
+    background: var(--kl-panel);
+    color: var(--kl-text);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.heroAction:hover:not(:disabled),
+.heroAction:focus-visible {
+    border-color: var(--kl-lime);
+    outline: none;
+}
+.heroAction:disabled {
+    color: var(--kl-text-muted);
+    cursor: default;
+}
+.heroActionPrimary {
+    background: var(--kl-lime);
+    border-color: var(--kl-lime);
+    color: var(--kl-on-lime);
+}
+.heroActionPrimary:hover:not(:disabled),
+.heroActionPrimary:focus-visible {
+    background: var(--kl-lime-strong);
+    box-shadow: 0 0 22px var(--kl-lime-glow);
+}
+#modpackUninstallButton:hover,
+#modpackUninstallButton:focus-visible {
+    border-color: var(--kl-danger);
+    color: var(--kl-danger);
+}
+
+/* The launch button turns yellow while the modpack has an update. */
+#launch_button[state="updateAvailable"] {
+    background: #ffc107;
+}
+#launch_button[state="updateAvailable"]:hover,
+#launch_button[state="updateAvailable"]:focus {
+    background: #ffd54f;
+    box-shadow: 0 0 26px rgba(255, 193, 7, 0.45);
+}
 
 @keyframes klFadeUp {
     from { opacity: 0; transform: translateY(12px); }
@@ -442,6 +505,26 @@ html, body {
 }
 #launch_progress_label {
     color: var(--kl-lime);
+}
+/* Keep the progress inside the panel; Helios offsets it to line up with its old layout. */
+#launch_details {
+    top: 0;
+    align-items: center;
+    gap: 4px;
+}
+#launch_details_left {
+    align-items: center;
+    gap: 12px;
+}
+#launch_details_left .bot_divider {
+    height: 32px;
+}
+#launch_details_right {
+    gap: 8px;
+    max-width: 230px;
+}
+#launch_progress[value] {
+    width: 230px;
 }
 
 #newsButton:hover #newsButtonText,
@@ -725,4 +808,273 @@ input:checked + .toggleSwitchSlider {
 }
 .modpackRailItem[selected] .modpackRailName {
     color: var(--kl-lime);
+}
+.modpackRailItem[state="updateAvailable"] .modpackRailMeta {
+    color: #ffd54f;
+}
+/* Dot on the icon, visible while the rail is collapsed. */
+.modpackRailIconWrap {
+    position: relative;
+    flex: 0 0 40px;
+    display: flex;
+}
+.modpackRailItem[state="updateAvailable"] .modpackRailIconWrap::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffc107;
+    box-shadow: 0 0 0 2px var(--kl-panel-strong), 0 0 8px rgba(255, 193, 7, 0.7);
+}
+
+/* * *
+* Skin manager (Settings > Skin)
+* * */
+
+#skinEditor {
+    display: flex;
+    gap: 24px;
+    margin: 10px 0 20px 0;
+    width: 90%;
+}
+#skinEditor[busy] #skinControls {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+#skinViewerPanel {
+    position: relative;
+    flex: 0 0 240px;
+    height: 320px;
+    border-radius: var(--kl-radius);
+    background:
+        radial-gradient(circle at 50% 85%, var(--kl-lime-soft), transparent 60%),
+        var(--kl-panel);
+    border: 1px solid var(--kl-border-muted);
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+#skinViewerPanel[dragging] {
+    border-color: var(--kl-lime);
+    box-shadow: 0 0 20px var(--kl-lime-glow);
+}
+#skinViewerCanvas {
+    display: block;
+    cursor: grab;
+}
+#skinViewerCanvas:active {
+    cursor: grabbing;
+}
+#skinPreviewBadge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--kl-lime);
+    color: var(--kl-on-lime);
+    font-family: 'Avenir Heavy';
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+#skinDropHint {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: var(--kl-text-muted);
+    pointer-events: none;
+}
+
+#skinControls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    transition: opacity 0.2s ease;
+}
+
+.skinSectionTitle {
+    display: block;
+    font-family: 'Avenir Heavy';
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--kl-text-muted);
+    margin-top: 6px;
+}
+#settingsTabSkin > .skinSectionTitle {
+    margin: 0 0 10px 0;
+}
+
+#skinVariantToggle {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 3px;
+    border-radius: var(--kl-radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--kl-border-muted);
+}
+.skinVariantButton {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: var(--kl-text-muted);
+    font-family: 'Avenir Medium';
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.skinVariantButton:hover {
+    color: var(--kl-text);
+}
+.skinVariantButton[selected] {
+    background: var(--kl-lime);
+    color: var(--kl-on-lime);
+}
+
+#skinActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.skinButton {
+    padding: 8px 14px;
+    border-radius: var(--kl-radius-sm);
+    border: 1px solid var(--kl-border);
+    background: var(--kl-panel);
+    color: var(--kl-text);
+    font-family: 'Avenir Medium';
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.skinButton:hover:not(:disabled) {
+    border-color: var(--kl-lime);
+}
+.skinButton:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+.skinButtonPrimary {
+    background: var(--kl-lime);
+    border-color: var(--kl-lime);
+    color: var(--kl-on-lime);
+    font-family: 'Avenir Heavy';
+}
+.skinButtonPrimary:hover:not(:disabled) {
+    background: var(--kl-lime-strong);
+    box-shadow: 0 0 16px var(--kl-lime-glow);
+}
+.skinButtonGhost {
+    background: none;
+    border-color: var(--kl-border-muted);
+    color: var(--kl-text-muted);
+}
+
+#skinStatus {
+    min-height: 18px;
+    font-size: 12px;
+    color: var(--kl-text-muted);
+}
+#skinStatus[type="success"] {
+    color: var(--kl-lime);
+}
+#skinStatus[type="error"] {
+    color: var(--kl-danger);
+}
+
+.skinGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#settingsTabSkin > .skinGrid {
+    width: 90%;
+    margin-bottom: 30px;
+}
+.skinTile {
+    position: relative;
+    width: 84px;
+    padding: 10px 6px 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    border-radius: var(--kl-radius-sm);
+    border: 1px solid var(--kl-border-muted);
+    background: var(--kl-panel);
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.15s ease;
+}
+.skinTile:hover {
+    border-color: var(--kl-border);
+    transform: translateY(-2px);
+}
+.skinTile[selected] {
+    border-color: var(--kl-lime);
+    box-shadow: 0 0 12px var(--kl-lime-soft);
+}
+.skinTile canvas {
+    image-rendering: pixelated;
+    border-radius: 4px;
+}
+.skinTile span {
+    width: 100%;
+    font-size: 11px;
+    color: var(--kl-text-muted);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.skinTile[selected] span {
+    color: var(--kl-lime);
+}
+.skinCapeNone {
+    width: 30px;
+    height: 48px;
+    border-radius: 4px;
+    border: 2px dashed var(--kl-border-muted);
+    box-sizing: border-box;
+}
+.skinTileRemove {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: 14px;
+    line-height: 14px;
+    color: var(--kl-text-muted);
+    opacity: 0;
+    transition: opacity 0.15s ease, color 0.15s ease;
+}
+.skinTile:hover .skinTileRemove {
+    opacity: 1;
+}
+.skinTileRemove:hover {
+    color: var(--kl-danger);
+}
+.skinMuted {
+    display: block;
+    font-size: 12px;
+    color: var(--kl-text-muted);
+    margin-bottom: 30px;
+}
+#skinLoginButton {
+    align-self: flex-start;
+}
+#skinLoginButton[hidden] {
+    display: none;
+}
+.skinButtonPrimary:disabled {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--kl-border-muted);
+    color: var(--kl-text-muted);
+    opacity: 1;
 }

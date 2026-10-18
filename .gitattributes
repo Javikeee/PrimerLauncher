@@ -1,0 +1,3 @@
+# Modpack files are checked by MD5: keep their bytes exactly as they are.
+modpacks/** -text
+distribution/files/** -text

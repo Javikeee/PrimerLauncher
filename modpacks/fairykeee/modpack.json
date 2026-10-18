@@ -1,0 +1,29 @@
+{
+    "name": "FairyKeee",
+    "description": "Hadas, magia y aventuras en el mundo de Keee.",
+    "version": "1.0.0",
+    "address": "localhost:25565",
+    "minecraftVersion": "1.21.1",
+    "loader": {
+        "type": "fabric",
+        "version": "0.19.5"
+    },
+    "mods": [
+        {
+            "modrinth": "essential",
+            "version": "prNmb4J8"
+        },
+        {
+            "modrinth": "fabric-api",
+            "version": "Mys3P7lK"
+        },
+        {
+            "modrinth": "iris",
+            "version": "bAo1Qhte"
+        },
+        {
+            "modrinth": "sodium",
+            "version": "SMxNOGZ6"
+        }
+    ]
+}

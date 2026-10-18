@@ -29,6 +29,7 @@ const {
 
 // Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
+const DistroManager           = require('./assets/js/distromanager')
 const ProcessBuilder          = require('./assets/js/processbuilder')
 
 // Launch Elements
@@ -100,14 +101,18 @@ function setLaunchEnabled(val){
     document.getElementById('launch_button').disabled = !val
 }
 
-// Bind launch button
-document.getElementById('launch_button').addEventListener('click', async e => {
-    loggerLanding.info('Launching game..')
+/**
+ * Make sure Java is available, then download/validate the selected modpack.
+ *
+ * @param {boolean} launch True to start the game afterwards, false to only install or update the modpack.
+ */
+async function runModpackTask(launch){
+    loggerLanding.info(launch ? 'Launching game..' : 'Installing modpack..')
     try {
         const server = (await DistroAPI.getDistribution()).getServerById(ConfigManager.getSelectedServer())
         const jExe = ConfigManager.getJavaExecutable(ConfigManager.getSelectedServer())
         if(jExe == null){
-            await asyncSystemScan(server.effectiveJavaOptions)
+            await asyncSystemScan(server.effectiveJavaOptions, true, launch)
         } else {
 
             setLaunchDetails(Lang.queryJS('landing.launch.pleaseWait'))
@@ -117,17 +122,55 @@ document.getElementById('launch_button').addEventListener('click', async e => {
             const details = await validateSelectedJvm(ensureJavaDirIsRoot(jExe), server.effectiveJavaOptions.supported)
             if(details != null){
                 loggerLanding.info('Jvm Details', details)
-                await dlAsync()
+                await dlAsync(launch)
 
             } else {
-                await asyncSystemScan(server.effectiveJavaOptions)
+                await asyncSystemScan(server.effectiveJavaOptions, true, launch)
             }
         }
     } catch(err) {
         loggerLanding.error('Unhandled error in during launch process.', err)
         showLaunchFailure(Lang.queryJS('landing.launch.failureTitle'), Lang.queryJS('landing.launch.failureText'))
     }
+}
+
+/**
+ * Ask for confirmation, then delete the selected modpack's files.
+ */
+async function confirmUninstallModpack(){
+    const distro = await DistroAPI.getDistribution()
+    const serv = distro.getServerById(ConfigManager.getSelectedServer())
+    // The game keeps its files open while running.
+    if(proc != null && proc.exitCode == null){
+        showLaunchFailure(Lang.queryJS('landing.modpack.uninstallTitle', { name: serv.rawServer.name }), Lang.queryJS('landing.modpack.closeGameFirst'))
+        return
+    }
+    setOverlayContent(
+        Lang.queryJS('landing.modpack.uninstallTitle', { name: serv.rawServer.name }),
+        Lang.queryJS('landing.modpack.uninstallText'),
+        Lang.queryJS('landing.modpack.uninstallConfirm'),
+        Lang.queryJS('landing.modpack.uninstallCancel')
+    )
+    setOverlayHandler(async () => {
+        toggleOverlay(false)
+        try {
+            await DistroManager.uninstallModpack(serv, distro)
+        } catch(err) {
+            loggerLanding.error('Unable to uninstall modpack.', err)
+        }
+        populateModpackRail(distro)
+        updateSelectedServer(serv)
+    })
+    setDismissHandler(() => toggleOverlay(false))
+    toggleOverlay(true, true)
+}
+
+// The launch button installs, updates or plays the selected modpack.
+document.getElementById('launch_button').addEventListener('click', async () => {
+    const serv = (await DistroAPI.getDistribution()).getServerById(ConfigManager.getSelectedServer())
+    runModpackTask(DistroManager.getModpackState(serv) === 'installed')
 })
+document.getElementById('modpackUninstallButton').onclick = confirmUninstallModpack
 
 // Bind settings button
 document.getElementById('settingsMediaButton').onclick = async e => {
@@ -139,7 +182,7 @@ document.getElementById('settingsMediaButton').onclick = async e => {
 document.getElementById('avatarOverlay').onclick = async e => {
     await prepareSettings()
     switchView(getCurrentView(), VIEWS.settings, 500, 500, () => {
-        settingsNavItemListener(document.getElementById('settingsNavAccount'), false)
+        settingsNavItemListener(document.getElementById('settingsNavSkin'), false)
     })
 }
 
@@ -169,11 +212,54 @@ function updateSelectedServer(serv){
     if(getCurrentView() === VIEWS.settings){
         animateSettingsTabRefresh()
     }
-    // Modpacks without modules are announced but not playable yet.
-    setLaunchEnabled(serv != null && serv.modules.length > 0)
+    // Modpacks without modules are announced but not available yet.
+    const state = DistroManager.getModpackState(serv)
+    const launchButton = document.getElementById('launch_button')
+    setLaunchEnabled(state !== 'unavailable')
+    launchButton.setAttribute('state', state)
+    launchButton.textContent = Lang.queryJS({
+        notInstalled: 'landing.modpack.launchInstall',
+        updateAvailable: 'landing.modpack.launchUpdate'
+    }[state] || 'landing.modpack.launchPlay')
     updateLandingHero(serv)
     updateModpackRailSelection(serv)
 }
+
+/* Modpack updates */
+
+// How often the distribution is downloaded again to look for modpack changes.
+const MODPACK_CHECK_INTERVAL = 5*60*1000
+// Minimum time between checks triggered by focusing the window.
+const MODPACK_FOCUS_CHECK_COOLDOWN = 60*1000
+let lastModpackCheck = Date.now()
+let modpackCheckRunning = false
+
+/**
+ * Download the distribution again and refresh the UI, so changes to the
+ * modpacks are detected without restarting or updating the launcher. The
+ * distribution is also downloaded when the launcher starts.
+ */
+async function checkForModpackUpdates(){
+    // Never swap the distribution in the middle of an install or launch.
+    if(modpackCheckRunning || document.getElementById('modpackRail').hasAttribute('disabled')){
+        return
+    }
+    modpackCheckRunning = true
+    lastModpackCheck = Date.now()
+    try {
+        onDistroRefresh(await DistroManager.refreshDistribution())
+    } catch(err) {
+        loggerLanding.warn('Unable to check for modpack updates.', err)
+    } finally {
+        modpackCheckRunning = false
+    }
+}
+setInterval(checkForModpackUpdates, MODPACK_CHECK_INTERVAL)
+window.addEventListener('focus', () => {
+    if(Date.now() - lastModpackCheck > MODPACK_FOCUS_CHECK_COOLDOWN){
+        checkForModpackUpdates()
+    }
+})
 
 /**
  * Fill the side rail with one entry per modpack in the distribution.
@@ -185,17 +271,21 @@ function populateModpackRail(distro){
     list.innerHTML = ''
     for(const serv of distro.servers){
         const raw = serv.rawServer
-        const playable = serv.modules.length > 0
+        const state = DistroManager.getModpackState(serv)
 
         const item = document.createElement('button')
         item.className = 'modpackRailItem'
         item.setAttribute('servid', raw.id)
+        item.setAttribute('state', state)
         item.title = raw.name
 
+        const iconWrap = document.createElement('div')
+        iconWrap.className = 'modpackRailIconWrap'
         const icon = document.createElement('img')
         icon.className = 'modpackRailIcon'
         icon.src = raw.icon
         icon.alt = ''
+        iconWrap.appendChild(icon)
 
         const info = document.createElement('div')
         info.className = 'modpackRailInfo'
@@ -204,12 +294,15 @@ function populateModpackRail(distro){
         name.textContent = raw.name
         const meta = document.createElement('span')
         meta.className = 'modpackRailMeta'
-        meta.textContent = playable
-            ? raw.minecraftVersion
-            : `${raw.minecraftVersion} · ${Lang.queryJS('landing.selectedServer.comingSoon')}`
+        const stateText = {
+            unavailable: Lang.queryJS('landing.selectedServer.comingSoon'),
+            installed: Lang.queryJS('landing.modpack.railInstalled'),
+            updateAvailable: Lang.queryJS('landing.modpack.railUpdate')
+        }[state]
+        meta.textContent = stateText ? `${raw.minecraftVersion} · ${stateText}` : raw.minecraftVersion
         info.append(name, meta)
 
-        item.append(icon, info)
+        item.append(iconWrap, info)
         item.onclick = () => {
             if(item.hasAttribute('selected')){
                 return
@@ -259,10 +352,35 @@ function updateLandingHero(serv){
     document.getElementById('landingHeroLoader').textContent = serv.modules.length > 0
         ? getModLoaderName(serv)
         : Lang.queryJS('landing.selectedServer.comingSoon')
-    // Restart the entrance animation.
-    hero.style.display = 'none'
-    void hero.offsetWidth
+    updateModpackActions(serv)
+    // Restart the entrance animation, only when another modpack is shown.
+    if(hero.getAttribute('servid') !== raw.id){
+        hero.setAttribute('servid', raw.id)
+        hero.style.display = 'none'
+        void hero.offsetWidth
+    }
     hero.style.display = ''
+}
+
+/**
+ * Show the install state of the selected modpack and the matching buttons.
+ *
+ * @param {HeliosServer} serv The selected server.
+ */
+function updateModpackActions(serv){
+    const state = DistroManager.getModpackState(serv)
+    const installed = ConfigManager.getInstalledModpack(serv.rawServer.id)
+    const version = serv.rawServer.version
+
+    const stateTag = document.getElementById('landingHeroState')
+    stateTag.setAttribute('state', state)
+    stateTag.textContent = {
+        notInstalled: Lang.queryJS('landing.modpack.notInstalled'),
+        installed: Lang.queryJS('landing.modpack.installed', { version: installed?.version }),
+        updateAvailable: Lang.queryJS('landing.modpack.updateAvailable', { version })
+    }[state] || ''
+
+    document.getElementById('modpackUninstallButton').hidden = state !== 'installed' && state !== 'updateAvailable'
 }
 
 /**
@@ -409,8 +527,9 @@ function showLaunchFailure(title, desc){
  * Asynchronously scan the system for valid Java installations.
  * 
  * @param {boolean} launchAfter Whether we should begin to launch after scanning. 
+ * @param {boolean} login Whether the game should be started after downloading (see dlAsync).
  */
-async function asyncSystemScan(effectiveJavaOptions, launchAfter = true){
+async function asyncSystemScan(effectiveJavaOptions, launchAfter = true, login = true){
 
     setLaunchDetails(Lang.queryJS('landing.systemScan.checking'))
     toggleLaunchArea(true)
@@ -435,7 +554,7 @@ async function asyncSystemScan(effectiveJavaOptions, launchAfter = true){
             toggleOverlay(false)
             
             try {
-                downloadJava(effectiveJavaOptions, launchAfter)
+                downloadJava(effectiveJavaOptions, launchAfter, login)
             } catch(err) {
                 loggerLanding.error('Unhandled error in Java Download', err)
                 showLaunchFailure(Lang.queryJS('landing.systemScan.javaDownloadFailureTitle'), Lang.queryJS('landing.systemScan.javaDownloadFailureText'))
@@ -457,7 +576,7 @@ async function asyncSystemScan(effectiveJavaOptions, launchAfter = true){
                 setDismissHandler(() => {
                     toggleOverlay(false, true)
 
-                    asyncSystemScan(effectiveJavaOptions, launchAfter)
+                    asyncSystemScan(effectiveJavaOptions, launchAfter, login)
                 })
                 $('#overlayContent').fadeIn(250)
             })
@@ -477,13 +596,13 @@ async function asyncSystemScan(effectiveJavaOptions, launchAfter = true){
         // TODO Callback hell, refactor
         // TODO Move this out, separate concerns.
         if(launchAfter){
-            await dlAsync()
+            await dlAsync(login)
         }
     }
 
 }
 
-async function downloadJava(effectiveJavaOptions, launchAfter = true) {
+async function downloadJava(effectiveJavaOptions, launchAfter = true, login = true) {
 
     // TODO Error handling.
     // asset can be null.
@@ -543,7 +662,7 @@ async function downloadJava(effectiveJavaOptions, launchAfter = true) {
 
     // TODO Callback hell
     // Refactor the launch functions
-    asyncSystemScan(effectiveJavaOptions, launchAfter)
+    asyncSystemScan(effectiveJavaOptions, launchAfter, login)
 
 }
 
@@ -559,7 +678,7 @@ const MIN_LINGER = 5000
 
 async function dlAsync(login = true) {
 
-    // Login parameter is temporary for debug purposes. Allows testing the validation/downloads without
+    // With login false the modpack is only installed or updated, without
     // launching the game.
 
     const loggerLaunchSuite = LoggerUtil.getLogger('LaunchSuite')
@@ -569,7 +688,7 @@ async function dlAsync(login = true) {
     let distro
 
     try {
-        distro = await DistroAPI.refreshDistributionOrFallback()
+        distro = await DistroManager.refreshDistribution()
         onDistroRefresh(distro)
     } catch(err) {
         loggerLaunchSuite.error('Unable to refresh distribution index.', err)
@@ -578,6 +697,7 @@ async function dlAsync(login = true) {
     }
 
     const serv = distro.getServerById(ConfigManager.getSelectedServer())
+    const wasInstalled = ConfigManager.getInstalledModpack(serv.rawServer.id) != null
 
     if(login) {
         if(ConfigManager.getSelectedAccount() == null){
@@ -628,7 +748,9 @@ async function dlAsync(login = true) {
 
     if(invalidFileCount > 0) {
         loggerLaunchSuite.info('Downloading files.')
-        setLaunchDetails(Lang.queryJS('landing.dlAsync.downloadingFiles'))
+        setLaunchDetails(Lang.queryJS(login
+            ? 'landing.dlAsync.downloadingFiles'
+            : wasInstalled ? 'landing.modpack.updating' : 'landing.modpack.installing'))
         setLaunchPercentage(0)
         try {
             await fullRepairModule.download(percent => {
@@ -648,6 +770,24 @@ async function dlAsync(login = true) {
     remote.getCurrentWindow().setProgressBar(-1)
 
     fullRepairModule.destroyReceiver()
+
+    // Every file now matches the distribution, so the modpack is up to date.
+    DistroManager.markModpackInstalled(serv)
+    populateModpackRail(distro)
+    updateSelectedServer(serv)
+
+    if(!login) {
+        toggleLaunchArea(false)
+        const doneKey = wasInstalled ? 'updateDone' : 'installDone'
+        setOverlayContent(
+            Lang.queryJS(`landing.modpack.${doneKey}Title`),
+            Lang.queryJS(`landing.modpack.${doneKey}Text`, { name: serv.rawServer.name, version: serv.rawServer.version }),
+            Lang.queryJS('landing.launch.okay')
+        )
+        setOverlayHandler(null)
+        toggleOverlay(true)
+        return
+    }
 
     setLaunchDetails(Lang.queryJS('landing.dlAsync.preparingToLaunch'))
 

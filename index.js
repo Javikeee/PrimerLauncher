@@ -10,7 +10,9 @@ const isDev                             = require('./app/assets/js/isdev')
 const path                              = require('path')
 const semver                            = require('semver')
 const { pathToFileURL }                 = require('url')
-const { AZURE_CLIENT_ID, MSFT_OPCODE, MSFT_REPLY_TYPE, MSFT_ERROR, SHELL_OPCODE } = require('./app/assets/js/ipcconstants')
+const { AZURE_CLIENT_ID, MSFT_OPCODE, MSFT_REPLY_TYPE, MSFT_ERROR, SHELL_OPCODE, SKIN_OPCODE } = require('./app/assets/js/ipcconstants')
+const SkinAPI                           = require('./app/assets/js/skinapi')
+const { DEV_DISTRO_PORT }               = require('./app/assets/js/distroconfig')
 const LangLoader                        = require('./app/assets/js/langloader')
 
 // Setup Lang
@@ -50,9 +52,9 @@ function initAutoUpdater(event, data) {
     }) 
 }
 
-// Auto updates are disabled until releases are published somewhere public.
-// electron-updater cannot read a private GitHub repo without shipping a token.
-const AUTO_UPDATE_ENABLED = false
+// Releases are published to the public Javikeee/keee-launcher repository
+// (see publish in electron-builder.yml), since the source repo is private.
+const AUTO_UPDATE_ENABLED = true
 
 // Open channel to listen for update actions.
 ipcMain.on('autoUpdateAction', (event, arg, data) => {
@@ -94,9 +96,45 @@ ipcMain.on('autoUpdateAction', (event, arg, data) => {
             break
     }
 })
+// While developing, serve distribution/ locally so modpacks built with
+// tools/build-modpack.js can be installed before they are uploaded.
+if(isDev){
+    const distroDir = path.join(__dirname, 'distribution')
+    require('http').createServer((req, res) => {
+        const file = path.join(distroDir, decodeURIComponent(new URL(req.url, 'http://localhost').pathname))
+        if(!file.startsWith(distroDir + path.sep)){
+            res.writeHead(403).end()
+            return
+        }
+        fs.readFile(file, (err, data) => {
+            if(err){
+                res.writeHead(404).end()
+            } else {
+                const types = { '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.avif': 'image/avif', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg' }
+                res.writeHead(200, { 'Content-Type': types[path.extname(file).toLowerCase()] || 'application/octet-stream' }).end(data)
+            }
+        })
+    }).listen(DEV_DISTRO_PORT, '127.0.0.1')
+}
+
 // Redirect distribution index event from preloader to renderer.
 ipcMain.on('distributionIndexDone', (event, res) => {
     event.sender.send('distributionIndexDone', res)
+})
+
+// Skin manager requests. Errors are flattened because custom error
+// properties do not survive ipcRenderer.invoke.
+const SKIN_ACTIONS = ['getProfile', 'getPublicSkin', 'uploadSkin', 'resetSkin', 'setCape', 'fetchTexture']
+ipcMain.handle(SKIN_OPCODE, async (event, action, ...args) => {
+    if(!SKIN_ACTIONS.includes(action)){
+        return { ok: false, code: 'unknown' }
+    }
+    try {
+        return { ok: true, data: await SkinAPI[action](...args) }
+    } catch(error) {
+        console.error('Skin API error', action, error.message)
+        return { ok: false, code: error.code || 'unknown' }
+    }
 })
 
 // Handle trash item.
