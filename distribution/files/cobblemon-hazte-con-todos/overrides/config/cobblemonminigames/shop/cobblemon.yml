@@ -1,0 +1,1064 @@
+catalog-id: cobblemon_shop
+requires-mods:
+  - cobblemon
+categories:
+  - id: pokeballs
+    name: "Poke Balls"
+    icon: "cobblemon:poke_ball"
+    subcategories:
+      - name: "Standard"
+        items:
+          - type: item
+            id: "cobblemon:poke_ball"
+            price: 10
+            rarity: common
+          - type: item
+            id: "cobblemon:premier_ball"
+            price: 10
+            rarity: common
+          - type: item
+            id: "cobblemon:heal_ball"
+            price: 12
+            rarity: common
+          - type: item
+            id: "cobblemon:great_ball"
+            price: 15
+            rarity: common
+          - type: item
+            id: "cobblemon:luxury_ball"
+            price: 20
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:ultra_ball"
+            price: 25
+            rarity: uncommon
+
+      - name: "Specialist"
+        items:
+          - type: item
+            id: "cobblemon:safari_ball"
+            price: 18
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:sport_ball"
+            price: 18
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:park_ball"
+            price: 25
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:nest_ball"
+            price: 28
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:net_ball"
+            price: 28
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:dive_ball"
+            price: 30
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:repeat_ball"
+            price: 30
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:timer_ball"
+            price: 30
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:dusk_ball"
+            price: 30
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:quick_ball"
+            price: 40
+            rarity: rare
+
+      - name: "Apricorn"
+        items:
+          - type: item
+            id: "cobblemon:friend_ball"
+            price: 25
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:fast_ball"
+            price: 40
+            rarity: rare
+          - type: item
+            id: "cobblemon:level_ball"
+            price: 40
+            rarity: rare
+          - type: item
+            id: "cobblemon:lure_ball"
+            price: 40
+            rarity: rare
+          - type: item
+            id: "cobblemon:heavy_ball"
+            price: 40
+            rarity: rare
+          - type: item
+            id: "cobblemon:moon_ball"
+            price: 40
+            rarity: rare
+          - type: item
+            id: "cobblemon:love_ball"
+            price: 45
+            rarity: rare
+
+      - name: "Rare & Event"
+        items:
+          - type: item
+            id: "cobblemon:dream_ball"
+            price: 70
+            rarity: rare
+          - type: item
+            id: "cobblemon:beast_ball"
+            price: 90
+            rarity: rare
+          - type: item
+            id: "cobblemon:cherish_ball"
+            price: 120
+            rarity: rare
+          - type: item
+            id: "cobblemon:ancient_origin_ball"
+            price: 900
+            rarity: ultra-rare
+          - type: item
+            id: "cobblemon:master_ball"
+            price: 1200
+            rarity: ultra-rare
+
+      - name: "Crafting Materials"
+        items:
+          - type: item
+            id: "cobblemon:tumblestone"
+            price: 20
+            rarity: common
+          - type: item
+            id: "cobblemon:black_tumblestone"
+            price: 40
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:sky_tumblestone"
+            price: 40
+            rarity: uncommon
+
+  - id: medicine
+    name: "Medicine"
+    icon: "cobblemon:potion"
+    subcategories:
+      - name: "Potions"
+        items:
+          - type: item
+            id: "cobblemon:potion"
+            price: 5
+            rarity: common
+          - type: item
+            id: "cobblemon:super_potion"
+            price: 20
+            rarity: common
+          - type: item
+            id: "cobblemon:hyper_potion"
+            price: 50
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:max_potion"
+            price: 80
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:full_restore"
+            price: 160
+            rarity: rare
+
+      - name: "Revival & Energy"
+        items:
+          - type: item
+            id: "cobblemon:revive"
+            price: 50
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:max_revive"
+            price: 140
+            rarity: rare
+          - type: item
+            id: "cobblemon:max_ether"
+            price: 80
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:max_elixir"
+            price: 120
+            rarity: rare
+
+      - name: "Status Cures"
+        items:
+          - type: item
+            id: "cobblemon:antidote"
+            price: 5
+            rarity: common
+          - type: item
+            id: "cobblemon:burn_heal"
+            price: 5
+            rarity: common
+          - type: item
+            id: "cobblemon:ice_heal"
+            price: 5
+            rarity: common
+          - type: item
+            id: "cobblemon:paralyze_heal"
+            price: 5
+            rarity: common
+          - type: item
+            id: "cobblemon:awakening"
+            price: 5
+            rarity: common
+          - type: item
+            id: "cobblemon:full_heal"
+            price: 20
+            rarity: common
+
+      - name: "Herbal & Snacks"
+        items:
+          - type: item
+            id: "cobblemon:heal_powder"
+            price: 10
+            rarity: common
+          - type: item
+            id: "cobblemon:remedy"
+            price: 45
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:poke_snack"
+            price: 10
+            rarity: common
+          - type: item
+            id: "cobblemon:aprijuice_red"
+            price: 15
+            rarity: common
+          - type: item
+            id: "cobblemon:aprijuice_blue"
+            price: 15
+            rarity: common
+          - type: item
+            id: "cobblemon:aprijuice_green"
+            price: 15
+            rarity: common
+          - type: item
+            id: "cobblemon:aprijuice_pink"
+            price: 15
+            rarity: common
+          - type: item
+            id: "cobblemon:aprijuice_black"
+            price: 15
+            rarity: common
+          - type: item
+            id: "cobblemon:aprijuice_white"
+            price: 15
+            rarity: common
+          - type: item
+            id: "cobblemon:aprijuice_yellow"
+            price: 15
+            rarity: common
+
+      - name: "Stations"
+        items:
+          - type: item
+            id: "cobblemon:healing_machine"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "cobblemon:restoration_tank"
+            price: 800
+            rarity: ultra-rare
+          - type: item
+            id: "cobblemon:fossil_analyzer"
+            price: 800
+            rarity: ultra-rare
+          - type: item
+            id: "cobblemon:pasture"
+            price: 600
+            rarity: ultra-rare
+          - type: item
+            id: "cobblemon:monitor"
+            price: 300
+            rarity: rare
+
+  - id: evolution
+    name: "Evolution"
+    icon: "cobblemon:fire_stone"
+    subcategories:
+      - name: "Evolution Stones"
+        items:
+          - type: item
+            id: "cobblemon:fire_stone"
+            price: 120
+            rarity: rare
+          - type: item
+            id: "cobblemon:water_stone"
+            price: 120
+            rarity: rare
+          - type: item
+            id: "cobblemon:thunder_stone"
+            price: 120
+            rarity: rare
+          - type: item
+            id: "cobblemon:leaf_stone"
+            price: 120
+            rarity: rare
+          - type: item
+            id: "cobblemon:moon_stone"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:sun_stone"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:dusk_stone"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:dawn_stone"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:ice_stone"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:shiny_stone"
+            price: 200
+            rarity: rare
+
+      - name: "Trade & Link Items"
+        items:
+          - type: item
+            id: "cobblemon:link_cable"
+            price: 240
+            rarity: rare
+          - type: item
+            id: "cobblemon:kings_rock"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:dragon_scale"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:metal_coat"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:upgrade"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:dubious_disc"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:protector"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:reaper_cloth"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:electirizer"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:magmarizer"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:oval_stone"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:razor_claw"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:razor_fang"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:prism_scale"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:whipped_dream"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:sachet"
+            price: 300
+            rarity: rare
+
+      - name: "Sweets"
+        items:
+          - type: item
+            id: "cobblemon:berry_sweet"
+            price: 80
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:clover_sweet"
+            price: 80
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:flower_sweet"
+            price: 80
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:love_sweet"
+            price: 80
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:ribbon_sweet"
+            price: 80
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:star_sweet"
+            price: 80
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:strawberry_sweet"
+            price: 80
+            rarity: uncommon
+
+      - name: "Fossils"
+        items:
+          - type: item
+            id: "cobblemon:helix_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:dome_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:old_amber_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:root_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:claw_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:skull_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:armor_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:cover_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:plume_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:jaw_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:sail_fossil"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:fossilized_bird"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "cobblemon:fossilized_dino"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "cobblemon:fossilized_drake"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "cobblemon:fossilized_fish"
+            price: 200
+            rarity: rare
+
+      - name: "Ancient Rods"
+        items:
+          - type: item
+            id: "cobblemon:ancient_origin_rod"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:ancient_feather_rod"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:ancient_gigaton_rod"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:ancient_heavy_rod"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:ancient_wing_rod"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:master_rod"
+            price: 800
+            rarity: ultra-rare
+
+  - id: battle_training
+    name: "Battle & Training"
+    icon: "cobblemon:rare_candy"
+    subcategories:
+      - name: "Battle Held Items"
+        items:
+          - type: item
+            id: "cobblemon:leftovers"
+            price: 360
+            rarity: rare
+          - type: item
+            id: "cobblemon:life_orb"
+            price: 360
+            rarity: rare
+          - type: item
+            id: "cobblemon:choice_band"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:choice_scarf"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:choice_specs"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:assault_vest"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:expert_belt"
+            price: 240
+            rarity: rare
+          - type: item
+            id: "cobblemon:focus_sash"
+            price: 240
+            rarity: rare
+          - type: item
+            id: "cobblemon:light_clay"
+            price: 240
+            rarity: rare
+          - type: item
+            id: "cobblemon:muscle_band"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "cobblemon:wide_lens"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "cobblemon:wise_glasses"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "cobblemon:focus_band"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:cleanse_tag"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:bright_powder"
+            price: 60
+            rarity: uncommon
+
+      - name: "Utility Held Items"
+        items:
+          - type: item
+            id: "cobblemon:exp_share"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:lucky_egg"
+            price: 500
+            rarity: ultra-rare
+          - type: item
+            id: "cobblemon:heat_rock"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:icy_rock"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:smooth_rock"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:everstone"
+            price: 80
+            rarity: uncommon
+
+      - name: "EXP Candies"
+        items:
+          - type: item
+            id: "cobblemon:exp_candy_xs"
+            price: 5
+            quantity: 5
+            rarity: common
+          - type: item
+            id: "cobblemon:exp_candy_s"
+            price: 10
+            quantity: 5
+            rarity: common
+          - type: item
+            id: "cobblemon:exp_candy_m"
+            price: 30
+            quantity: 3
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:exp_candy_l"
+            price: 70
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:exp_candy_xl"
+            price: 140
+            rarity: rare
+          - type: item
+            id: "cobblemon:rare_candy"
+            price: 240
+            rarity: rare
+
+      - name: "Vitamins"
+        items:
+          - type: item
+            id: "cobblemon:protein"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:hp_up"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:iron"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:calcium"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:carbos"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "cobblemon:zinc"
+            price: 300
+            rarity: rare
+
+      - name: "PP & Ability"
+        items:
+          - type: item
+            id: "cobblemon:pp_up"
+            price: 160
+            rarity: rare
+          - type: item
+            id: "cobblemon:pp_max"
+            price: 400
+            rarity: ultra-rare
+          - type: item
+            id: "cobblemon:ability_capsule"
+            price: 500
+            rarity: ultra-rare
+          - type: item
+            id: "cobblemon:ability_patch"
+            price: 800
+            rarity: ultra-rare
+
+      - name: "Nature Mints"
+        items:
+          - type: item
+            id: "cobblemon:adamant_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:bold_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:brave_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:calm_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:careful_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:gentle_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:hasty_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:impish_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:lonely_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:mild_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:modest_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:naive_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:naughty_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:quiet_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:rash_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:relaxed_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:sassy_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:serious_mint"
+            price: 60
+            rarity: uncommon
+          - type: item
+            id: "cobblemon:timid_mint"
+            price: 60
+            rarity: uncommon
+
+  - id: pokemon
+    name: "Pokemon"
+    icon: "cobblemon:poke_ball"
+    subcategories:
+      - name: "Basic"
+        items:
+          - type: pokemon
+            id: "cobblemon:bulbasaur"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:charmander"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:squirtle"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:pidgey"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:rattata"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:caterpie"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:weedle"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:pikachu"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:magikarp"
+            price: 300
+            level: 15
+            rarity: common
+          - type: pokemon
+            id: "cobblemon:eevee"
+            price: 300
+            level: 15
+            rarity: common
+
+      - name: "Medium"
+        items:
+          - type: pokemon
+            id: "cobblemon:ivysaur"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:charmeleon"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:wartortle"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:pidgeotto"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:butterfree"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:beedrill"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:growlithe"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:vulpix"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:abra"
+            price: 800
+            level: 20
+            rarity: uncommon
+          - type: pokemon
+            id: "cobblemon:machop"
+            price: 800
+            level: 20
+            rarity: uncommon
+
+      - name: "Top"
+        items:
+          - type: pokemon
+            id: "cobblemon:venusaur"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:charizard"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:blastoise"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:arcanine"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:alakazam"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:gengar"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:lapras"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:snorlax"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:dragonair"
+            price: 2000
+            level: 30
+            rarity: rare
+          - type: pokemon
+            id: "cobblemon:aerodactyl"
+            price: 2000
+            level: 30
+            rarity: rare
+
+      - name: "Ace Picks"
+        items:
+          - type: pokemon
+            id: "cobblemon:dragonite"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:tyranitar"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:metagross"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:salamence"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:garchomp"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:hydreigon"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:lucario"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:milotic"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:rotom"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:zoroark"
+            price: 5000
+            level: 40
+            rarity: ultra-rare
+
+      - name: "Legendary"
+        items:
+          - type: pokemon
+            id: "cobblemon:articuno"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:zapdos"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:moltres"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:mewtwo"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:lugia"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:hooh"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:regirock"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:regice"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:registeel"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:rayquaza"
+            price: 15000
+            level: 50
+            rarity: ultra-rare
+
+      - name: "Ultra Beasts"
+        items:
+          - type: pokemon
+            id: "cobblemon:poipole"
+            price: 18000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:naganadel"
+            price: 18000
+            level: 50
+            rarity: ultra-rare
+
+      - name: "Mythical"
+        items:
+          - type: pokemon
+            id: "cobblemon:mew"
+            price: 22000
+            level: 50
+            rarity: ultra-rare
+          - type: pokemon
+            id: "cobblemon:zarude"
+            price: 22000
+            level: 50
+            rarity: ultra-rare

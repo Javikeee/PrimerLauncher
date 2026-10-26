@@ -9,6 +9,7 @@ const os                    = require('os')
 const path                  = require('path')
 
 const ConfigManager            = require('./configmanager')
+const { DEFAULT_FILES_DIR }    = require('./distroconfig')
 const DropinModUtil            = require('./dropinmodutil')
 
 const logger = LoggerUtil.getLogger('ProcessBuilder')
@@ -47,6 +48,7 @@ class ProcessBuilder {
      */
     build(){
         fs.ensureDirSync(this.gameDir)
+        this.applyDefaultFiles()
         const tempNativePath = path.join(os.tmpdir(), ConfigManager.getTempNativeFolder(), crypto.pseudoRandomBytes(16).toString('hex'))
         process.throwDeprecation = true
         this.setupLiteLoader()
@@ -300,6 +302,29 @@ class ProcessBuilder {
     // }
 
     /**
+     * Copy the modpack's default files (player settings like video or minimap
+     * options) into the instance, only where the player does not have that
+     * file yet. The launcher downloads them to DEFAULT_FILES_DIR.
+     */
+    applyDefaultFiles(){
+        const defaultsDir = path.join(this.gameDir, DEFAULT_FILES_DIR)
+        const copyMissing = dir => {
+            for(const entry of fs.readdirSync(dir, { withFileTypes: true })){
+                const src = path.join(dir, entry.name)
+                const dest = path.join(this.gameDir, path.relative(defaultsDir, src))
+                if(entry.isDirectory()){
+                    copyMissing(src)
+                } else if(!fs.existsSync(dest)){
+                    fs.copySync(src, dest)
+                }
+            }
+        }
+        if(fs.existsSync(defaultsDir)){
+            copyMissing(defaultsDir)
+        }
+    }
+
+    /**
      * Put the modpack's Forge mods in the instance's mods folder. Recent Forge
      * versions ignore --fml.modLists and only load mods from that folder.
      * Mods the player dropped in themselves are left untouched.
@@ -414,7 +439,6 @@ class ProcessBuilder {
             args.push('-Djavax.net.ssl.trustStoreType=Windows-ROOT')
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM(this.server.rawServer.id))
-        args.push('-Xms' + ConfigManager.getMinRAM(this.server.rawServer.id))
         args = args.concat(ConfigManager.getJVMOptions(this.server.rawServer.id))
         args.push('-Djava.library.path=' + tempNativePath)
 
@@ -470,7 +494,6 @@ class ProcessBuilder {
             args.push('-Djavax.net.ssl.trustStoreType=Windows-ROOT')
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM(this.server.rawServer.id))
-        args.push('-Xms' + ConfigManager.getMinRAM(this.server.rawServer.id))
         args = args.concat(ConfigManager.getJVMOptions(this.server.rawServer.id))
 
         // Main Java Class

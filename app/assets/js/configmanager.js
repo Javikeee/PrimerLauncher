@@ -572,7 +572,6 @@ function defaultJavaConfig(effectiveJavaOptions, ram) {
 
 function defaultJavaConfig8(ram) {
     return {
-        minRAM: resolveSelectedRAM(ram),
         maxRAM: resolveSelectedRAM(ram),
         executable: null,
         jvmOptions: [
@@ -586,7 +585,6 @@ function defaultJavaConfig8(ram) {
 
 function defaultJavaConfig17(ram) {
     return {
-        minRAM: resolveSelectedRAM(ram),
         maxRAM: resolveSelectedRAM(ram),
         executable: null,
         jvmOptions: [
@@ -610,30 +608,6 @@ exports.ensureJavaConfig = function(serverid, effectiveJavaOptions, ram) {
     if(!Object.prototype.hasOwnProperty.call(config.javaConfig, serverid)) {
         config.javaConfig[serverid] = defaultJavaConfig(effectiveJavaOptions, ram)
     }
-}
-
-/**
- * Retrieve the minimum amount of memory for JVM initialization. This value
- * contains the units of memory. For example, '5G' = 5 GigaBytes, '1024M' = 
- * 1024 MegaBytes, etc.
- * 
- * @param {string} serverid The server id.
- * @returns {string} The minimum amount of memory for JVM initialization.
- */
-exports.getMinRAM = function(serverid){
-    return config.javaConfig[serverid].minRAM
-}
-
-/**
- * Set the minimum amount of memory for JVM initialization. This value should
- * contain the units of memory. For example, '5G' = 5 GigaBytes, '1024M' = 
- * 1024 MegaBytes, etc.
- * 
- * @param {string} serverid The server id.
- * @param {string} minRAM The new minimum amount of memory for JVM initialization.
- */
-exports.setMinRAM = function(serverid, minRAM){
-    config.javaConfig[serverid].minRAM = minRAM
 }
 
 /**

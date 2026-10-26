@@ -153,7 +153,7 @@ async function initSettingsValues(){
             } else if(v.tagName === 'DIV'){
                 if(v.classList.contains('rangeSlider')){
                     // Special Conditions
-                    if(cVal === 'MinRAM' || cVal === 'MaxRAM'){
+                    if(cVal === 'MaxRAM'){
                         let val = gFn.apply(null, gFnOpts)
                         if(val.endsWith('M')){
                             val = Number(val.substring(0, val.length-1))/1024
@@ -212,7 +212,7 @@ function saveSettingsValues(){
             } else if(v.tagName === 'DIV'){
                 if(v.classList.contains('rangeSlider')){
                     // Special Conditions
-                    if(cVal === 'MinRAM' || cVal === 'MaxRAM'){
+                    if(cVal === 'MaxRAM'){
                         let val = Number(v.getAttribute('value'))
                         if(val%1 > 0){
                             val = val*1024 + 'M'
@@ -1150,53 +1150,17 @@ async function prepareModsTab(first){
 
 // DOM Cache
 const settingsMaxRAMRange     = document.getElementById('settingsMaxRAMRange')
-const settingsMinRAMRange     = document.getElementById('settingsMinRAMRange')
 const settingsMaxRAMLabel     = document.getElementById('settingsMaxRAMLabel')
-const settingsMinRAMLabel     = document.getElementById('settingsMinRAMLabel')
 const settingsMemoryTotal     = document.getElementById('settingsMemoryTotal')
 const settingsMemoryAvail     = document.getElementById('settingsMemoryAvail')
 const settingsJavaExecDetails = document.getElementById('settingsJavaExecDetails')
 const settingsJavaReqDesc     = document.getElementById('settingsJavaReqDesc')
 const settingsJvmOptsLink     = document.getElementById('settingsJvmOptsLink')
 
-// Bind on change event for min memory container.
-settingsMinRAMRange.onchange = (e) => {
-
-    // Current range values
-    const sMaxV = Number(settingsMaxRAMRange.getAttribute('value'))
-    const sMinV = Number(settingsMinRAMRange.getAttribute('value'))
-
-    // Get reference to range bar.
-    const bar = e.target.getElementsByClassName('rangeSliderBar')[0]
-    // Calculate effective total memory.
-    const max = os.totalmem()/1073741824
-
-    // Change range bar color based on the selected value.
-    if(sMinV >= max/2){
-        bar.style.background = '#e86060'
-    } else if(sMinV >= max/4) {
-        bar.style.background = '#e8e18b'
-    } else {
-        bar.style.background = null
-    }
-
-    // Increase maximum memory if the minimum exceeds its value.
-    if(sMaxV < sMinV){
-        const sliderMeta = calculateRangeSliderMeta(settingsMaxRAMRange)
-        updateRangedSlider(settingsMaxRAMRange, sMinV,
-            ((sMinV-sliderMeta.min)/sliderMeta.step)*sliderMeta.inc)
-        settingsMaxRAMLabel.innerHTML = sMinV.toFixed(1) + 'G'
-    }
-
-    // Update label
-    settingsMinRAMLabel.innerHTML = sMinV.toFixed(1) + 'G'
-}
-
 // Bind on change event for max memory container.
 settingsMaxRAMRange.onchange = (e) => {
     // Current range values
     const sMaxV = Number(settingsMaxRAMRange.getAttribute('value'))
-    const sMinV = Number(settingsMinRAMRange.getAttribute('value'))
 
     // Get reference to range bar.
     const bar = e.target.getElementsByClassName('rangeSliderBar')[0]
@@ -1212,13 +1176,6 @@ settingsMaxRAMRange.onchange = (e) => {
         bar.style.background = null
     }
 
-    // Decrease the minimum memory if the maximum value is less.
-    if(sMaxV < sMinV){
-        const sliderMeta = calculateRangeSliderMeta(settingsMaxRAMRange)
-        updateRangedSlider(settingsMinRAMRange, sMaxV,
-            ((sMaxV-sliderMeta.min)/sliderMeta.step)*sliderMeta.inc)
-        settingsMinRAMLabel.innerHTML = sMaxV.toFixed(1) + 'G'
-    }
     settingsMaxRAMLabel.innerHTML = sMaxV.toFixed(1) + 'G'
 }
 
@@ -1377,11 +1334,9 @@ function bindMinMaxRam(server) {
     const SETTINGS_MAX_MEMORY = ConfigManager.getAbsoluteMaxRAM(server.rawServer.javaOptions?.ram)
     const SETTINGS_MIN_MEMORY = ConfigManager.getAbsoluteMinRAM(server.rawServer.javaOptions?.ram)
 
-    // Set the max and min values for the ranged sliders.
+    // Set the max and min values for the ranged slider.
     settingsMaxRAMRange.setAttribute('max', SETTINGS_MAX_MEMORY)
     settingsMaxRAMRange.setAttribute('min', SETTINGS_MIN_MEMORY)
-    settingsMinRAMRange.setAttribute('max', SETTINGS_MAX_MEMORY)
-    settingsMinRAMRange.setAttribute('min', SETTINGS_MIN_MEMORY)
 }
 
 /**

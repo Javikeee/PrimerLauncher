@@ -1,0 +1,10 @@
+
+# The default difficulty selected for newly created worlds.
+defaultDifficulty = "NORMAL"
+
+# Resource pack IDs to have enabled by default on the first run.
+defaultResourcePacks = [ "vanilla","fabric","cobbreeding:pasturefix","highlight:highlight_extended","betterbeds:fancyconnectedbeds","continuity:default","continuity:glass_pane_culling_fix","file/Low Fire.zip","file/Comforts Modernized.zip","file/Emissive Cobblemon Ores.zip","cobbreeding:coloredeggs","file/Classic Grass.zip","file/PokeRods3D.zip","file/Canon PC Wallpapers.zip","file/Cobblemon Interface.zip","file/Cobblemon Interface Modded.zip","file/PokeDiscs.zip","file/Original Pokemon Battle Music.zip","file/JigglyRadio.zip","file/Fresh Animations.zip","file/Fresh Moves.zip","file/Fresh Icons.zip","vanillabackport:freshly_animated","cobblemon:gyaradosjump","cobblemon:uniqueshinyforms","mega_showdown:gyaradosjumpingmega","mega_showdown:regionbiasmsd","cobblemon:regionbiasforms","file/ATMxMSD RP.zip","file/FullyHisuianStarters RP.zip","file/EeveelutionsReimagined RP.zip","file/OJsAnimations RP.zip","file/PlanetaCobblemon RP.zip","file/GlitchDex RP.zip","file/CavsCobbleMons RP.zip","file/LackingMons RP.zip","file/TDmon RP.zip","file/MysticMons RP.zip","file/MundialMons RP.zip","file/MissingMons RP.zip","file/HydroReanimodel RP.zip","file/Pokemans RP.zip","file/CobbleMotion RP.zip","file/E19 Cobblemon Minimap Icons.zip","file/COBBLEVERSE Soundtrack.zip","file/COBBLEVERSE RCTmod RP.zip","file/COBBLEVERSE RP.zip" ]
+
+# Set to true if the difficulty for new world's should be locked to the specific default. This cannot be unlocked by players without external tools! Probably a bad idea. I don't recommend. Why am I adding this option?
+lockDifficulty = false
+

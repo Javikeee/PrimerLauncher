@@ -1,0 +1,152 @@
+pinball:
+  start:
+  - KEY_SPACE
+  - KEY_ENTER
+  left_flipper:
+  - KEY_A
+  - KEY_Z
+  right_flipper:
+  - KEY_D
+  - KEY_X
+  quit:
+  - KEY_ESCAPE
+roulette:
+  confirm:
+  - KEY_SPACE
+  - KEY_ENTER
+  - KEY_A
+  quit:
+  - KEY_ESCAPE
+  up:
+  - KEY_UP
+  down:
+  - KEY_DOWN
+  left:
+  - KEY_LEFT
+  right:
+  - KEY_RIGHT
+  bet_up:
+  - KEY_KP_ADD
+  - KEY_EQUAL
+  bet_down:
+  - KEY_KP_SUBTRACT
+  - KEY_MINUS
+snake:
+  start:
+  - KEY_SPACE
+  - KEY_ENTER
+  - KEY_A
+  quit:
+  - KEY_ESCAPE
+  up:
+  - KEY_UP
+  down:
+  - KEY_DOWN
+  left:
+  - KEY_LEFT
+  right:
+  - KEY_RIGHT
+flappybird:
+  flap:
+  - KEY_SPACE
+  - KEY_A
+  - KEY_UP
+  - KEY_ENTER
+  quit:
+  - KEY_ESCAPE
+derby:
+  confirm:
+  - KEY_SPACE
+  - KEY_ENTER
+  - KEY_A
+  back:
+  - KEY_B
+  - KEY_BACKSPACE
+  quit:
+  - KEY_ESCAPE
+  up:
+  - KEY_UP
+  down:
+  - KEY_DOWN
+  left:
+  - KEY_LEFT
+  right:
+  - KEY_RIGHT
+voltorbflip:
+  confirm:
+  - KEY_SPACE
+  - KEY_ENTER
+  - KEY_A
+  back:
+  - KEY_B
+  - KEY_BACKSPACE
+  quit:
+  - KEY_ESCAPE
+  up:
+  - KEY_UP
+  down:
+  - KEY_DOWN
+  left:
+  - KEY_LEFT
+  right:
+  - KEY_RIGHT
+  note_prev:
+  - KEY_Q
+  - KEY_LEFT_BRACKET
+  note_next:
+  - KEY_E
+  - KEY_RIGHT_BRACKET
+blockstacker:
+  primary:
+  - KEY_SPACE
+  - KEY_ENTER
+  - KEY_A
+  left:
+  - KEY_LEFT
+  right:
+  - KEY_RIGHT
+  back:
+  - KEY_B
+  quit:
+  - KEY_ESCAPE
+slotmachine:
+  primary:
+  - KEY_A
+  - KEY_SPACE
+  - KEY_ENTER
+  bet:
+  - KEY_DOWN
+  max_bet:
+  - KEY_UP
+  info:
+  - KEY_I
+  quit:
+  - KEY_ESCAPE
+blackjack:
+  confirm:
+  - KEY_A
+  - KEY_SPACE
+  - KEY_ENTER
+  quit:
+  - KEY_B
+  - KEY_ESCAPE
+  up:
+  - KEY_UP
+  down:
+  - KEY_DOWN
+gacha:
+  confirm:
+  - KEY_SPACE
+  - KEY_ENTER
+  - KEY_KP_ENTER
+  - KEY_A
+  quit:
+  - KEY_ESCAPE
+  up:
+  - KEY_UP
+  down:
+  - KEY_DOWN
+  left:
+  - KEY_LEFT
+  right:
+  - KEY_RIGHT

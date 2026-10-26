@@ -11,6 +11,13 @@
  * Forge 1.13+ is installed with the official installer to generate the
  * patched client, so building those modpacks needs Java on the PATH.
  *
+ * A modpack can also come from a Modrinth .mrpack export placed in
+ * modpacks/<id>/: its files, overrides, Minecraft and loader versions are
+ * used, plus whatever modpack.json, mods/ and files/ add on top.
+ *
+ * Files bigger than GitHub allows go to distribution/large/ and are uploaded
+ * as release assets by tools/publish-modpacks.js.
+ *
  * Usage:
  *   node tools/build-modpack.js <id> [<id>...]
  *   node tools/build-modpack.js --all
@@ -22,12 +29,19 @@ const fs = require('fs')
 const os = require('os')
 const path = require('path')
 
-const { DISTRO_BASE_URL } = require('../app/assets/js/distroconfig')
+const { DISTRO_BASE_URL, LARGE_FILES_URL, DEFAULT_FILES_DIR } = require('../app/assets/js/distroconfig')
 
 const ROOT = path.join(__dirname, '..')
 const MODPACKS_DIR = path.join(ROOT, 'modpacks')
 const DISTRO_DIR = path.join(ROOT, 'distribution')
 const DISTRO_FILE = path.join(DISTRO_DIR, 'distribution.json')
+const LARGE_DIR = path.join(DISTRO_DIR, 'large')
+const CACHE_FILE = path.join(ROOT, '.cache', 'remote-artifacts.json')
+
+// GitHub refuses files over 100 MB in a repository.
+const LARGE_FILE_SIZE = 90 * 1024 * 1024
+// Per-install files that must not be shared between players.
+const IGNORED_FILES = [/fingerprint/i]
 
 const MODRINTH_API = 'https://api.modrinth.com/v2'
 const FABRIC_META = 'https://meta.fabricmc.net/v2'
@@ -49,26 +63,53 @@ async function get(url, type = 'json'){
     return type === 'json' ? res.json() : Buffer.from(await res.arrayBuffer())
 }
 
+async function post(url, body){
+    const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'User-Agent': USER_AGENT, 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+    })
+    if(!res.ok){
+        throw new Error(`POST ${url} -> ${res.status}`)
+    }
+    return res.json()
+}
+
 function md5(buf){
     return crypto.createHash('md5').update(buf).digest('hex')
 }
 
+// Size and MD5 of remote files. Their URLs carry the file version, so the
+// files never change and are not downloaded again on every build.
+const remoteCache = fs.existsSync(CACHE_FILE) ? JSON.parse(fs.readFileSync(CACHE_FILE, 'utf-8')) : {}
+
 /** Artifact for a file hosted elsewhere, downloading it to hash it. */
 async function remoteArtifact(url){
-    const buf = await get(url, 'buffer')
-    return { size: buf.length, MD5: md5(buf), url }
+    if(remoteCache[url] == null){
+        const buf = await get(url, 'buffer')
+        remoteCache[url] = { size: buf.length, MD5: md5(buf) }
+    }
+    return { ...remoteCache[url], url }
 }
 
-/** Copy a file into distribution/files/ and return its hosted artifact. */
+/** Copy a file into distribution/files/ (or large/) and return its hosted artifact. */
 function hostedArtifact(buf, relPath, artifactPath){
-    const dest = path.join(DISTRO_DIR, 'files', relPath)
-    fs.mkdirSync(path.dirname(dest), { recursive: true })
-    fs.writeFileSync(dest, buf)
-    const artifact = {
-        size: buf.length,
-        MD5: md5(buf),
-        url: `${DISTRO_BASE_URL}/files/${relPath.split(path.sep).join('/')}`
+    const hash = md5(buf)
+    let url
+    if(buf.length > LARGE_FILE_SIZE){
+        // Release assets are a flat list and GitHub renames unusual characters.
+        const ext = path.extname(relPath)
+        const name = `${relPath.slice(0, -ext.length || undefined).split(path.sep).join('__').replace(/[^A-Za-z0-9._-]/g, '_')}-${hash.slice(0, 12)}${ext}`
+        fs.mkdirSync(LARGE_DIR, { recursive: true })
+        fs.writeFileSync(path.join(LARGE_DIR, name), buf)
+        url = `${LARGE_FILES_URL}/${name}`
+    } else {
+        const dest = path.join(DISTRO_DIR, 'files', relPath)
+        fs.mkdirSync(path.dirname(dest), { recursive: true })
+        fs.writeFileSync(dest, buf)
+        url = `${DISTRO_BASE_URL}/files/${relPath.split(path.sep).join('/')}`
     }
+    const artifact = { size: buf.length, MD5: hash, url }
     if(artifactPath != null){
         artifact.path = artifactPath
     }
@@ -278,8 +319,8 @@ async function resolveForge(mcVersion, loaderVersion){
 }
 
 const LOADERS = {
-    fabric: { resolve: resolveFabric, modType: 'FabricMod', modrinthLoader: 'fabric' },
-    forge: { resolve: resolveForge, modType: 'ForgeMod', modrinthLoader: 'forge' }
+    fabric: { resolve: resolveFabric, modType: 'FabricMod', modrinthLoader: 'fabric', mrpackDependency: 'fabric-loader' },
+    forge: { resolve: resolveForge, modType: 'ForgeMod', modrinthLoader: 'forge', mrpackDependency: 'forge' }
 }
 
 /* * *
@@ -319,15 +360,46 @@ async function resolveModrinthMod(mod, mcVersion, loader){
     return module
 }
 
+function artifactIdOf(name){
+    return name.toLowerCase().replace(/[^a-z0-9._-]/g, '-')
+}
+
+/** The mod id declared inside a mod jar, or null. */
+function modIdOf(buf){
+    try {
+        const zip = new AdmZip(buf)
+        const fabric = zip.getEntry('fabric.mod.json')
+        if(fabric != null){
+            return JSON.parse(zip.readAsText(fabric)).id
+        }
+        const toml = zip.getEntry('META-INF/mods.toml')
+        return toml != null ? zip.readAsText(toml).match(/modId\s*=\s*"([^"]+)"/)?.[1] ?? null : null
+    } catch {
+        return null
+    }
+}
+
 /**
- * Mods that are not on Modrinth: jars dropped in modpacks/<id>/mods/.
+ * Mods that are not on Modrinth: jars dropped in modpacks/<id>/mods/, plus
+ * the jars in the .mrpack's overrides. A jar in mods/ replaces the .mrpack's
+ * copy of the same mod, even if it is another version.
+ *
+ * @param {Array<{name: string, buf: Buffer}>} mrpackJars
  */
-function resolveLocalMods(packId, loader){
+function resolveLocalMods(packId, loader, mrpackJars = []){
     const dir = path.join(MODPACKS_DIR, packId, 'mods')
-    return listFiles(dir).filter(f => f.endsWith('.jar')).map(file => {
-        const buf = fs.readFileSync(file)
-        const name = path.basename(file, '.jar')
-        const artifactId = name.toLowerCase().replace(/[^a-z0-9._-]/g, '-')
+    const jars = listFiles(dir).filter(f => f.endsWith('.jar'))
+        .map(file => ({ name: path.basename(file, '.jar'), buf: fs.readFileSync(file) }))
+    const modIds = new Set(jars.map(jar => modIdOf(jar.buf) ?? jar.name))
+    for(const jar of mrpackJars){
+        if(modIds.has(modIdOf(jar.buf) ?? jar.name)){
+            console.log(`  ${jar.name} (.mrpack, replaced by mods/)`)
+        } else {
+            jars.push(jar)
+        }
+    }
+    return jars.map(({ name, buf }) => {
+        const artifactId = artifactIdOf(name)
         // The version is the file hash, so a replaced jar gets a new path.
         const version = md5(buf).slice(0, 12)
         console.log(`  ${name} (local)`)
@@ -338,6 +410,93 @@ function resolveLocalMods(packId, loader){
             artifact: hostedArtifact(buf, path.join(packId, 'mods', `${artifactId}-${version}.jar`))
         }
     })
+}
+
+/* * *
+* Modrinth .mrpack
+* * */
+
+/** The .mrpack export in modpacks/<id>/ ("mrpack" in modpack.json picks one), or null. */
+function readMrpack(packId, def){
+    const dir = path.join(MODPACKS_DIR, packId)
+    let file = def.mrpack
+    if(file == null){
+        const found = fs.readdirSync(dir).filter(f => f.endsWith('.mrpack'))
+        if(found.length > 1){
+            throw new Error(`modpacks/${packId} has several .mrpack files. Delete the old ones or set "mrpack" in modpack.json.`)
+        }
+        file = found[0]
+    }
+    if(file == null){
+        return null
+    }
+    const zip = new AdmZip(path.join(dir, file))
+    const index = JSON.parse(zip.readAsText('modrinth.index.json'))
+
+    // Overrides by path; client-overrides win over overrides.
+    const overrides = new Map()
+    for(const prefix of ['overrides/', 'client-overrides/']){
+        for(const entry of zip.getEntries()){
+            if(!entry.isDirectory && entry.entryName.startsWith(prefix)){
+                overrides.set(entry.entryName.slice(prefix.length), entry.getData())
+            }
+        }
+    }
+    return { file, index, overrides }
+}
+
+function loaderOfMrpack(index){
+    const deps = index.dependencies
+    const type = Object.keys(LOADERS).find(t => deps[LOADERS[t].mrpackDependency] != null)
+    if(type == null){
+        throw new Error(`Unsupported .mrpack loader (${Object.keys(deps).filter(d => d !== 'minecraft').join(', ')})`)
+    }
+    return { type, version: deps[LOADERS[type].mrpackDependency] }
+}
+
+/** The files listed in the .mrpack index (mods, resource packs, shaders...). */
+async function resolveMrpackFiles(packId, index, loader){
+    const files = index.files.filter(f => f.env?.client !== 'unsupported')
+    for(const file of files){
+        if(path.isAbsolute(file.path) || file.path.split(/[\\/]/).includes('..')){
+            throw new Error(`Invalid .mrpack file path: ${file.path}`)
+        }
+    }
+
+    // Look the files up on Modrinth to give mods their proper name and version.
+    const versions = await post(`${MODRINTH_API}/version_files`, { hashes: files.map(f => f.hashes.sha1), algorithm: 'sha1' })
+    const projectIds = [...new Set(Object.values(versions).map(v => v.project_id))]
+    const projects = projectIds.length === 0 ? {} : Object.fromEntries(
+        (await get(`${MODRINTH_API}/projects?ids=${encodeURIComponent(JSON.stringify(projectIds))}`)).map(p => [p.id, p])
+    )
+
+    const modules = []
+    for(const file of files){
+        const artifact = await remoteArtifact(file.downloads[0])
+        const version = versions[file.hashes.sha1]
+        const project = version != null ? projects[version.project_id] : null
+        console.log(`  ${file.path}`)
+        if(!file.path.startsWith('mods/')){
+            modules.push({ id: file.path, name: project?.title ?? file.path, type: 'File', artifact: { ...artifact, path: file.path } })
+            continue
+        }
+        // Mods disabled in the Modrinth App end in .jar.disabled.
+        const disabled = file.path.endsWith('.disabled')
+        const name = path.basename(file.path.replace(/\.disabled$/, ''), '.jar')
+        const module = {
+            id: project != null
+                ? `com.modrinth.${project.slug}:${project.slug}:${sanitizeVersion(version.version_number)}`
+                : `mrpack.${packId}:${artifactIdOf(name)}:${file.hashes.sha1.slice(0, 12)}`,
+            name: project?.title ?? name,
+            type: loader.modType,
+            artifact
+        }
+        if(disabled || file.env?.client === 'optional'){
+            module.required = { value: false, def: !disabled }
+        }
+        modules.push(module)
+    }
+    return modules
 }
 
 /* * *
@@ -354,19 +513,43 @@ function listFiles(dir){
     })
 }
 
-function resolveOverrides(packId){
+/** Matcher for paths like config/iris.properties, config/xaero/ (a whole folder) or shaderpacks/*.txt. */
+function pathMatcher(patterns){
+    const regexes = patterns.map(p => new RegExp('^'
+        + p.split('*').map(s => s.replace(/[.+?^${}()|[\]\\]/g, '\\$&')).join('[^/]*')
+        + (p.endsWith('/') ? '' : '$')))
+    return rel => regexes.some(r => r.test(rel))
+}
+
+/**
+ * Files copied as they are into the player's modpack folder: the .mrpack's
+ * overrides and modpacks/<id>/files/ (which wins). Paths listed in "defaults"
+ * (modpack.json) are only copied if the player does not have them yet.
+ *
+ * @param {Map<string, Buffer>} mrpackOverrides
+ */
+function resolveOverrides(packId, def, mrpackOverrides = new Map()){
+    const files = new Map(mrpackOverrides)
     const dir = path.join(MODPACKS_DIR, packId, 'files')
-    return listFiles(dir).map(file => {
-        const rel = path.relative(dir, file)
-        const relPosix = rel.split(path.sep).join('/')
-        console.log(`  file ${relPosix}`)
-        return {
-            id: relPosix,
-            name: relPosix,
-            type: 'File',
-            artifact: hostedArtifact(fs.readFileSync(file), path.join(packId, 'overrides', rel), relPosix)
-        }
-    })
+    for(const file of listFiles(dir)){
+        files.set(path.relative(dir, file).split(path.sep).join('/'), fs.readFileSync(file))
+    }
+    const isDefault = pathMatcher(def.defaults ?? [])
+    const modules = [...files]
+        .filter(([rel]) => !IGNORED_FILES.some(r => r.test(rel)))
+        .map(([rel, buf]) => {
+            const fromDefaults = isDefault(rel)
+            const target = fromDefaults ? `${DEFAULT_FILES_DIR}/${rel}` : rel
+            return {
+                id: target,
+                name: rel,
+                type: 'File',
+                artifact: hostedArtifact(buf, path.join(packId, fromDefaults ? 'defaults' : 'overrides', ...rel.split('/')), target)
+            }
+        })
+    const defaults = modules.filter(m => m.id.startsWith(`${DEFAULT_FILES_DIR}/`)).length
+    console.log(`  ${modules.length} files (${defaults} only copied if missing)`)
+    return modules
 }
 
 /* * *
@@ -390,21 +573,43 @@ function defaultJavaOptions(mcVersion){
 
 async function buildModpack(packId){
     const def = JSON.parse(fs.readFileSync(path.join(MODPACKS_DIR, packId, 'modpack.json'), 'utf-8'))
-    const loader = LOADERS[def.loader.type]
+    const mrpack = readMrpack(packId, def)
+    // modpack.json wins over the .mrpack.
+    def.minecraftVersion ??= mrpack?.index.dependencies.minecraft
+    def.loader ??= mrpack != null ? loaderOfMrpack(mrpack.index) : null
+    const loader = LOADERS[def.loader?.type]
     if(loader == null){
-        throw new Error(`Unsupported loader "${def.loader.type}" (supported: ${Object.keys(LOADERS).join(', ')})`)
+        throw new Error(`Unsupported loader "${def.loader?.type}" (supported: ${Object.keys(LOADERS).join(', ')})`)
     }
-    console.log(`Building ${def.name} (${def.loader.type} ${def.loader.version || 'latest'}, Minecraft ${def.minecraftVersion})`)
+    console.log(`Building ${def.name} (${def.loader.type} ${def.loader.version || 'latest'}, Minecraft ${def.minecraftVersion})${mrpack ? ` from ${mrpack.file}` : ''}`)
 
     // Start clean so removed overrides do not linger in the upload folder.
     fs.rmSync(path.join(DISTRO_DIR, 'files', packId), { recursive: true, force: true })
+    if(fs.existsSync(LARGE_DIR)){
+        for(const file of fs.readdirSync(LARGE_DIR).filter(f => f.startsWith(`${packId}__`))){
+            fs.rmSync(path.join(LARGE_DIR, file))
+        }
+    }
+
+    // The .mrpack's own jars are handled as local mods.
+    const mrpackOverrides = new Map(mrpack?.overrides)
+    const mrpackJars = []
+    for(const [rel, buf] of mrpackOverrides){
+        if(/^mods\/[^/]+\.jar$/.test(rel)){
+            mrpackJars.push({ name: path.basename(rel, '.jar'), buf })
+            mrpackOverrides.delete(rel)
+        }
+    }
 
     const modules = [await loader.resolve(def.minecraftVersion, def.loader.version)]
+    if(mrpack != null){
+        modules.push(...await resolveMrpackFiles(packId, mrpack.index, loader))
+    }
     for(const mod of def.mods || []){
         modules.push(await resolveModrinthMod(mod, def.minecraftVersion, loader))
     }
-    modules.push(...resolveLocalMods(packId, loader))
-    modules.push(...resolveOverrides(packId))
+    modules.push(...resolveLocalMods(packId, loader, mrpackJars))
+    modules.push(...resolveOverrides(packId, def, mrpackOverrides))
 
     // A modpacks/<id>/icon.* file is hosted, so it can change without a launcher update.
     const iconFile = fs.readdirSync(path.join(MODPACKS_DIR, packId)).find(f => /^icon\.(png|jpe?g|svg|webp|avif)$/i.test(f))
@@ -446,14 +651,19 @@ async function main(){
     }
 
     const distro = JSON.parse(fs.readFileSync(DISTRO_FILE, 'utf-8'))
-    for(const id of ids){
-        const server = await buildModpack(id)
-        const index = distro.servers.findIndex(s => s.id === id)
-        if(index === -1){
-            distro.servers.push(server)
-        } else {
-            distro.servers[index] = server
+    try {
+        for(const id of ids){
+            const server = await buildModpack(id)
+            const index = distro.servers.findIndex(s => s.id === id)
+            if(index === -1){
+                distro.servers.push(server)
+            } else {
+                distro.servers[index] = server
+            }
         }
+    } finally {
+        fs.mkdirSync(path.dirname(CACHE_FILE), { recursive: true })
+        fs.writeFileSync(CACHE_FILE, JSON.stringify(remoteCache))
     }
     fs.writeFileSync(DISTRO_FILE, JSON.stringify(distro, null, 4) + '\n')
     console.log(`\nUpdated ${path.relative(ROOT, DISTRO_FILE)}. Upload the distribution/ folder to ${DISTRO_BASE_URL}`)

@@ -1,0 +1,916 @@
+catalog-id: mega_showdown_shop
+requires-mods:
+  - mega_showdown
+categories:
+  - id: mega_showdown
+    name: "Mega Showdown"
+    icon: "mega_showdown:mega_bracelet"
+    subcategories:
+      - name: "Key Items"
+        items:
+          - type: item
+            id: "mega_showdown:mega_ring"
+            price: 1750
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:mega_bracelet"
+            price: 2000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:z_ring"
+            price: 1750
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:z_power_ring"
+            price: 1875
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:tera_orb"
+            price: 1750
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:dynamax_band"
+            price: 2000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:rusted_sword"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:rusted_shield"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:omni_ring"
+            price: 3750
+            rarity: ultra-rare
+
+      - name: "Mega Stones"
+        items:
+          - type: item
+            id: "mega_showdown:absolite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:abomasite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:aerodactylite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:aggronite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:alakazite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:altarianite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:ampharosite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:audinite"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:banettite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:beedrillite"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:blastoisinite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:blazikenite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:cameruptite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:charizardite_x"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:charizardite_y"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:diancite"
+            price: 1500
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:galladite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:garchompite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:gardevoirite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:gengarite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:glalitite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:gyaradosite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:heracronite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:houndoominite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:kangaskhanite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:latiasite"
+            price: 1500
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:latiosite"
+            price: 1500
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:lopunnite"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:lucarionite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:manectite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:mawilite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:medichamite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:metagrossite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:mewtwonite_x"
+            price: 2250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:mewtwonite_y"
+            price: 2250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:pidgeotite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:pinsirite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:sablenite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:salamencite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:sceptilite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:scizorite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:sharpedonite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:slowbronite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:steelixite"
+            price: 1125
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:swampertite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:tyranitarite"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:venusaurite"
+            price: 1250
+            rarity: ultra-rare
+
+      - name: "Z-Crystals"
+        items:
+          - type: item
+            id: "mega_showdown:normalium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:firium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:waterium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:electrium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:grassium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:icium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:fightinium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:poisonium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:groundium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:flyinium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:psychium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:buginium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:rockium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:ghostium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:dragonium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:darkinium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:steelium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:fairium_z"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:pikanium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:pikashunium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:eevium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:snorlium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:mewnium_z"
+            price: 875
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:decidium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:incinium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:primarium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:aloraichium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:tapunium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:lycanium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:mimikium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:kommonium_z"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:solganium_z"
+            price: 875
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:lunalium_z"
+            price: 875
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:ultranecrozium_z"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:marshadium_z"
+            price: 875
+            rarity: ultra-rare
+
+      - name: "Tera Shards"
+        items:
+          - type: item
+            id: "mega_showdown:normal_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:fire_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:water_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:electric_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:grass_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:ice_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:fighting_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:poison_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:ground_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:flying_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:psychic_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:bug_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:rock_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:ghost_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:dragon_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:dark_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:steel_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:fairy_tera_shard"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:stellar_tera_shard"
+            price: 50
+            rarity: uncommon
+
+      - name: "Form Change Items"
+        items:
+          - type: item
+            id: "mega_showdown:blue_orb"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:red_orb"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:adamant_crystal"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:lustrous_globe"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:griseous_core"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:dna_splicer"
+            price: 1000
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:gracidea_flower"
+            price: 500
+            rarity: rare
+          - type: item
+            id: "mega_showdown:n_lunarizer"
+            price: 750
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:n_solarizer"
+            price: 750
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:reins_of_unity"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:reveal_glass"
+            price: 625
+            rarity: rare
+          - type: item
+            id: "mega_showdown:zygarde_cube"
+            price: 625
+            rarity: rare
+          - type: item
+            id: "mega_showdown:prison_bottle"
+            price: 875
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:reassembly_unit"
+            price: 750
+            rarity: rare
+          - type: item
+            id: "mega_showdown:deoxys_meteorite"
+            price: 625
+            rarity: rare
+          - type: item
+            id: "mega_showdown:star_core"
+            price: 1250
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:likos_pendant"
+            price: 1000
+            rarity: ultra-rare
+
+      - name: "Rotom"
+        items:
+          - type: item
+            id: "mega_showdown:rotom_catalogue"
+            price: 625
+            rarity: rare
+          - type: item
+            id: "mega_showdown:rotom_fan"
+            price: 500
+            rarity: rare
+          - type: item
+            id: "mega_showdown:rotom_washing_machine"
+            price: 500
+            rarity: rare
+          - type: item
+            id: "mega_showdown:rotom_fridge"
+            price: 500
+            rarity: rare
+          - type: item
+            id: "mega_showdown:rotom_mow"
+            price: 500
+            rarity: rare
+          - type: item
+            id: "mega_showdown:rotom_oven"
+            price: 500
+            rarity: rare
+
+      - name: "Ogerpon Masks"
+        items:
+          - type: item
+            id: "mega_showdown:wellspring_mask"
+            price: 750
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:cornerstone_mask"
+            price: 750
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:hearthflame_mask"
+            price: 750
+            rarity: ultra-rare
+
+      - name: "Oricorio Nectars"
+        items:
+          - type: item
+            id: "mega_showdown:pink_nectar"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:purple_nectar"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:red_nectar"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:yellow_nectar"
+            price: 375
+            rarity: rare
+
+      - name: "Plates"
+        items:
+          - type: item
+            id: "mega_showdown:draco_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:dread_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:earth_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:fist_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:flame_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:icicle_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:insect_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:iron_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:meadow_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:mind_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:pixie_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:sky_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:splash_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:spooky_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:stone_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:toxic_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:zap_plate"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:legend_plate"
+            price: 750
+            rarity: ultra-rare
+
+      - name: "Memories"
+        items:
+          - type: item
+            id: "mega_showdown:bug_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:dark_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:dragon_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:electric_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:fairy_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:fighting_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:fire_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:flying_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:ghost_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:grass_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:ground_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:ice_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:poison_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:psychic_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:rock_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:steel_memory"
+            price: 200
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:water_memory"
+            price: 200
+            rarity: uncommon
+
+      - name: "Drives"
+        items:
+          - type: item
+            id: "mega_showdown:burn_drive"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "mega_showdown:chill_drive"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "mega_showdown:douse_drive"
+            price: 300
+            rarity: rare
+          - type: item
+            id: "mega_showdown:shock_drive"
+            price: 300
+            rarity: rare
+
+      - name: "Held Items"
+        items:
+          - type: item
+            id: "mega_showdown:adamant_orb"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:lustrous_orb"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:griseous_orb"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:soul_dew"
+            price: 625
+            rarity: ultra-rare
+          - type: item
+            id: "mega_showdown:booster_energy"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "mega_showdown:adrenaline_orb"
+            price: 150
+            rarity: rare
+
+      - name: "Tera Storage"
+        items:
+          - type: item
+            id: "mega_showdown:tera_pouch_white"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_black"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_red"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_blue"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_green"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_yellow"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_orange"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_pink"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_purple"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_magenta"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_cyan"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_lime"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_brown"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_gray"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_light_gray"
+            price: 75
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:tera_pouch_light_blue"
+            price: 75
+            rarity: uncommon
+
+      - name: "Consumables"
+        items:
+          - type: item
+            id: "mega_showdown:max_honey"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:max_mushroom"
+            price: 25
+            rarity: common
+          - type: item
+            id: "mega_showdown:dynamax_candy"
+            price: 150
+            rarity: uncommon
+          - type: item
+            id: "mega_showdown:max_soup"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "mega_showdown:sweet_max_soup"
+            price: 250
+            rarity: rare
+          - type: item
+            id: "mega_showdown:ash_cap"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "mega_showdown:zygarde_core"
+            price: 250
+            rarity: rare
+          - type: item
+            id: "mega_showdown:zygarde_cell"
+            price: 50
+            rarity: common
+
+      - name: "Ingredients"
+        items:
+          - type: item
+            id: "mega_showdown:keystone"
+            price: 500
+            rarity: rare
+          - type: item
+            id: "mega_showdown:mega_stone"
+            price: 500
+            rarity: rare
+          - type: item
+            id: "mega_showdown:sparkling_stone_light"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "mega_showdown:sparkling_stone_dark"
+            price: 200
+            rarity: rare
+          - type: item
+            id: "mega_showdown:blank_z"
+            price: 250
+            rarity: rare
+          - type: item
+            id: "mega_showdown:wishing_star"
+            price: 375
+            rarity: rare
+          - type: item
+            id: "mega_showdown:dormant_crystal"
+            price: 625
+            rarity: rare

@@ -1,0 +1,118 @@
+pinball:
+  meowth:
+    enabled: true
+    time: 60
+    coinToPlay: 1
+  diglett:
+    enabled: true
+    time: 120
+    coinToPlay: 1
+  seel:
+    enabled: true
+    time: 90
+    coinToPlay: 1
+  gengar:
+    enabled: true
+    time: 90
+    coinToPlay: 1
+snake:
+  enabled: true
+  coinToPlay: 1
+  multiplier: 2.0
+flappybird:
+  enabled: true
+  coinToPlay: 1
+  multiplier: 2.0
+  speedBase: 2.0
+  speedStep: 0.05
+  speedMax: 7.0
+slotmachine:
+  enabled: true
+  coinToPlay: 1
+blockstacker:
+  enabled: true
+  coinToPlay: 1
+  row6Prize: 50
+  row7Prize: 250
+  row8Prize: 1000
+  row6SpeedFrames: 4
+  row7SpeedFrames: 3
+  row8SpeedFrames: 2
+derby:
+  enabled: true
+voltorbflip:
+  enabled: true
+  coinToPlay: 10
+blackjack:
+  enabled: true
+roulette:
+  enabled: true
+  leftTableBet: 1
+  rightTableBet: 3
+  serviceDayBet: 6
+gacha:
+  basic:
+    enabled: true
+    usePokemonList: false
+    useItemList: false
+    minWager: 50
+    maxWager: 9999
+    shinyChancePercent: 0.01220703125
+    aspectChancePercent: 5.0
+    rarities:
+      common: 100.0
+  great:
+    enabled: true
+    usePokemonList: false
+    useItemList: false
+    minWager: 250
+    maxWager: 9999
+    shinyChancePercent: 0.01220703125
+    aspectChancePercent: 5.0
+    rarities:
+      common: 70.0
+      uncommon: 30.0
+  ultra:
+    enabled: true
+    usePokemonList: false
+    useItemList: false
+    minWager: 1000
+    maxWager: 9999
+    shinyChancePercent: 0.01220703125
+    aspectChancePercent: 5.0
+    rarities:
+      common: 45.0
+      uncommon: 35.0
+      rare: 20.0
+  master:
+    enabled: true
+    usePokemonList: false
+    useItemList: false
+    minWager: 4500
+    maxWager: 9999
+    shinyChancePercent: 0.01220703125
+    aspectChancePercent: 5.0
+    rarities:
+      common: 35.0
+      uncommon: 30.0
+      rare: 25.0
+      ultra-rare: 10.0
+recipes:
+  arcadeCoinCrafting: true
+  arcadeMachineCrafting: true
+  basicGachaMachineCrafting: true
+  greatGachaMachineCrafting: true
+  ultraGachaMachineCrafting: true
+  masterGachaMachineCrafting: true
+  snakeMachineCrafting: true
+  flappyBirdMachineCrafting: true
+  blockStackerMachineCrafting: true
+  blackjackMachineCrafting: true
+  derbyMachineCrafting: true
+  voltorbFlipMachineCrafting: true
+  slotMachineCrafting: true
+  rouletteMachineCrafting: true
+  meowthPinballMachineCrafting: true
+  diglettPinballMachineCrafting: true
+  seelPinballMachineCrafting: true
+  gengarPinballMachineCrafting: true

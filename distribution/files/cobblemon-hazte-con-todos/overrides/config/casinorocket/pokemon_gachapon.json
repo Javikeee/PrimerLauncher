@@ -1,0 +1,1907 @@
+{
+  "pools": {
+    "common": [
+      {
+        "pokemonId": "weedle",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "pidgey",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "clefable",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "abra",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "bellsprout",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "slowpoke",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "gastly",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "kangaskhan",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "staryu",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "pinsir",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "magikarp",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "mareep",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "onix",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "scyther",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "heracross",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "skarmory",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "houndour",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "ralts",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "sableye",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "mawile",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "aron",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "meditite",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "electrike",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "carvanha",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "numel",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "swablu",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "shuppet",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "chingling",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "absol",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "snorunt",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "buneary",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "riolu",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "snover",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "drilbur",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "audino",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "venipede",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "scraggy",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "tynamo",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "litwick",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "litleo",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "inkay",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "binacle",
+        "level": 5,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "hawlucha",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "drampa",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "falinks",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 2
+      }
+    ],
+    "uncommon": [
+      {
+        "pokemonId": "caterpie",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "meowth",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "machop",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "gastly",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "krabby",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "lapras",
+        "level": 15,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "eevee",
+        "level": 15,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "munchlax",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "trubbish",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "rookidee",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "blipbug",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "chewtle",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "rolycoly",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "applin",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "silicobra",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "toxel",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "sizzlipede",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "hatenna",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "impidimp",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "milcery",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "cufant",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "duraludon",
+        "level": 15,
+        "ivs": 18,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "pinsir",
+        "level": 15,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 2
+      },
+      {
+        "pokemonId": "scyther",
+        "level": 15,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 2
+      },
+      {
+        "pokemonId": "numel",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "absol",
+        "level": 15,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 2
+      },
+      {
+        "pokemonId": "riolu",
+        "level": 15,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 2
+      },
+      {
+        "pokemonId": "trapinch",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "salandit",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "tyrogue",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "shinx",
+        "level": 10,
+        "ivs": 21,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "rockruff",
+        "level": 10,
+        "ivs": 21,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "foongus",
+        "level": 10,
+        "ivs": 21,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "cottonee",
+        "level": 10,
+        "ivs": 21,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "wingull",
+        "level": 10,
+        "ivs": 21,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "bounsweet",
+        "level": 10,
+        "ivs": 21,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "fletchling",
+        "level": 10,
+        "ivs": 21,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "pawniard",
+        "level": 10,
+        "ivs": 21,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "ponyta",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "growlithe",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "vulpix",
+        "level": 10,
+        "ivs": 18,
+        "shiny": "boosted",
+        "weight": 4
+      }
+    ],
+    "rare": [
+      {
+        "pokemonId": "alolan_rattata",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "alolan_pikachu",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "alolan_sandshrew",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "alolan_vulpix",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "alolan_diglett",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "alolan_meowth",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "alolan_geodude",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "alolan_grimer",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "alolan_exeggutor",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "alolan_marowak",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "galarian_meowth",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "galarian_ponyta",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "galarian_slowpoke",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "galarian_farfetchd",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "galarian_weezing",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "galarian_mrmime",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "galarian_corsola",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "galarian_zigzagoon",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "galarian_darumaka",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "galarian_yamask",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "galarian_stunfisk",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "hisuian_growlithe",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "hisuian_voltorb",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "hisuian_qwilfish",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "hisuian_sneasel",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "hisuian_lilligant",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "hisuian_zorua",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "hisuian_braviary",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "hisuian_sliggoo",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "hisuian_avalugg",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 2
+      },
+      {
+        "pokemonId": "paldean_tauros",
+        "level": 25,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 1
+      },
+      {
+        "pokemonId": "paldean_wooper",
+        "level": 20,
+        "ivs": 21,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "mimikyu",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "eevee",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "rotom",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "toxel",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "honedge",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "pikachu",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "zorua",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 2
+      },
+      {
+        "pokemonId": "smeargle",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "torkoal",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 2
+      },
+      {
+        "pokemonId": "mienfoo",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 2
+      },
+      {
+        "pokemonId": "tinkatink",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "shellos",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "gligar",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 4
+      },
+      {
+        "pokemonId": "charcadet",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 3
+      },
+      {
+        "pokemonId": "ferroseed",
+        "level": 20,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 4
+      }
+    ],
+    "ultrarare": [
+      {
+        "pokemonId": "dratini",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 16
+      },
+      {
+        "pokemonId": "larvitar",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 16
+      },
+      {
+        "pokemonId": "bagon",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 18
+      },
+      {
+        "pokemonId": "beldum",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 14
+      },
+      {
+        "pokemonId": "gible",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 16
+      },
+      {
+        "pokemonId": "deino",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 16
+      },
+      {
+        "pokemonId": "goomy",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 16
+      },
+      {
+        "pokemonId": "jangmoo",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 18
+      },
+      {
+        "pokemonId": "dreepy",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 14
+      },
+      {
+        "pokemonId": "frigibax",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 18
+      },
+      {
+        "pokemonId": "omanyte",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 15
+      },
+      {
+        "pokemonId": "kabuto",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 15
+      },
+      {
+        "pokemonId": "aerodactyl",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 15
+      },
+      {
+        "pokemonId": "lileep",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "anorith",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "cranidos",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "shieldon",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "tirtouga",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "archen",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "tyrunt",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "amaura",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "dracozolt",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "dracovish",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "arctozolt",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "arctovish",
+        "level": 30,
+        "ivs": 24,
+        "shiny": "boosted",
+        "weight": 17
+      },
+      {
+        "pokemonId": "ditto",
+        "level": 35,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 8
+      },
+      {
+        "pokemonId": "porygon",
+        "level": 30,
+        "ivs": 27,
+        "shiny": "boosted",
+        "weight": 10
+      },
+      {
+        "pokemonId": "indeedee_f",
+        "level": 35,
+        "ivs": 27,
+        "shiny": "boosted",
+        "weight": 12
+      },
+      {
+        "pokemonId": "meltan",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 6
+      },
+      {
+        "pokemonId": "larvesta",
+        "level": 35,
+        "ivs": 27,
+        "shiny": "boosted",
+        "weight": 12
+      },
+      {
+        "pokemonId": "eevee",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "yes",
+        "weight": 1
+      },
+      {
+        "pokemonId": "ditto",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "yes",
+        "weight": 1
+      },
+      {
+        "pokemonId": "greattusk",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "screamtail",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "brutebonnet",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "fluttermane",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "slitherwing",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "sandyshocks",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "irontreads",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "ironbundle",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "ironhands",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "ironjugulis",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "ironmoth",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "ironthorns",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "feebas",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 7
+      }
+    ],
+    "legendary": [
+      {
+        "pokemonId": "bulbasaur",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "charmander",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "squirtle",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "chikorita",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "cyndaquil",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "totodile",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "treecko",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "torchic",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "totodile",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "snivy",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "tepig",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "oshawott",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "chespin",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "fennekin",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "froakie",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "rowlet",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "litten",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "popplio",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "grookey",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "scorbunny",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "sobble",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "sprigatito",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "fuecoco",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "quaxly",
+        "level": 10,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 48
+      },
+      {
+        "pokemonId": "roaringmoon",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 32
+      },
+      {
+        "pokemonId": "ironvaliant",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 32
+      },
+      {
+        "pokemonId": "articuno",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "zapdos",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "moltres",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "raikou",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "entei",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "suicune",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "regirock",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "regice",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "registeel",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "regieleki",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "regidrago",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "regigigas",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "heatran",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "cresselia",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "tapukoko",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "tapulele",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "tapubulu",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "tapufini",
+        "level": 75,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 16
+      },
+      {
+        "pokemonId": "magikarp",
+        "level": 100,
+        "ivs": 31,
+        "shiny": "yes",
+        "weight": 8
+      },
+      {
+        "pokemonId": "gholdengo",
+        "level": 50,
+        "ivs": 31,
+        "shiny": "default",
+        "weight": 32
+      },
+      {
+        "pokemonId": "netherite_gholdengo",
+        "level": 100,
+        "ivs": 31,
+        "shiny": "boosted",
+        "weight": 1
+      },
+      {
+        "pokemonId": "mew",
+        "level": 100,
+        "ivs": 31,
+        "shiny": "yes",
+        "weight": 8
+      },
+      {
+        "pokemonId": "diancie",
+        "level": 100,
+        "ivs": 31,
+        "shiny": "yes",
+        "weight": 1
+      }
+    ],
+    "bonus": [
+      {
+        "pokemonId": "pidgey",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "spearow",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "hoothoot",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "taillow",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "starly",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "pidove",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "fletchling",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "pikipek",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "rookidee",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "flamigo",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "rattata",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "sentret",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "zigzagoon",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "bidoof",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "lechonk",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "bunnelby",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "yungoos",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "skwovet",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "lechonk",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 5
+      },
+      {
+        "pokemonId": "abra",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "ralts",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "gastly",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "geodude",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "vullaby",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "wooper",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "sandile",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "golett",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "slugma",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "litwick",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "bellsprout",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "staryu",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "salandit",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "rolycoly",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "goldeen",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "psyduck",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "lotad",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "seedot",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "gossifleur",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "mareep",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 6
+      },
+      {
+        "pokemonId": "wooloo",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 6
+      },
+      {
+        "pokemonId": "klink",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 4
+      },
+      {
+        "pokemonId": "spheal",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 3
+      },
+      {
+        "pokemonId": "spiritomb",
+        "level": 10,
+        "ivs": 15,
+        "shiny": "default",
+        "weight": 1
+      }
+    ],
+    "event": []
+  }
+}

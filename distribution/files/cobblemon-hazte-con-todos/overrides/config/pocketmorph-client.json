@@ -1,0 +1,55 @@
+{
+  "configVersion": 10,
+
+  "_fileComment": "Client-only PocketMorph settings. These control labels, camera, first-person view, and visuals.",
+
+  "_editingNotes": "Fields whose names start with _ are documentation only and are safe to leave alone. Boolean settings accept true or false. Numeric settings are sanitized back into their allowed range on reload. In multiplayer, these options only affect the local player using this config file.",
+
+  "_groupingNotes": "Client visuals are intentionally separate from server/common gameplay rules. If a setting affects abilities, Pokedex restrictions, hitboxes, riding permission, whitelist, or blacklist behavior, look in pocketmorph-server.json instead.",
+
+  "visuals": {
+    "_sectionComment": "Client-only visual and camera settings.",
+
+    "_showDisguiseLabelComment": "Default: true. Allowed: true or false. Shows PocketMorph disguise labels on your client.",
+    "showDisguiseLabel": true,
+
+    "_showDisguiseLabelNameComment": "Default: true. Allowed: true or false. Allows your disguise name or nickname to appear in labels.",
+    "showDisguiseLabelName": true,
+
+    "_showDisguiseLabelLevelComment": "Default: true. Allowed: true or false. Shows Lv. text in disguise labels when name labels are enabled.",
+    "showDisguiseLabelLevel": true,
+
+    "_enableLargeMorphCameraAdjustmentsComment": "Default: true. Allowed: true or false. Adjusts third-person camera distance for large disguises.",
+    "enableLargeMorphCameraAdjustments": true,
+
+    "_largeMorphCameraHeightThresholdComment": "Default: 2.0. Allowed range: 0.50 to 40.0. Pokémon height where large-form camera adjustments begin.",
+    "largeMorphCameraHeightThreshold": 2.0,
+
+    "_largeMorphCameraZoomMultiplierComment": "Default: 1.0. Allowed range: 0.25 to 4.0. Controls how much extra third-person zoom large disguises get. High values can place the camera very far away.",
+    "largeMorphCameraZoomMultiplier": 1.0,
+
+    "_largeMorphCameraMaxDistanceBonusComment": "Default: 24.0. Allowed range: 2.0 to 64.0. Maximum extra third-person camera distance for large disguises. High values can feel awkward in tight areas.",
+    "largeMorphCameraMaxDistanceBonus": 24.0,
+
+    "_enableSelfBattlerBattleCameraByDefaultComment": "Default: true. Allowed: true or false. Automatically uses the self-battler battle camera when your self-Pokémon is active in battle.",
+    "enableSelfBattlerBattleCameraByDefault": true,
+
+    "_showBattlerHudOutsideBattleComment": "Default: true. Allowed: true or false. Shows the passive Battler sidebar tab and arrow outside battle. The Battler panel hotkey still works when this is hidden, and battle HUD visibility is unaffected.",
+    "showBattlerHudOutsideBattle": true,
+
+    "_enableFirstPersonMorphCameraAdjustmentsComment": "Default: true. Allowed: true or false. Moves first-person view toward the transformed Pokémon's head or eye position.",
+    "enableFirstPersonMorphCameraAdjustments": true,
+
+    "_firstPersonMorphCameraForwardOffsetComment": "Default: 0.15. Allowed range: 0.0 to 12.0. Extra forward camera offset in first person. High values can clip into nearby blocks.",
+    "firstPersonMorphCameraForwardOffset": 0.15,
+
+    "_enableFirstPersonTransformedModelComment": "Default: true. Allowed: true or false. Shows your transformed Pokémon body in first person.",
+    "enableFirstPersonTransformedModel": true,
+
+    "_hideVanillaFirstPersonHandWhenTransformedComment": "Default: true. Allowed: true or false. Hides the normal player hand while transformed. Held items still render normally.",
+    "hideVanillaFirstPersonHandWhenTransformed": true,
+
+    "_enableTransformedPlayerShinySoundComment": "Default: true. Allowed: true or false. Plays PocketMorph's shiny chime for shiny transformed players.",
+    "enableTransformedPlayerShinySound": true
+  }
+}

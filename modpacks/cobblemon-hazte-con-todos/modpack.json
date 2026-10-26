@@ -1,0 +1,25 @@
+{
+    "name": "Cobblemon: Hazte con todos",
+    "description": "Captura, entrena y combate con Pokémon en el mundo de Minecraft.",
+    "icon": "assets/images/modpacks/cobblemon-hazte-con-todos.svg",
+    "version": "1.0.1",
+    "address": "localhost:25565",
+    "mainServer": true,
+    "javaOptions": {
+        "supported": "21.x",
+        "suggestedMajor": 21,
+        "ram": {
+            "recommended": 6144,
+            "minimum": 4096
+        }
+    },
+    "defaults": [
+        "config/sodium-options.json",
+        "config/reeses_sodium_options.json",
+        "config/iris.properties",
+        "shaderpacks/*.txt",
+        "config/xaero/",
+        "config/zoomify.json",
+        "config/betterthirdperson.json5"
+    ]
+}

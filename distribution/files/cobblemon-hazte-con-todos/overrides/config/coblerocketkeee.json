@@ -1,0 +1,6 @@
+{
+  "scanRadius": 64,
+  "notifyTarget": true,
+  "auditLogEnabled": true,
+  "opFallbackLevel": 2
+}

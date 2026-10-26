@@ -1,0 +1,14 @@
+{
+  "chip_prices": {
+    "basicChip": 10,
+    "redChip": 50,
+    "blueChip": 100,
+    "purpleChip": 500,
+    "copperChip": 1000,
+    "ironChip": 10000,
+    "emeraldChip": 100000,
+    "goldChip": 1000000,
+    "diamondChip": 10000000,
+    "netheriteChip": 50000000
+  }
+}

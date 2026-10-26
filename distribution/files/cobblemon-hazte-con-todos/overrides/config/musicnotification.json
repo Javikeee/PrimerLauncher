@@ -1,0 +1,23 @@
+{
+  "options": {
+    "COMPUTED_IS_DARK_MODE_ENABLED": false,
+    "SHOW_TITLE_SCREEN_BUTTON": true,
+    "SHOW_AUTHOR": true,
+    "SHOW_ALBUM_NAME": false,
+    "ROTATE_ALBUM_COVER": false,
+    "DISABLE_TOAST_SOUND": "MUTE_SELF",
+    "IGNORE_SOUND_EVENT": [
+      "minecraft:note/*"
+    ],
+    "MAX_COUNT_HISTORY": 20,
+    "DEBUG_MOD": false,
+    "NOTIFICATION_STYLE": "COMPACT",
+    "NOTIFICATION_STYLE_FALLBACK": [
+      "LOG"
+    ],
+    "STYLE_ACTION_BAR_ANIMATE_COLOR": false,
+    "STYLE_LEGACY_TOAST_SCALE": false,
+    "STYLE_COMPACT_ALPHA": 0,
+    "STYLE_COMPACT_TIME": 0
+  }
+}

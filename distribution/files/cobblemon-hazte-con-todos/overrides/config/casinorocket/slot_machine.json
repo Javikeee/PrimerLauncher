@@ -1,0 +1,67 @@
+{
+  "betValues": [
+    10,
+    25,
+    50,
+    100,
+    250,
+    500,
+    1000,
+    5000,
+    10000,
+    25000,
+    50000,
+    100000,
+    250000,
+    500000,
+    1000000,
+    5000000
+  ],
+  "betMultipliers": {
+    "mode1": 1,
+    "mode2": 3,
+    "mode3": 5
+  },
+  "reels": {
+    "reelSize": 256,
+    "reel1": {
+      "counts": {
+        "CHERRY": 64,
+        "BULBASAUR": 46,
+        "SQUIRTLE": 38,
+        "CHARMANDER": 32,
+        "PIKACHU": 22,
+        "MEW": 16,
+        "ROCKET": 10,
+        "SEVEN": 6
+      },
+      "fillSymbol": "HAUNTER"
+    },
+    "reel2": {
+      "counts": {
+        "CHERRY": 76,
+        "BULBASAUR": 46,
+        "SQUIRTLE": 38,
+        "CHARMANDER": 32,
+        "PIKACHU": 22,
+        "MEW": 16,
+        "ROCKET": 10,
+        "SEVEN": 6
+      },
+      "fillSymbol": "HAUNTER"
+    },
+    "reel3": {
+      "counts": {
+        "CHERRY": 76,
+        "BULBASAUR": 46,
+        "SQUIRTLE": 38,
+        "CHARMANDER": 32,
+        "PIKACHU": 22,
+        "MEW": 16,
+        "ROCKET": 10,
+        "SEVEN": 6
+      },
+      "fillSymbol": "HAUNTER"
+    }
+  }
+}

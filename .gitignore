@@ -5,3 +5,6 @@
 /logs/
 /dist/
 /.publish/
+/.cache/
+/distribution/large/
+/modpacks/*/*.mrpack

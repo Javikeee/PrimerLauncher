@@ -1,0 +1,177 @@
+{
+  "configVersion": 24,
+
+  "_fileComment": "Server-side PocketMorph settings. These control disguise rules, abilities, riding, and size limits.",
+
+  "_editingNotes": "Fields whose names start with _ are documentation only and are safe to leave alone. Boolean settings accept true or false. Selection settings list allowed values in their comment line. Numeric settings are sanitized back into their allowed range on reload; if min/max values are reversed, PocketMorph repairs them safely.",
+
+  "_groupingNotes": "Config options are grouped by purpose: abilities = gameplay buffs, transformations = disguise rules and size limits, selfBattlers = optional self-Pokémon battle settings, and logging = troubleshooting controls. Client-only camera and label settings live in pocketmorph-client.json.",
+
+  "abilities": {
+    "_sectionComment": "Gameplay abilities granted by transformed Pokémon.",
+
+    "_enableMorphFlightComment": "Default: true. Allowed: true or false. Allows flying disguises to use flight.",
+    "enableMorphFlight": true,
+
+    "_enableMorphWaterBreathingComment": "Default: true. Allowed: true or false. Allows aquatic disguises to breathe underwater.",
+    "enableMorphWaterBreathing": true,
+
+    "_enableMorphFireResistanceComment": "Default: true. Allowed: true or false. Allows fire-resistant disguises to resist fire and lava damage.",
+    "enableMorphFireResistance": true,
+
+    "_enableFireTypeLavaSwimBoostComment": "Default: true. Allowed: true or false. Enables controlled lava swimming for fire-resistant disguises, including horizontal steering and jump/sneak vertical movement.",
+    "enableFireTypeLavaSwimBoost": true,
+
+    "_fireTypeLavaSwimBoostMultiplierComment": "Default: 1.6. Allowed range: 1.0 to 4.0. Controls both horizontal and vertical controlled lava-swim speed. Very high values can be difficult to control.",
+    "fireTypeLavaSwimBoostMultiplier": 1.6,
+
+    "_enableAquaticSwimBoostComment": "Default: true. Allowed: true or false. Gives aquatic disguises a swim-speed boost underwater.",
+    "enableAquaticSwimBoost": true,
+
+    "_groundMovementSpeedModeComment": "Default: LEGACY_FAST_ONLY. Allowed: OFF, LEGACY_FAST_ONLY, or ALL_BY_BASE_STAT. OFF disables PocketMorph ground-speed changes. LEGACY_FAST_ONLY uses the existing Speed-effect system for qualifying fast disguises. ALL_BY_BASE_STAT gives every transformation a positive or negative temporary movement-speed modifier from its resolved form's base Speed while grounded.",
+    "groundMovementSpeedMode": "LEGACY_FAST_ONLY",
+
+    "_allowGroundedLandSpeedBoostForAllEligiblePokemonComment": "Default: false. Allowed: true or false. Used only by LEGACY_FAST_ONLY. When enabled, every qualifying fast disguise may receive the normal Speed effect while grounded, regardless of flight, aquatic, or other abilities.",
+    "allowGroundedLandSpeedBoostForAllEligiblePokemon": false,
+
+    "_groundedLandSpeedBoostLevelComment": "Default: 2. Allowed range: 1 to 5. Used only by LEGACY_FAST_ONLY. Speed effect level used when variable speed scaling is off. High levels can make movement hard to control.",
+    "groundedLandSpeedBoostLevel": 2,
+
+    "_enableVariableGroundedLandSpeedBoostComment": "Default: true. Allowed: true or false. Used only by LEGACY_FAST_ONLY. Lets very fast disguises receive stronger Speed effects based on their base Speed stat.",
+    "enableVariableGroundedLandSpeedBoost": true,
+
+    "_groundMovementNeutralBaseSpeedComment": "Default: 65. Allowed range: 6 to 199. Used only by ALL_BY_BASE_STAT. A transformation at this base Speed keeps normal player movement. The default is the nearest-five rounded average across all 1,025 canonical National Pokedex species.",
+    "groundMovementNeutralBaseSpeed": 65,
+
+    "_groundMovementMinimumMultiplierComment": "Default: 0.65. Allowed range: 0.10 to 1.0. Used only by ALL_BY_BASE_STAT. Lowest grounded movement multiplier for extremely slow transformations.",
+    "groundMovementMinimumMultiplier": 0.65,
+
+    "_groundMovementMaximumMultiplierComment": "Default: 1.35. Allowed range: 1.0 to 4.0. Used only by ALL_BY_BASE_STAT. Highest grounded movement multiplier for extremely fast transformations. High values can be difficult to control.",
+    "groundMovementMaximumMultiplier": 1.35,
+
+    "_enableTransformationCryComment": "Default: true. Allowed: true or false. Allows transformed players to play their current Pokémon cry with the optional cry hotkey. The request is validated and broadcast by the server so nearby players can hear it.",
+    "enableTransformationCry": true,
+
+    "_transformationCryCooldownSecondsComment": "Default: 3. Allowed range: 0 to 60 seconds. Server-enforced cooldown between manual transformation cries. Use 0 to disable the cooldown; low values may allow sound spam.",
+    "transformationCryCooldownSeconds": 3,
+
+    "_enableTransformedUnarmedAttackDamageComment": "Default: true. Allowed: true or false. Adds extra melee damage while transformed and empty-handed.",
+    "enableTransformedUnarmedAttackDamage": true,
+
+    "_transformedUnarmedAttackBaseStatThresholdComment": "Default: 80. Allowed range: 1 to 255. Base Attack value where extra variable unarmed damage begins.",
+    "transformedUnarmedAttackBaseStatThreshold": 80,
+
+    "_transformedUnarmedAttackBaseDamageBonusComment": "Default: 4.0. Allowed range: 0.0 to 100.0. Flat damage added to transformed empty-hand attacks. High values can make melee damage very strong.",
+    "transformedUnarmedAttackBaseDamageBonus": 4.0,
+
+    "_enableVariableTransformedUnarmedAttackDamageComment": "Default: true. Allowed: true or false. Adds more empty-hand damage for each 10 base Attack above the threshold.",
+    "enableVariableTransformedUnarmedAttackDamage": true,
+
+    "_transformedUnarmedAttackDamagePer10BaseAttackComment": "Default: 4.0. Allowed range: 0.0 to 100.0. Extra damage for each 10 base Attack above the threshold. High values can make melee damage very strong.",
+    "transformedUnarmedAttackDamagePer10BaseAttack": 4.0,
+
+    "_enableTransformedPlayerRidingComment": "Default: true. Allowed: true or false. Allows players to ride transformed players when that disguise is already rideable.",
+    "enableTransformedPlayerRiding": true,
+
+    "_allowTransformedPlayersToRideOtherTransformedPlayersComment": "Default: true. Allowed: true or false. Allows transformed players to ride other transformed players.",
+    "allowTransformedPlayersToRideOtherTransformedPlayers": true,
+
+    "_shareAquaticWaterBreathingWithRidersComment": "Default: true. Allowed: true or false. Gives riders water breathing while mounted on a rideable aquatic disguise.",
+    "shareAquaticWaterBreathingWithRiders": true,
+
+    "_shareFireResistanceWithRidersComment": "Default: true. Allowed: true or false. Gives riders fire resistance while mounted on a rideable fire-resistant disguise.",
+    "shareFireResistanceWithRiders": true,
+
+    "_enableGroundTypeMiningHasteComment": "Default: true. Allowed: true or false. Gives Ground-type disguises Haste for mining.",
+    "enableGroundTypeMiningHaste": true,
+
+    "_groundTypeMiningHasteLevelComment": "Default: 1. Allowed range: 1 to 5. Haste level used for Ground-type mining. High levels can make mining much faster than normal.",
+    "groundTypeMiningHasteLevel": 1
+  },
+
+  "transformations": {
+    "_sectionComment": "Rules that decide which disguises players may use.",
+
+    "_dexRequirementComment": "Default: SEEN. Allowed: OFF, SEEN, or CAUGHT. Controls whether players must have seen or caught a Pokémon before using it as a disguise.",
+    "dexRequirement": "SEEN",
+
+    "_enableCreativeModePokedexBypassComment": "Default: true. Allowed: true or false. Lets Creative-mode players ignore Pokédex requirements.",
+    "enableCreativeModePokedexBypass": true,
+
+    "_enforcePokedexShinyRestrictionsComment": "Default: true. Allowed: true or false. Requires shiny disguises to be discovered when Pokédex requirements are enabled.",
+    "enforcePokedexShinyRestrictions": true,
+
+    "_enableSpeciesWhitelistComment": "Default: false. Allowed: true or false. If enabled, only Pokémon in speciesWhitelist can be used.",
+    "enableSpeciesWhitelist": false,
+
+    "_speciesWhitelistComment": "Default: []. Add Pokémon names or IDs, such as [\"charizard\", \"Mr Mime\", \"cobblemon:stakataka\"]. This list is for species only, not forms or scale.",
+    "speciesWhitelist": [],
+
+    "_enableSpeciesBlacklistComment": "Default: false. Allowed: true or false. If enabled, Pokémon in speciesBlacklist cannot be used.",
+    "enableSpeciesBlacklist": false,
+
+    "_speciesBlacklistComment": "Default: []. Add Pokémon names or IDs, such as [\"mewtwo\", \"Giratina\", \"cobblemon:stakataka\"]. This list blocks whole species only.",
+    "speciesBlacklist": [],
+
+    "_maxEntityScaleComment": "Default: 4.0. Allowed range: 0.10 to 40.0. Highest allowed scale=<value>. Very large values can reduce FPS and make big Pokémon harder to use.",
+    "maxEntityScale": 4.0,
+
+    "_enableTransformedHitboxMatchingComment": "Default: true. Allowed: true or false. Makes your player hitbox better match the size of the transformed Pokémon.",
+    "enableTransformedHitboxMatching": true,
+
+    "_transformedHitboxMinScaleComment": "Default: 0.35. Allowed range: 0.20 to 5.0. Smallest width or height multiplier used for transformed hitboxes.",
+    "transformedHitboxMinScale": 0.35,
+
+    "_transformedHitboxMaxScaleComment": "Default: 2.75. Allowed range: 0.20 to 5.0. Largest width multiplier used for transformed hitboxes. High values can make doorways and tight spaces harder to use.",
+    "transformedHitboxMaxScale": 2.75,
+
+    "_transformedHitboxMaxHeightScaleComment": "Default: 5.0. Allowed range: 0.20 to 5.0. Largest height multiplier used for transformed hitboxes. High values can make caves and low ceilings harder to use.",
+    "transformedHitboxMaxHeightScale": 5.0,
+
+    "_enableLargeMorphStepHeightAssistComment": "Default: true. Allowed: true or false. Helps very large transformed players step over blocks more smoothly.",
+    "enableLargeMorphStepHeightAssist": true,
+
+    "_largeMorphStepHeightAssistMinHeightComment": "Default: 2.5. Allowed range: 1.80 to 10.0. Transformed hitbox height needed before step assist turns on.",
+    "largeMorphStepHeightAssistMinHeight": 2.5,
+
+    "_largeMorphStepHeightAssistAmountComment": "Default: 1.5. Allowed range: 0.60 to 5.0. Step height used while large-form step assist is active. High values can let large forms step up more than expected.",
+    "largeMorphStepHeightAssistAmount": 1.5
+  },
+
+  "selfBattlers": {
+    "_sectionComment": "Self-Pokémon battle settings. These control the optional feature that lets your transformed Pokémon act as your own battle Pokémon.",
+
+    "_enableSelfBattlersComment": "Default: true. Allowed: true or false. Enables the self-Pokémon battle feature.",
+    "enableSelfBattlers": true,
+
+    "_enableMultiFormStorageComment": "Default: true. Allowed: true or false. Keeps separate saved self-Pokémon data for different functional forms.",
+    "enableMultiFormStorage": true,
+
+    "_ignoreDisguiseLevelPropertiesWhenEnabledComment": "Default: true. Allowed: true or false. When self-Pokémon are enabled, their saved Cobblemon level is used instead of level= in disguise text.",
+    "ignoreDisguiseLevelPropertiesWhenEnabled": true,
+
+    "_autoSwapSelfBattlerOnTransformComment": "Default: false. Allowed: true or false. When enabled, changing your transform also updates the active self-Pokémon when safe.",
+    "autoSwapSelfBattlerOnTransform": false,
+
+    "_enableSelfBattlerHeldItemAccessComment": "Default: true. Allowed: true or false. Allows the battler panel to move your main-hand item into the active self-Pokémon held-item slot.",
+    "enableSelfBattlerHeldItemAccess": true,
+
+    "_enableSelfBattlerCosmeticItemAccessComment": "Default: true. Allowed: true or false. Allows the battler panel to apply valid cosmetic items to the active self-Pokémon.",
+    "enableSelfBattlerCosmeticItemAccess": true,
+
+    "_storageTransferPolicyComment": "Self-Pokémon cannot be moved into PC, trade, pasture, daycare, or similar storage. This protects the saved player-linked Pokémon and cannot be changed.",
+
+    "_initialIvsModeComment": "Default: random. Allowed: random or max. Controls IVs when a brand-new self-Pokémon is created.",
+    "initialIvsMode": "random",
+
+    "_hideRealPlayerModelWhenSelfBattlerActiveComment": "Default: true. Allowed: true or false. Hides your normal transformed player model while your self-Pokémon is active in battle.",
+    "hideRealPlayerModelWhenSelfBattlerActive": true
+  },
+
+  "logging": {
+    "_sectionComment": "Logging settings. Defaults keep routine logs quiet; enable detailed logging only while troubleshooting.",
+
+    "_enableDetailedLifecycleLoggingComment": "Default: false. Allowed: true or false. Enables technical lifecycle logs and verbose player-facing Battler reports for troubleshooting self-Pokémon, transforms, items, and saved data.",
+    "enableDetailedLifecycleLogging": false
+  }
+}

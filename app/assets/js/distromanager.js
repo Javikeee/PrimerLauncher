@@ -4,7 +4,7 @@ const fs = require('fs-extra')
 const path = require('path')
 
 const ConfigManager = require('./configmanager')
-const { DISTRO_BASE_URL, DEV_DISTRO_PORT } = require('./distroconfig')
+const { DISTRO_BASE_URL, DEV_DISTRO_PORT, LARGE_FILES_URL } = require('./distroconfig')
 
 exports.REMOTE_DISTRO_URL = `${DISTRO_BASE_URL}/distribution.json`
 
@@ -23,13 +23,15 @@ const api = new DistributionAPI(
 /**
  * Copy the repo's distribution file to where helios-core reads dev mode
  * distributions (distribution_dev.json in the launcher directory). Hosted
- * file URLs are pointed at the local server started in index.js.
+ * file URLs are pointed at the local server started in index.js, large files
+ * (distribution/large/) included.
  */
 function copyLocalDistribution(){
     const raw = fs.readFileSync(exports.LOCAL_DISTRO_PATH, 'utf-8')
+    const local = `http://127.0.0.1:${DEV_DISTRO_PORT}`
     fs.writeFileSync(
         path.join(ConfigManager.getLauncherDirectory(), 'distribution_dev.json'),
-        raw.split(DISTRO_BASE_URL).join(`http://127.0.0.1:${DEV_DISTRO_PORT}`)
+        raw.split(LARGE_FILES_URL).join(`${local}/large`).split(DISTRO_BASE_URL).join(local)
     )
 }
 

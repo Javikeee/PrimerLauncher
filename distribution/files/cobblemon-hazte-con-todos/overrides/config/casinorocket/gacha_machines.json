@@ -1,0 +1,121 @@
+{
+  "rarity_base_weights": {
+    "common": 60.0,
+    "uncommon": 25.0,
+    "rare": 10.0,
+    "ultrarare": 4.0,
+    "legendary": 1.0
+  },
+  "coin_multipliers": {
+    "copper": {
+      "common": 1.0,
+      "uncommon": 1.0,
+      "rare": 1.0,
+      "ultrarare": 1.0,
+      "legendary": 0.1
+    },
+    "iron": {
+      "common": 0.85,
+      "uncommon": 1.1,
+      "rare": 1.4,
+      "ultrarare": 1.6,
+      "legendary": 0.5
+    },
+    "gold": {
+      "common": 0.55,
+      "uncommon": 1.2,
+      "rare": 2.1,
+      "ultrarare": 2.5,
+      "legendary": 0.95
+    },
+    "diamond": {
+      "common": 0.32,
+      "uncommon": 1.1,
+      "rare": 3.0,
+      "ultrarare": 3.2,
+      "legendary": 2.3
+    }
+  },
+  "pity": {
+    "enable": true,
+    "pityUpdateMessages": true,
+    "iron": {
+      "usesToMax": 0,
+      "maxLegendaryChance": 0.0
+    },
+    "gold": {
+      "usesToMax": 80,
+      "maxLegendaryChance": 0.25
+    },
+    "diamond": {
+      "usesToMax": 25,
+      "maxLegendaryChance": 0.25
+    }
+  },
+  "premier_bonus": {
+    "enable": true,
+    "coinsToBonus": 10
+  },
+  "gacha_store": {
+    "coin_prices": {
+      "copper": 1000,
+      "iron": 10000,
+      "gold": 100000,
+      "diamond": 500000,
+      "event": 50000,
+      "primogem": 50000
+    },
+    "gachapon_store": {
+      "enableItemGachaponStore": true,
+      "item_poke_gachapon": {
+        "enableToBuy": true,
+        "price": 5000
+      },
+      "item_great_gachapon": {
+        "enableToBuy": true,
+        "price": 50000
+      },
+      "item_ultra_gachapon": {
+        "enableToBuy": true,
+        "price": 500000
+      },
+      "item_master_gachapon": {
+        "enableToBuy": false,
+        "price": 2500000
+      },
+      "item_cherish_gachapon": {
+        "enableToBuy": false,
+        "price": 10000000
+      },
+      "item_premier_gachapon": {
+        "enableToBuy": false,
+        "price": 10000
+      },
+      "enablePokemonGachaponStore": true,
+      "pokemon_poke_gachapon": {
+        "enableToBuy": true,
+        "price": 5000
+      },
+      "pokemon_great_gachapon": {
+        "enableToBuy": true,
+        "price": 50000
+      },
+      "pokemon_ultra_gachapon": {
+        "enableToBuy": true,
+        "price": 500000
+      },
+      "pokemon_master_gachapon": {
+        "enableToBuy": false,
+        "price": 2500000
+      },
+      "pokemon_cherish_gachapon": {
+        "enableToBuy": false,
+        "price": 10000000
+      },
+      "pokemon_premier_gachapon": {
+        "enableToBuy": false,
+        "price": 10000
+      }
+    }
+  }
+}

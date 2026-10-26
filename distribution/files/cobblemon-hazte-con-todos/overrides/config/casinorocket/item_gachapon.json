@@ -1,0 +1,1022 @@
+{
+  "pools": {
+    "common": [
+      {
+        "itemId": "cobblemon:poke_ball",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:citrine_ball",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:verdant_ball",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:azure_ball",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:roseate_ball",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:slate_ball",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:heal_ball",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:great_ball",
+        "weight": 4,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:ultra_ball",
+        "weight": 2,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:exp_candy_xs",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:potion",
+        "weight": 10,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:super_potion",
+        "weight": 6,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:oran_berry",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:sitrus_berry",
+        "weight": 4,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:lum_berry",
+        "weight": 4,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:galarica_nuts",
+        "weight": 4,
+        "count": 3
+      },
+      {
+        "itemId": "casinorocket:blue_chip",
+        "weight": 4,
+        "count": 5
+      },
+      {
+        "itemId": "casinorocket:copper_chip",
+        "weight": 1,
+        "count": 1
+      },
+      {
+        "itemId": "minecraft:coal",
+        "weight": 8,
+        "count": 16
+      },
+      {
+        "itemId": "minecraft:iron_ingot",
+        "weight": 6,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:copper_ingot",
+        "weight": 6,
+        "count": 12
+      },
+      {
+        "itemId": "minecraft:gold_ingot",
+        "weight": 2,
+        "count": 4
+      },
+      {
+        "itemId": "minecraft:leather",
+        "weight": 5,
+        "count": 4
+      },
+      {
+        "itemId": "minecraft:bone",
+        "weight": 5,
+        "count": 4
+      },
+      {
+        "itemId": "minecraft:gunpowder",
+        "weight": 5,
+        "count": 4
+      }
+    ],
+    "uncommon": [
+      {
+        "itemId": "cobblemon:great_ball",
+        "weight": 16,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:ultra_ball",
+        "weight": 12,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:quick_ball",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:timer_ball",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:luxury_ball",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:dream_ball",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:repeat_ball",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:exp_candy_xs",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:exp_candy_s",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:rare_candy",
+        "weight": 2,
+        "count": 1
+      },
+      {
+        "itemId": "cobblecuisine:bitter_leek_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:dry_frozen_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:salty_boiled_egg_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:bitter_herb_medley_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:bitter_leek_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:dry_bone_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:spicy_mushroom_medley_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:sweet_apple_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:spicy_potato_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:sweet_whipped_cream_curry",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:sour_pickle_sandwich",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:spicy_five_alarm_sandwich",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:salty_vegetable_sandwich",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:sour_zesty_sandwich",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:sweet_potato_salad_sandwich",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:sweet_jam_sandwich",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:spicy_claw_sandwich",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:bitter_jambon_beurre",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblecuisine:salty_egg_sandwich",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:super_potion",
+        "weight": 12,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:hyper_potion",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:revive",
+        "weight": 4,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:sitrus_berry",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:lum_berry",
+        "weight": 4,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:leppa_berry",
+        "weight": 4,
+        "count": 2
+      },
+      {
+        "itemId": "casinorocket:copper_chip",
+        "weight": 2,
+        "count": 5
+      },
+      {
+        "itemId": "casinorocket:iron_chip",
+        "weight": 1,
+        "count": 1
+      },
+      {
+        "itemId": "minecraft:iron_ingot",
+        "weight": 12,
+        "count": 12
+      },
+      {
+        "itemId": "minecraft:copper_ingot",
+        "weight": 12,
+        "count": 16
+      },
+      {
+        "itemId": "minecraft:gold_ingot",
+        "weight": 8,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:leather",
+        "weight": 4,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:bone",
+        "weight": 4,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:gunpowder",
+        "weight": 4,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:blaze_rod",
+        "weight": 3,
+        "count": 2
+      },
+      {
+        "itemId": "minecraft:ender_pearl",
+        "weight": 2,
+        "count": 2
+      }
+    ],
+    "rare": [
+      {
+        "itemId": "cobblemon:ultra_ball",
+        "weight": 16,
+        "count": 12
+      },
+      {
+        "itemId": "cobblemon:quick_ball",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:timer_ball",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:luxury_ball",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:dream_ball",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:repeat_ball",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:exp_candy_s",
+        "weight": 14,
+        "count": 6
+      },
+      {
+        "itemId": "cobblemon:exp_candy_l",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:rare_candy",
+        "weight": 6,
+        "count": 2
+      },
+      {
+        "itemId": "cobblecuisine:dry_curry",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:hp_up",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:protein",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:iron",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:calcium",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:zinc",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:carbos",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:pp_max",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:hyper_potion",
+        "weight": 12,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:max_potion",
+        "weight": 9,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:full_heal",
+        "weight": 9,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:revive",
+        "weight": 9,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:max_revive",
+        "weight": 7,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:fire_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:water_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:thunder_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:leaf_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:moon_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:sun_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:shiny_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:dusk_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:dawn_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:ice_stone",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "itemId": "cobblemon:pomeg_berry",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:kelpsy_berry",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:qualot_berry",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:hondew_berry",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:grepa_berry",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:tamato_berry",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:leppa_berry",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "casinorocket:iron_chip",
+        "weight": 4,
+        "count": 5
+      },
+      {
+        "itemId": "casinorocket:emerald_chip",
+        "weight": 1,
+        "count": 1
+      },
+      {
+        "itemId": "mega_showdown:max_mushroom",
+        "weight": 2,
+        "count": 2
+      },
+      {
+        "itemId": "minecraft:gold_ingot",
+        "weight": 12,
+        "count": 12
+      },
+      {
+        "itemId": "minecraft:blaze_rod",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "minecraft:ender_pearl",
+        "weight": 4,
+        "count": 4
+      },
+      {
+        "itemId": "minecraft:dragon_breath",
+        "weight": 2,
+        "count": 2
+      }
+    ],
+    "ultrarare": [
+      {
+        "itemId": "cobblemon:beast_ball",
+        "weight": 12,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:exp_candy_l",
+        "weight": 16,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:exp_candy_xl",
+        "weight": 12,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:rare_candy",
+        "weight": 10,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:ability_capsule",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:ability_patch",
+        "weight": 6,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:full_restore",
+        "weight": 16,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:max_revive",
+        "weight": 16,
+        "count": 2
+      },
+      {
+        "itemId": "casinorocket:emerald_chip",
+        "weight": 3,
+        "count": 5
+      },
+      {
+        "itemId": "casinorocket:gold_chip",
+        "weight": 1,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:hp_up",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:protein",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:iron",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:calcium",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:zinc",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:carbos",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:pp_max",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:life_orb",
+        "weight": 7,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:choice_band",
+        "weight": 7,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:choice_scarf",
+        "weight": 7,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:choice_specs",
+        "weight": 7,
+        "count": 1
+      },
+      {
+        "itemId": "obc:bottle_cap",
+        "weight": 7,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:leftovers",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:focus_sash",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:assault_vest",
+        "weight": 8,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:rocky_helmet",
+        "weight": 8,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:weakness_policy",
+        "weight": 8,
+        "count": 1
+      },
+      {
+        "itemId": "mega_showdown:mega_stone",
+        "weight": 4,
+        "count": 1
+      },
+      {
+        "itemId": "mega_showdown:blank-z",
+        "weight": 4,
+        "count": 1
+      },
+      {
+        "itemId": "mega_showdown:dynamax_candy",
+        "weight": 4,
+        "count": 2
+      },
+      {
+        "itemId": "mega_showdown:tera_orb",
+        "weight": 4,
+        "count": 1
+      },
+      {
+        "itemId": "minecraft:totem_of_undying",
+        "weight": 6,
+        "count": 1
+      },
+      {
+        "itemId": "minecraft:shulker_shell",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "minecraft:enchanted_golden_apple",
+        "weight": 6,
+        "count": 2
+      }
+    ],
+    "legendary": [
+      {
+        "itemId": "cobblemon:master_ball",
+        "weight": 8,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:cherish_ball",
+        "weight": 7,
+        "count": 1
+      },
+      {
+        "itemId": "cobblemon:exp_candy_xl",
+        "weight": 6,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:rare_candy",
+        "weight": 6,
+        "count": 6
+      },
+      {
+        "itemId": "cobblecuisine:bean_medley_curry",
+        "weight": 4,
+        "count": 3
+      },
+      {
+        "itemId": "casinorocket:gold_chip",
+        "weight": 2,
+        "count": 5
+      },
+      {
+        "itemId": "mega_showdown:keystone",
+        "weight": 2,
+        "count": 1
+      },
+      {
+        "itemId": "mega_showdown:sparkling_stone_light",
+        "weight": 1,
+        "count": 1
+      },
+      {
+        "itemId": "mega_showdown:sparkling_stone_dark",
+        "weight": 1,
+        "count": 1
+      },
+      {
+        "itemId": "mega_showdown:wishing_star",
+        "weight": 2,
+        "count": 1
+      },
+      {
+        "itemId": "minecraft:nether_star",
+        "weight": 3,
+        "count": 2
+      },
+      {
+        "itemId": "minecraft:netherite_ingot",
+        "weight": 3,
+        "count": 2
+      },
+      {
+        "itemId": "minecraft:diamond",
+        "weight": 6,
+        "count": 8
+      },
+      {
+        "itemId": "obc:bottle_cap",
+        "weight": 6,
+        "count": 3
+      },
+      {
+        "itemId": "obc:bottle_cap_gold",
+        "weight": 4,
+        "count": 1
+      },
+      {
+        "itemId": "minecraft:heavy_core",
+        "weight": 2,
+        "count": 1
+      },
+      {
+        "itemId": "minecraft:trident",
+        "weight": 2,
+        "count": 1
+      }
+    ],
+    "bonus": [
+      {
+        "itemId": "cobblemon:premier_ball",
+        "weight": 12,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:safari_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:fast_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:level_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:lure_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:heavy_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:love_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:friend_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:moon_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:sport_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:park_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:net_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:dive_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:nest_ball",
+        "weight": 8,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:exp_candy_xs",
+        "weight": 10,
+        "count": 8
+      },
+      {
+        "itemId": "cobblemon:exp_candy_s",
+        "weight": 6,
+        "count": 4
+      },
+      {
+        "itemId": "cobblemon:exp_candy_l",
+        "weight": 4,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:rare_candy",
+        "weight": 3,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:pp_max",
+        "weight": 3,
+        "count": 2
+      },
+      {
+        "itemId": "cobblemon:revive",
+        "weight": 5,
+        "count": 1
+      },
+      {
+        "itemId": "casinorocket:iron_chip",
+        "weight": 3,
+        "count": 5
+      },
+      {
+        "itemId": "casinorocket:emerald_chip",
+        "weight": 1,
+        "count": 1
+      },
+      {
+        "itemId": "minecraft:iron_ingot",
+        "weight": 12,
+        "count": 12
+      },
+      {
+        "itemId": "minecraft:copper_ingot",
+        "weight": 12,
+        "count": 16
+      },
+      {
+        "itemId": "minecraft:gold_ingot",
+        "weight": 10,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:leather",
+        "weight": 6,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:bone",
+        "weight": 6,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:gunpowder",
+        "weight": 6,
+        "count": 8
+      },
+      {
+        "itemId": "minecraft:blaze_rod",
+        "weight": 4,
+        "count": 2
+      },
+      {
+        "itemId": "minecraft:ender_pearl",
+        "weight": 4,
+        "count": 2
+      },
+      {
+        "itemId": "casinorocket:copper_coin",
+        "weight": 16,
+        "count": 3
+      },
+      {
+        "itemId": "casinorocket:iron_coin",
+        "weight": 8,
+        "count": 2
+      },
+      {
+        "itemId": "casinorocket:gold_coin",
+        "weight": 2,
+        "count": 1
+      },
+      {
+        "itemId": "casinorocket:diamond_coin",
+        "weight": 1,
+        "count": 1
+      }
+    ],
+    "event": []
+  }
+}

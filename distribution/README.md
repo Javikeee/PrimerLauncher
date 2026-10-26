@@ -10,6 +10,20 @@ node tools/import-modrinth-profile.js "%APPDATA%\ModrinthApp\profiles\<perfil>" 
 
 Crea `modpacks/<id>/` con los mods de Modrinth fijados a su versión exacta, los jars que no están en Modrinth en `mods/` y `config/` en `files/config/`. Revisa `files/`: lo que hay ahí se fuerza en cada arranque, así que quita los configs que cada jugador debería poder cambiar (gráficos, Sodium, Iris...). Pon el icono como `modpacks/<id>/icon.png` (o `.avif`, `.svg`, `.webp`).
 
+## Importar un `.mrpack` (exportado desde Modrinth App)
+
+Mete el `.mrpack` en `modpacks/<id>/` junto a un `modpack.json` con el nombre, la descripción, etc. (mira `modpacks/cobblemon-hazte-con-todos`). La versión de Minecraft, el loader, los mods, resource packs, shaders y los overrides salen del `.mrpack`. Para actualizar el modpack, exporta uno nuevo, borra el viejo, sube `version` y vuelve a generar.
+
+- Los jars de `modpacks/<id>/mods/` sustituyen a los del `.mrpack` con el mismo id de mod (aunque sean otra versión), así puedes actualizar tus mods sin reexportar.
+- Lo de `modpacks/<id>/files/` gana sobre los overrides del `.mrpack`.
+- Los mods desactivados en Modrinth App (`.jar.disabled`) quedan como opcionales y desactivados.
+- `"defaults"` en `modpack.json`: rutas que solo se copian si el jugador no las tiene (ajustes de vídeo, minimapa…), para no machacar sus cambios en cada arranque. Acepta carpetas (`config/xaero/`) y `*` (`shaderpacks/*.txt`).
+- Los `.mrpack` no se suben a git (pesan demasiado); guárdalos tú.
+
+## Archivos de más de 90 MB
+
+GitHub no acepta archivos de más de 100 MB en un repo, así que `build-modpack.js` los deja en `distribution/large/` y `npm run publish:modpacks` los sube como assets de la release `files` de `Javikeee/keee-modpacks` (necesita `gh` con sesión iniciada). En `npm start` se sirven en local.
+
 ## Borradores
 
 Con `"draft": true` en `modpack.json` el modpack funciona en `npm start` pero `npm run publish:modpacks` no lo sube. Quítalo cuando quieras publicarlo.

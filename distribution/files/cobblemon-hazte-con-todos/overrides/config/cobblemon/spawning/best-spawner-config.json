@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "replaceWithNewVersion": true,
+    "spawnablePositionTypeWeights": {
+        "grounded": 1.0,
+        "submerged": 1.0,
+        "surface": 1.0
+    },
+    "buckets": [
+        {
+            "name": "common",
+            "weight": 88.5
+        },
+        {
+            "name": "uncommon",
+            "weight": 10.0
+        },
+        {
+            "name": "rare",
+            "weight": 1.2
+        },
+        {
+            "name": "ultra-rare",
+            "weight": 0.3
+        }
+    ]
+}

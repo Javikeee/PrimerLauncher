@@ -1,0 +1,15 @@
+type = listener_instances
+
+listener_instance {
+  listener_instance_identifier = 74782dd5-8d6d-420d-9baf-5a2f6a209ff7-1783594022766
+  listener_provider_identifier = text_clicked
+  listener_instance_action_script_identifier = 1bd748e8-4d76-40fa-b631-46309779cc9a-1783594022766
+  [executable_block:aba5314d-82b3-4a34-88b4-0933f36908ee-1783594628408][type:if] = [executables:]
+  [if_executable_block_body:aba5314d-82b3-4a34-88b4-0933f36908ee-1783594628408] = 4c98e6f9-0056-4cc1-bb72-bbeb83e1ce36-1783594574423
+  [loading_requirement_container_meta:4c98e6f9-0056-4cc1-bb72-bbeb83e1ce36-1783594574423] = [groups:][instances:b00ee059-f4ed-4b5b-80ec-194ba3c5150b-1783594577097;]
+  [loading_requirement:fancymenu_visibility_requirement_is_text][requirement_mode:if][req_id:b00ee059-f4ed-4b5b-80ec-194ba3c5150b-1783594577097] = ["mode":"equals","text":"$$text_event_id","compare_with":"open_changelogs"]$
+  [if_executable_block_collapsed:aba5314d-82b3-4a34-88b4-0933f36908ee-1783594628408] = false
+  [executable_action_instance:398f72b2-ba9a-4b8f-97ff-399e86f91c33-1783594062810][action_type:openlink] = https://www.lumyverse.com/wiki/changelog/
+  [executable_block:1bd748e8-4d76-40fa-b631-46309779cc9a-1783594022766][type:generic] = [executables:aba5314d-82b3-4a34-88b4-0933f36908ee-1783594628408;398f72b2-ba9a-4b8f-97ff-399e86f91c33-1783594062810;]
+}
+
